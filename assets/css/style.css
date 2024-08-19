@@ -1,4 +1,4 @@
-/* GENERAL STYLING */
+/********** GENERAL STYLING **********/
 
 /* Initial Styling */
 
@@ -11,6 +11,51 @@
 /* Body Styling */
 
 body {
+    display: flex;
+    flex-flow: column nowrap;
     min-height: 100vh;
     font-family: Verdana, sans-serif;
+    background-color: #2D2D2A;
+}
+
+/********** CONTENT STYLING **********/
+
+/* Main Area Styling */
+
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+/********** BATTLEFIELD AREA STYLING **********/
+
+/* General Battlefield Styling */
+
+#battlefield {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+
+    background-color: red;
+}
+
+/* Enemy Area Styling */
+
+#enemy-area {
+    flex: 1 0 70vh;
+    width: 100%;
+    max-width: 90rem;
+
+    background-color: green;
+}
+
+/* Player Area Styling */
+
+#player-area {
+    flex: 1 0 30vh;
+    width: 100%;
+    max-width: 90rem;
+
+    background-color: yellow;
 }
