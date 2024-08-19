@@ -25,7 +25,7 @@ body {
 main {
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    width: 100%;
 }
 
 /********** BATTLEFIELD AREA STYLING **********/
@@ -35,6 +35,7 @@ main {
 #battlefield {
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     width: 100%;
 
     background-color: red;
