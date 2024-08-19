@@ -1,0 +1,16 @@
+/* GENERAL STYLING */
+
+/* Initial Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+
+body {
+    min-height: 100vh;
+    font-family: Verdana, sans-serif;
+}
