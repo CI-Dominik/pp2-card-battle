@@ -2,7 +2,7 @@
 
 let cards = [];
 let handCards = [];
-let slideNumber = 0;
+let selectedCard = 0;
 
 /** Function to load when DOM content is loaded */
 
@@ -10,10 +10,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     initCards();
     drawCards();
-    showCards();
+    showCard();
 
     document.getElementById("button-left").addEventListener("click", scrollCards(-1));
     document.getElementById("button-right").addEventListener("click", scrollCards(1));
+
+    console.log(handCards);
 
 });
 
@@ -67,19 +69,41 @@ function randomCard() {
 
 /** Show cards on hand */
 
-function showCards() {
+function showCard() {
 
-
-
-}
-
-function scrollCards(click) {
+    // Get HTML elements for card
 
     const showName = document.getElementById("show-name");
     const showAttack = document.getElementById("show-attack");
     const showDefense = document.getElementById("show-defense");
     const showSpecial = document.getElementById("show-special");
     const showDescription = document.getElementById("show-description");
+
+    // Get display for amount of cards and selected card
+
+    const cardDisplayLeft = document.getElementById("current-card");
+    const cardDisplayRight = document.getElementById("hand-cards");
+
+    // Change HTML content to attributes of currently selected card
+
+    showName.innerHTML = handCards[selectedCard].name;
+    showAttack.innerHTML = `<i class="fa-solid fa-skull"></i> ${handCards[selectedCard].attack}`;
+    showDefense.innerHTML = `${handCards[selectedCard].defense} <i class="fa-solid fa-shield-halved"></i>`;
+    showDescription.innerHTML = handCards[selectedCard].description;
+    cardDisplayLeft.innerHTML = selectedCard + 1;
+    cardDisplayRight.innerHTML = handCards.length;
+    
+    if (handCards[selectedCard].special) {
+        showSpecial.innerHTML = handCards[selectedCard].special;
+    }
+
+}
+
+function scrollCards(num) {
+
+
+
+    showCard(selectedCard);
 
 }
 
