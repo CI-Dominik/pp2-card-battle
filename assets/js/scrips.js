@@ -26,7 +26,30 @@ function initCards() {
 
 function drawCards() {
 
+    let handCount = handCards.length;
 
+    for (let i = handCount; i < 5; i++) {
+        handCards[i] = randomCard();
+    }
+
+}
+
+/** Get a random card from cards array */
+
+function randomCard() {
+
+    // Generate a random index, based on the length of the cards array
+
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    const randomCard = cards[randomIndex];
+
+    // Cut the chosen card from array
+
+    cards.splice(randomIndex, 1);
+
+    // Return value of the randomly chosen card
+
+    return randomCard;
 
 }
 
