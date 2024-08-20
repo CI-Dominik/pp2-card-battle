@@ -2,6 +2,7 @@
 
 let cards = [];
 let handCards = [];
+let slideNumber = 0;
 
 /** Function to load when DOM content is loaded */
 
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     initCards();
     drawCards();
+    showCards();
+
+    document.getElementById("button-left").addEventListener("click", scrollCards(-1));
+    document.getElementById("button-right").addEventListener("click", scrollCards(1));
 
 });
 
@@ -57,6 +62,24 @@ function randomCard() {
     // Return value of the randomly chosen card
 
     return randomCard;
+
+}
+
+/** Show cards on hand */
+
+function showCards() {
+
+
+
+}
+
+function scrollCards(click) {
+
+    const showName = document.getElementById("show-name");
+    const showAttack = document.getElementById("show-attack");
+    const showDefense = document.getElementById("show-defense");
+    const showSpecial = document.getElementById("show-special");
+    const showDescription = document.getElementById("show-description");
 
 }
 
