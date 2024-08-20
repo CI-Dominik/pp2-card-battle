@@ -16,8 +16,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function initCards() {
 
-    for (let i = 0; i < 10; i++) {
-        let card = new Card();
+    let cardName = [];
+    let cardAttack = [];
+    let cardDefense = [];
+    let cardSpecial = [];
+    let cardDescription = [];
+
+    for (let i = 0; i < 6; i++) {
+        let card = new Card(cardName[i], cardAttack[i], cardDefense[i], cardSpecial[i], cardDescription[i]);
         cards.push(card);
     }
 
