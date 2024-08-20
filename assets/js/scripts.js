@@ -1,3 +1,5 @@
+import cardNames from "names.js";
+
 // Declare global variables
 
 let cards = [];
@@ -7,7 +9,8 @@ let handCards = [];
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
-    
+    initCards();
+    console.log(cards);
 
 });
 
@@ -16,7 +19,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function initCards() {
 
     for (let i = 0; i < 10; i++) {
-        let card = new Card();
+        let card = new Card(cardNames[i]);
         cards.push(card);
     }
 
