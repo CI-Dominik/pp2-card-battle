@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     initCards();
     drawCards();
-    showCard();
+    showCard(0);
 
 });
 
@@ -64,7 +64,7 @@ function randomCard() {
 
 /** Show cards on hand */
 
-function showCard() {
+function showCard(newSelect) {
 
     // Get HTML elements for card
 
@@ -81,14 +81,14 @@ function showCard() {
 
     // Change HTML content to attributes of currently selected card
 
-    showName.innerHTML = handCards[selectedCard].name;
-    showAttack.innerHTML = `<i class="fa-solid fa-skull"></i> ${handCards[selectedCard].attack}`;
-    showDefense.innerHTML = `${handCards[selectedCard].defense} <i class="fa-solid fa-shield-halved"></i>`;
-    showDescription.innerHTML = handCards[selectedCard].description;
-    cardDisplayLeft.innerHTML = selectedCard + 1;
+    showName.innerHTML = handCards[newSelect].name;
+    showAttack.innerHTML = `<i class="fa-solid fa-skull"></i> ${handCards[newSelect].attack}`;
+    showDefense.innerHTML = `${handCards[newSelect].defense} <i class="fa-solid fa-shield-halved"></i>`;
+    showDescription.innerHTML = handCards[newSelect].description;
+    cardDisplayLeft.innerHTML = newSelect + 1;
     cardDisplayRight.innerHTML = handCards.length;
     
-    if (handCards[selectedCard].special) {
+    if (handCards[newSelect].special) {
         showSpecial.innerHTML = handCards[selectedCard].special;
     }
 
@@ -98,13 +98,15 @@ function scrollCards(num) {
 
     selectedCard += num;
 
-    if (selectedCard > handCards.length) {
+    if (selectedCard > handCards.length - 1) {
         selectedCard = 0;
     }
 
     if (selectedCard < 0) {
-        selectedCard = handCards.length;
+        selectedCard = handCards.length - 1;
     }
+
+    showCard(selectedCard);
 
 }
 
