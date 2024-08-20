@@ -41,22 +41,58 @@ main {
     background-color: red;
 }
 
+/* Player Area Styling */
+
+#player-area {
+    width: 100%;
+    max-width: 45rem;
+    padding: 2rem;
+
+    background-color: yellow;
+}
+
 /* Enemy Area Styling */
 
 #enemy-area {
-    flex: 1 0 70vh;
     width: 100%;
-    max-width: 90rem;
+    max-width: 45rem;
+    padding: 2rem;
 
     background-color: green;
 }
 
-/* Player Area Styling */
-
-#player-area {
-    flex: 1 0 30vh;
+#score {
     width: 100%;
-    max-width: 90rem;
+    max-width: 45rem;
+    padding: 2rem;
 
-    background-color: yellow;
+    background-color: pink;
+}
+
+/* MEDIA QUERIES */
+
+@media (width > 48rem) {
+    #battlefield {
+        flex-flow: row nowrap;
+        justify-content: center;
+        height: clamp(30rem, 50vh, 60rem);
+    }
+
+    #score {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 5rem;
+        padding: 0.5rem;
+        height: 100%;
+    }
+
+    #player-area {
+        height: 100%;
+    }
+
+    #enemy-area {
+        height: 100%;
+    }
 }
