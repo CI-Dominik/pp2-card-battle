@@ -8,7 +8,7 @@ let handCards = [];
 document.addEventListener("DOMContentLoaded", (event) => {
 
     initCards();
-    console.log(cards);
+    drawCards();
 
 });
 
@@ -24,7 +24,7 @@ function initCards() {
 
     for (let i = 0; i < 6; i++) {
         let card = new Card(cardName[i], cardAttack[i], cardDefense[i], cardSpecial[i], cardDescription[i]);
-        cards.push(card);
+        cards[i] = card;
     }
 
 }

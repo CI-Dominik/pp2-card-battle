@@ -105,6 +105,30 @@ main {
 
 }
 
+/* Arrow Styling */
+
+#arrow-container {
+
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    font-weight: bold;
+    padding: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#arrow-container button {
+
+    width: 3.5rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+
+    background-color: yellowgreen;
+
+}
+
 /* Enemy Area Styling */
 
 #enemy-area {
