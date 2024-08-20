@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function initCards() {
 
-
+    for (let i = 0; i < 10; i++) {
+        let card = new Card();
+        cards.push(card);
+    }
 
 }
 
