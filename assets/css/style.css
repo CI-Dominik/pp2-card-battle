@@ -55,6 +55,11 @@ main {
     background-color: yellow;
 }
 
+#player-card-desc {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
 /* Card Styling */
 
 #card {
