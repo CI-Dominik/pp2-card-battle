@@ -62,17 +62,14 @@ main {
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	width: 200px;
-	height: 300px;
+	width: 150px;
+	height: 225px;
 	background: white;
 	border: 2px solid black;
 	border-radius: 20px;
 	box-shadow: 0  0 30px white;
 	background: rgb(0,176,255);
 	background: linear-gradient(0deg, rgba(0,176,255,1) 0%, rgba(0,233,238,1) 100%);
-	backface-visibility: visible;
-	animation: pulse 0.5s infinite ease-in-out;
-	animation-direction: alternate;
 
 }
 
@@ -96,8 +93,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	margin-top: 20px;
-	font-size: 200%;
+    margin: 1rem;
 	font-weight: bold;
 	color: white;
 
@@ -126,11 +122,16 @@ main {
 /* MEDIA QUERIES */
 
 @media (width > 48rem) {
+
+    /* Battlefield */
+
     #battlefield {
         flex-flow: row nowrap;
         justify-content: center;
         height: clamp(30rem, 50vh, 60rem);
     }
+
+    /* Score */
 
     #score {
         display: flex;
@@ -142,11 +143,22 @@ main {
         height: 100%;
     }
 
+    /* Player Area */
+
     #player-area {
         height: 100%;
     }
 
+    #card {
+        width: 200px;
+        height: 300px;
+        font-size: 150%;
+    }
+
+    /* Enemy Area */
+
     #enemy-area {
         height: 100%;
     }
+
 }
