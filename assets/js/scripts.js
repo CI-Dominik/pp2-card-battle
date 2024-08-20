@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 });
 
+/** Function to pick up cards from deck */
+
 function pickCards() {
 
     // Calculate amount of Cards to add to hand
