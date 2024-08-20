@@ -17,30 +17,32 @@ class Card {
 
 // Card presets to include in cards array
 
+const CardPresets = 
+    [
+        new Card("Uther", 20, 30, "PH", "PH", 3),
+        new Card("Arthas", 50, 80, "PH", "PH", 1),
+        new Card("Jaina", 10, 20, "PH", "PH", 3),
+        new Card("Illidan", 100, 75, "PH", "PH", 3),
+        new Card("Tyrande", 45, 23, "PH", "PH", 2),
+        new Card("Herbert", 5, 10, "PH", "PH", 10)
+    ]
 
+// Create deck
 
-let bankCards = [];
+const availableCards = [];
 
-/** Generate card names and return them to variable */
+function loadAvailableCards() {
 
-function generateCards() {
+    for(let i = 0; i < CardPresets.length; i++) {
 
-    const cardPresets = [
-        new Card("Martin", 20, 30, "", "It's Martin!", 3),
-        new Card("Bert", 25, 11, "Hard defense", "It's Bert!", 1),
-        new Card("Marie", 99, 1, "", "It's Marie!", 4),
-        new Card("Maggie", 5, 88, "", "It's Maggie!", 3),
-        new Card("John", 33, 12, "None.", "It's John!", 4)
-    ];
+        // Add every Card Preset till Cards maxAmount is reached
 
-    for (let i = 0; i < 4; i++) {
-
-        let randomCard = cardPresets[Math.floor(Math.random() * cardPresets.length)];
-
-        bankCards[i] = randomCard;
-
+        for(let j = 0; j < CardPresets[i].maxAmount; j++)
+        {
+            availableCards.push(CardPresets[i]);
+        }
     }
 
-    return bankCards;
+    return availableCards;
 
 }
