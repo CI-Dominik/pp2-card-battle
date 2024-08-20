@@ -12,11 +12,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     drawCards();
     showCard();
 
-    document.getElementById("button-left").addEventListener("click", scrollCards(-1));
-    document.getElementById("button-right").addEventListener("click", scrollCards(1));
-
-    console.log(handCards);
-
 });
 
 /** Initiate cards to card deck */
@@ -101,9 +96,15 @@ function showCard() {
 
 function scrollCards(num) {
 
+    selectedCard += num;
 
+    if (selectedCard > handCards.length) {
+        selectedCard = 0;
+    }
 
-    showCard(selectedCard);
+    if (selectedCard < 0) {
+        selectedCard = handCards.length;
+    }
 
 }
 
