@@ -57,6 +57,7 @@ main {
 
 #player-card-desc {
     display: flex;
+    gap: 0.5rem;
     flex-flow: column nowrap;
 }
 
