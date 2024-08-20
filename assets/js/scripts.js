@@ -18,14 +18,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 function initCards() {
 
-    let cardName = [];
-    let cardAttack = [];
-    let cardDefense = [];
-    let cardSpecial = [];
-    let cardDescription = [];
+    // Declare card object attributes
 
-    for (let i = 0; i < 6; i++) {
-        let card = new Card(cardName[i], cardAttack[i], cardDefense[i], cardSpecial[i], cardDescription[i]);
+    let cardName = generateCardNames();
+    let cardAttack = generateAttackValues();
+    let cardDefense = generateDefenseValues();
+    let cardSpecial = generateSpecials();
+    let cardDescription = generateDescriptions();
+    let cardImage = generateImages();
+
+    // Assign generated values to card objects
+
+    for (let i = 0; i < 10; i++) {
+        let card = new Card(cardName[i], cardAttack[i], cardDefense[i], cardSpecial[i], cardDescription[i], cardImage[i]);
         cards[i] = card;
     }
 
@@ -93,6 +98,8 @@ function showCard(newSelect) {
     }
 
 }
+
+/** Function to scroll through hand cards */
 
 function scrollCards(num) {
 
