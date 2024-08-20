@@ -1,43 +1,48 @@
 // Declare global variables
 
-cards = loadAvailableCards();
+let cards = loadAvailableCards();
+let handCards =[];
+const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
+    pickCards();
+
 });
 
-/** Show cards on hand */
+function pickCards() {
 
-function showCard(newSelect) {
+    // Calculate amount of Cards to add to hand
 
-    // Get HTML elements for card
+    let cardsToPick = maxHandCardsAmount - handCards.length;
 
-    const showName = document.getElementById("show-name");
-    const showAttack = document.getElementById("show-attack");
-    const showDefense = document.getElementById("show-defense");
-    const showSpecial = document.getElementById("show-special");
-    const showDescription = document.getElementById("show-description");
+    for(i = 0; i < cardsToPick; i++) {
 
-    // Get display for amount of cards and selected card
+        if (cards.length === 0) {
 
-    const cardDisplayLeft = document.getElementById("current-card");
-    const cardDisplayRight = document.getElementById("hand-cards");
+            console.log("No cards remaining.");
+            return;
 
-    // Change HTML content to attributes of currently selected card
-
-    showName.innerHTML = handCards[newSelect].name;
-    showAttack.innerHTML = `<i class="fa-solid fa-skull"></i> ${handCards[newSelect].attack}`;
-    showDefense.innerHTML = `${handCards[newSelect].defense} <i class="fa-solid fa-shield-halved"></i>`;
-    showDescription.innerHTML = handCards[newSelect].description;
-    cardDisplayLeft.innerHTML = newSelect + 1;
-    cardDisplayRight.innerHTML = handCards.length;
+        }
     
-    if (handCards[newSelect].special) {
-        showSpecial.innerHTML = handCards[selectedCard].special;
-    } else {
-        showAttack.innerHTML = "";
+        // Get random card from stack (availableCards)
+
+        let card = cards[Math.floor(Math.random() * availableCards.length)];
+        const index = cards.indexOf(card);
+
+        //Remove Card from Stack
+
+        cards.splice(index, 1);
+
+        // Add card to hand
+
+        handCards.push(card);
+
+        console.log("Remaining Cards in Stack: " + availableCards.length);
+        console.log("Card picked: " + card.name);
+
     }
 
 }

@@ -17,14 +17,14 @@ class Card {
 
 // Card presets to include in cards array
 
-const CardPresets = 
+const cardPresets = 
     [
-        new Card("Uther", 20, 30, "PH", "PH", 3),
-        new Card("Arthas", 50, 80, "PH", "PH", 1),
-        new Card("Jaina", 10, 20, "PH", "PH", 3),
-        new Card("Illidan", 100, 75, "PH", "PH", 3),
-        new Card("Tyrande", 45, 23, "PH", "PH", 2),
-        new Card("Herbert", 5, 10, "PH", "PH", 10)
+        new Card("Test1", 20, 30, "PH", "PH", 3),
+        new Card("Test2", 50, 80, "PH", "PH", 1),
+        new Card("Test3", 10, 20, "PH", "PH", 3),
+        new Card("Test4", 100, 75, "PH", "PH", 3),
+        new Card("Test5", 45, 23, "PH", "PH", 2),
+        new Card("Test6", 5, 10, "PH", "PH", 10)
     ]
 
 // Create deck
@@ -33,13 +33,13 @@ const availableCards = [];
 
 function loadAvailableCards() {
 
-    for(let i = 0; i < CardPresets.length; i++) {
+    for(let i = 0; i < cardPresets.length; i++) {
 
         // Add every Card Preset till Cards maxAmount is reached
 
-        for(let j = 0; j < CardPresets[i].maxAmount; j++)
+        for(let j = 0; j < cardPresets[i].maxAmount; j++)
         {
-            availableCards.push(CardPresets[i]);
+            availableCards.push(cardPresets[i]);
         }
     }
 
