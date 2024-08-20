@@ -2,65 +2,45 @@
 
 class Card {
 
-    constructor(name, attack, defense, special, description) {
+    constructor(name, attack, defense, special, description, maxAmount) {
 
         this.name = name;
         this.attack = attack;
         this.defense = defense;
         this.special = special;
         this.description = description;
+        this.maxAmount = maxAmount;
 
     }
 
 }
 
+// Card presets to include in cards array
+
+
+
+let bankCards = [];
+
 /** Generate card names and return them to variable */
 
-function generateCardNames() {
+function generateCards() {
 
-    let nameArray = [];
+    const cardPresets = [
+        new Card("Martin", 20, 30, "", "It's Martin!", 3),
+        new Card("Bert", 25, 11, "Hard defense", "It's Bert!", 1),
+        new Card("Marie", 99, 1, "", "It's Marie!", 4),
+        new Card("Maggie", 5, 88, "", "It's Maggie!", 3),
+        new Card("John", 33, 12, "None.", "It's John!", 4)
+    ];
 
-    nameArray[0] = "";
-    nameArray[1] = "";
-    nameArray[2] = "";
-    nameArray[3] = "";
-    nameArray[4] = "";
-    nameArray[5] = "";
-    nameArray[6] = "";
-    nameArray[7] = "";
-    nameArray[8] = "";
-    nameArray[9] = "";
+    for (let i = 0; i < 4; i++) {
 
-    return nameArray;
+        let randomCard = cardPresets[Math.floor(Math.random() * cardPresets.length)];
 
-}
+        bankCards[i] = randomCard;
 
-/** Generate attack values and return them to variable */
+    }
 
-function generateAttackValues() {
-
-}
-
-/** Generate defense values and return them to variable */
-
-function generateDefenseValues() {
-
-}
-
-/** Generate special skills and return them to variable */
-
-function generateSpecials() {
-
-}
-
-/** Generate card descriptions and return them to variable */
-
-function generateDescriptions() {
-
-}
-
-/** Generate card images and return them to variable */
-
-function generateImages() {
+    return bankCards;
 
 }

@@ -1,6 +1,6 @@
 // Declare global variables
 
-let cards = [];
+let cards = generateCards();
 let handCards = [];
 let selectedCard = 0;
 
@@ -8,33 +8,13 @@ let selectedCard = 0;
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
-    initCards();
+    // initCards();
     drawCards();
     showCard(0);
 
+    console.log(cards);
+
 });
-
-/** Initiate cards to card deck */
-
-function initCards() {
-
-    // Declare card object attributes
-
-    let cardName = generateCardNames();
-    let cardAttack = generateAttackValues();
-    let cardDefense = generateDefenseValues();
-    let cardSpecial = generateSpecials();
-    let cardDescription = generateDescriptions();
-    let cardImage = generateImages();
-
-    // Assign generated values to card objects
-
-    for (let i = 0; i < 10; i++) {
-        let card = new Card(cardName[i], cardAttack[i], cardDefense[i], cardSpecial[i], cardDescription[i], cardImage[i]);
-        cards[i] = card;
-    }
-
-}
 
 /** Declare number of cards to draw */
 
@@ -95,6 +75,8 @@ function showCard(newSelect) {
     
     if (handCards[newSelect].special) {
         showSpecial.innerHTML = handCards[selectedCard].special;
+    } else {
+        showAttack.innerHTML = "";
     }
 
 }
