@@ -50,6 +50,9 @@ function pickCards() {
 
     }
 
+    showCardAmount();
+    showCurrentCardData();
+
 }
 
 /** Scroll through cards */
@@ -57,6 +60,10 @@ function pickCards() {
 function scrollCards(num) {
 
     currentCard += num;
+
+    if (handCards.length === 0) {
+        document.getElementById("current-card").innerHTML = 0;
+    }
 
     if (currentCard > handCards.length - 1) {
         currentCard = 0;
@@ -68,7 +75,7 @@ function scrollCards(num) {
 
     document.getElementById("current-card").innerHTML = currentCard + 1;
 
-    showCurrentCardData()
+    showCurrentCardData();
 
 }
 
@@ -88,5 +95,19 @@ function showCurrentCardData() {
     document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ` + handCards[currentCard].attack;
     document.getElementById("show-defense").innerHTML = handCards[currentCard].defense + ` <i class="fa-solid fa-shield-halved"></i>`;
     document.getElementById("show-description").innerHTML = handCards[currentCard].description;
+
+}
+
+function removeCard(num) {
+
+    handCards.splice(currentCard, 1);
+
+    if(currentCard === handCards.length) {
+        currentCard = 0;
+    }
+
+    showCardAmount();
+    showCurrentCardData();
+    scrollCards(-1);
 
 }
