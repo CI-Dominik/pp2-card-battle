@@ -1,7 +1,8 @@
 // Declare global variables
 
 let cards = loadAvailableCards();
-let handCards =[];
+let handCards = [];
+let currentCard = 0;
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -9,6 +10,7 @@ const maxHandCardsAmount = 4;
 document.addEventListener("DOMContentLoaded", (event) => {
 
     pickCards();
+    scrollCards(currentCard);
 
 });
 
@@ -46,5 +48,23 @@ function pickCards() {
         console.log("Card picked: " + card.name);
 
     }
+
+}
+
+/** Scroll through cards */
+
+function scrollCards(num) {
+
+    currentCard += num;
+
+    if (currentCard > handCards.length - 1) {
+        currentCard = 0;
+    }
+
+    if (currentCard < 0) {
+        currentCard = handCards.length - 1;
+    }
+
+    document.getElementById("current-card").innerHTML = currentCard + 1;
 
 }
