@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     pickCards();
     scrollCards(currentCard);
+    showCardAmount()
 
 });
 
@@ -66,5 +67,26 @@ function scrollCards(num) {
     }
 
     document.getElementById("current-card").innerHTML = currentCard + 1;
+
+    showCurrentCardData()
+
+}
+
+/** Show handCards amount */
+
+function showCardAmount() {
+
+    document.getElementById("hand-cards").innerHTML = handCards.length;
+
+}
+
+/** Show data of current card */
+
+function showCurrentCardData() {
+
+    document.getElementById("show-name").innerHTML = handCards[currentCard].name;
+    document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ` + handCards[currentCard].attack;
+    document.getElementById("show-defense").innerHTML = handCards[currentCard].defense + ` <i class="fa-solid fa-shield-halved"></i>`;
+    document.getElementById("show-description").innerHTML = handCards[currentCard].description;
 
 }
