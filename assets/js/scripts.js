@@ -75,9 +75,21 @@ function scrollCards(num) {
 
     document.getElementById("current-card").innerHTML = currentCard + 1;
 
-    showCurrentCardData();
+    checkZero();
 
 }
+
+/** Check if current card amount equals 0 */
+
+function checkZero() {
+    if (handCards.length > 0) {
+        showCurrentCardData();
+    } else {
+        document.getElementById("current-card").innerHTML = 0;
+    }
+}
+
+
 
 /** Show handCards amount */
 
@@ -107,7 +119,8 @@ function removeCard(num) {
     }
 
     showCardAmount();
-    showCurrentCardData();
     scrollCards(-1);
+    showCurrentCardData();
+    checkZero();
 
 }
