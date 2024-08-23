@@ -115,11 +115,10 @@ function removeCard(num) {
     handCards.splice(handCards.length - 1, 1);
 
     if(currentCard === handCards.length) {
-        currentCard = 0;
+        scrollCards(-1);
     }
 
     showCardAmount();
-    scrollCards(-1);
     showCurrentCardData();
     checkZero();
 
