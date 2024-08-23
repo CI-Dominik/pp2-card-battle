@@ -91,8 +91,6 @@ function checkZero() {
     }
 }
 
-
-
 /** Show handCards amount */
 
 function showCardAmount() {
@@ -114,7 +112,7 @@ function showCurrentCardData() {
 
 function removeCard(num) {
 
-    handCards.splice(currentCard, 1);
+    handCards.splice(handCards.length - 1, 1);
 
     if(currentCard === handCards.length) {
         currentCard = 0;
