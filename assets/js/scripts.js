@@ -52,6 +52,8 @@ function pickCards() {
 
     showCardAmount();
     showCurrentCardData();
+    currentCard = 0;
+    document.getElementById("current-card").innerHTML = currentCard + 1;
 
 }
 
