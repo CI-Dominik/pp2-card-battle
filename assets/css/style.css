@@ -16,7 +16,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     font-family: Verdana, sans-serif;
-    background-color: #2D2D2A;
+    background: url(../images/background-image.webp) center center/cover;
 }
 
 /********** CONTENT STYLING **********/
@@ -38,8 +38,12 @@ main {
     flex-flow: column nowrap;
     align-items: center;
     width: 100%;
-
-    background-color: red;
+    background: rgba(255, 255, 255, 0.34);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 /* Player Area Styling */
@@ -51,8 +55,6 @@ main {
     gap: 1rem;
     max-width: 35rem;
     padding: 1rem;
-
-    background-color: yellow;
 }
 
 #player-card-desc {
@@ -124,8 +126,11 @@ main {
     width: 3.5rem;
     height: 2rem;
     border-radius: 0.5rem;
-
-    background-color: yellowgreen;
+    background: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.28);
 
 }
 
@@ -137,8 +142,6 @@ main {
     width: 100%;
     max-width: 35rem;
     padding: 1rem;
-
-    background-color: green;
 }
 
 #enemy-area h2 {
@@ -164,11 +167,18 @@ main {
 }
 
 #score {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 45rem;
     padding: 2rem;
-
-    background-color: pink;
+    background: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.28);
 }
 
 /* MEDIA QUERIES */
