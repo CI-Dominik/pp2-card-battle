@@ -3,6 +3,7 @@
 let cards = loadAvailableCards();
 let handCards = [];
 let currentCard = 0;
+let fightingEnemies = loadEnemies(3);
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     pickCards();
     scrollCards(currentCard);
     showCardAmount();
-    loadEnemies(3);
+    showEnemy();
 
 });
 
@@ -123,4 +124,8 @@ function removeCard(num) {
     showCurrentCardData();
     checkZero();
 
+}
+
+function showEnemy() {
+    console.log(fightingEnemies);
 }

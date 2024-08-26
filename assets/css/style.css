@@ -139,6 +139,7 @@ main {
 #enemy-area {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;
     width: 100%;
     max-width: 35rem;
     padding: 1rem;
@@ -167,8 +168,6 @@ main {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
     font-size: 200%;
     font-weight: bold;
 }

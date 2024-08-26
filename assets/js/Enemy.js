@@ -42,4 +42,6 @@ function loadEnemies(difficulty) {
 
     }
 
+    return enemyInFight;
+
 }
