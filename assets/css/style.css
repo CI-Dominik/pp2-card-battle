@@ -159,17 +159,15 @@ main {
 }
 
 #enemy-card-desc {
-    max-width: 50%;
+    text-align: right;
+    width: 50%;
     padding: 1rem;
 }
 
-#enemy-stats {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    font-size: 200%;
+#enemy-attack, #enemy-defense {
+    font-size: 150%;
     font-weight: bold;
+    margin: 0.5rem 0;
 }
 
 /* Fighting Phase Styling */
