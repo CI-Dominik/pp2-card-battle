@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollCards(currentCard);
     showCardAmount();
     showEnemy(0);
+    playerLife(50);
 
 });
 
@@ -112,6 +113,8 @@ function showCurrentCardData() {
 
 }
 
+/** Function to remove num cards from current hand */
+
 function removeCard(num) {
 
     handCards.splice(handCards.length - 1, 1);
@@ -126,19 +129,40 @@ function removeCard(num) {
 
 }
 
+/** Shows current enemy */
+
 function showEnemy(currentEnemy) {
 
-    if (currentEnemy > fightingEnemies.length) {
+    document.getElementById("enemy-name").innerHTML = fightingEnemies[currentEnemy].name;
+    document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[currentEnemy].attack}`;
+    document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[currentEnemy].defense} <i class="fa-solid fa-shield-halved"></i>`
+    document.getElementById("enemy-description").innerHTML = fightingEnemies[currentEnemy].description;
 
+}
+
+/** Shows current player life and checks for lose condition */
+
+function playerLife(value) {
+
+    playerLife += value;
+
+    if (playerLife ) {
+
+    }
+
+}
+
+
+function enemyLife(value) {
+
+    enemyLife += value;
+
+    if (enemyLife <= 0 && fightingEnemies.length > 0) {
+
+        showEnemy[1];
+
+    } else if (enemyLife <= 0 && fightingEnemies.length) {
         winGame();
-
-    } else {
-
-        document.getElementById("enemy-name").innerHTML = fightingEnemies[currentEnemy].name;
-        document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[currentEnemy].attack}`;
-        document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[currentEnemy].defense} <i class="fa-solid fa-shield-halved"></i>`
-        document.getElementById("enemy-description").innerHTML = fightingEnemies[currentEnemy].description;
-
     }
 
 }

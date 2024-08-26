@@ -2,14 +2,14 @@
 
 class Enemy {
 
-    constructor(name, attack, defense, special, description, maxAmount) {
+    constructor(name, attack, defense, special, description, life) {
 
         this.name = name;
         this.attack = attack;
         this.defense = defense;
         this.special = special;
         this.description = description;
-        this.maxAmount = maxAmount;
+        this.life = life;
 
     }
 
