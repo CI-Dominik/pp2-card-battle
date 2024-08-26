@@ -146,8 +146,8 @@ function playerLife(value) {
 
     playerLife += value;
 
-    if (playerLife ) {
-
+    if (playerLife <= 0) {
+        gameLost();
     }
 
 }
