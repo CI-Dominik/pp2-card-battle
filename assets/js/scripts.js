@@ -5,7 +5,6 @@ let handCards = [];
 let currentCard = 0;
 let fightingEnemies = loadEnemies(3);
 let playerHealth = 0;
-let phase;
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -152,12 +151,14 @@ function playerLife(value) {
     playerHealth += value;
 
     if (playerHealth <= 0) {
+
         gameLost();
+
     }
 
     document.getElementById("player-health").innerHTML = playerHealth;
 
-}
+    }
 
 /** Adjust enemy health */
 
@@ -171,7 +172,9 @@ function enemyLife(value) {
         showEnemy[1];
 
     } else if (enemyLife <= 0 && fightingEnemies.length) {
+
         winGame();
+        
     }
 
 }
