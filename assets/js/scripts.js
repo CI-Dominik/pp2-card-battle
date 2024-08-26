@@ -14,11 +14,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     pickCards();
     scrollCards(currentCard);
     showCardAmount();
-    showEnemy(0);
+    showEnemy();
     playerLife(50);
-    phase = "attack";
-    attackPhase();
-    
 
 });
 
@@ -133,7 +130,7 @@ function removeCard(num) {
 
 }
 
-/** Shows current enemy */
+/** Update HTML content to show current enemy status */
 
 function showEnemy() {
 
@@ -145,19 +142,20 @@ function showEnemy() {
 
 }
 
-/** Shows current player life and checks for lose condition */
+/** Shows current player life and adjust HTML elements */
 
 function playerLife(value) {
 
     playerHealth += value;
+    document.getElementById("player-health").innerHTML = playerHealth;
+
+    // Check if player health reaches 0
 
     if (playerHealth <= 0) {
 
         gameLost();
 
     }
-
-    document.getElementById("player-health").innerHTML = playerHealth;
 
     }
 
@@ -167,14 +165,19 @@ function enemyLife(value) {
 
     fightingEnemies[0].life += value;
 
+    // Check if more enemies are available
+
     if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
         fightingEnemies.splice(0, 1);
-        showEnemy();
 
-    } else if (fightingEnemies[0].life <= 0 && fightingEnemies.length) {
+        // Check if enemy counter is 0
 
-        winGame();
+        if (fightingEnemies.length === 0) {
+
+            winGame();
+        
+        }
 
     } else {
 
