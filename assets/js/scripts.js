@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     pickCards();
     scrollCards(currentCard);
     showCardAmount();
-    showEnemy();
+    showEnemy(0);
 
 });
 
@@ -126,6 +126,19 @@ function removeCard(num) {
 
 }
 
-function showEnemy() {
-    console.log(fightingEnemies);
+function showEnemy(currentEnemy) {
+
+    if (currentEnemy > fightingEnemies.length) {
+
+        winGame();
+
+    } else {
+
+        document.getElementById("enemy-name").innerHTML = fightingEnemies[currentEnemy].name;
+        document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[currentEnemy].attack}`;
+        document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[currentEnemy].defense} <i class="fa-solid fa-shield-halved"></i>`
+        document.getElementById("enemy-description").innerHTML = fightingEnemies[currentEnemy].description;
+
+    }
+
 }
