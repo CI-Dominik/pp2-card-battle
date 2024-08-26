@@ -147,7 +147,7 @@ function playerLife(value) {
 
     playerHealth += value;
 
-    if (playerLife <= 0) {
+    if (playerHealth <= 0) {
         gameLost();
     }
 
@@ -170,4 +170,10 @@ function enemyLife(value) {
         winGame();
     }
 
+}
+
+/** Declares the end of the game */
+
+function gameLost() {
+    alert("You lost!");
 }
