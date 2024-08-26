@@ -135,12 +135,13 @@ function removeCard(num) {
 
 /** Shows current enemy */
 
-function showEnemy(currentEnemy) {
+function showEnemy() {
 
-    document.getElementById("enemy-name").innerHTML = fightingEnemies[currentEnemy].name;
-    document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[currentEnemy].attack}`;
-    document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[currentEnemy].defense} <i class="fa-solid fa-shield-halved"></i>`
-    document.getElementById("enemy-description").innerHTML = fightingEnemies[currentEnemy].description;
+    document.getElementById("enemy-name").innerHTML = fightingEnemies[0].name;
+    document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[0].attack}`;
+    document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[0].defense} <i class="fa-solid fa-shield-halved"></i>`
+    document.getElementById("enemy-description").innerHTML = fightingEnemies[0].description;
+    document.getElementById("enemy-health").innerHTML = fightingEnemies[0].life;
 
 }
 
@@ -164,22 +165,32 @@ function playerLife(value) {
 
 function enemyLife(value) {
 
-    enemyLife += value;
+    fightingEnemies[0].life += value;
 
-    if (enemyLife <= 0 && fightingEnemies.length <= 0) {
+    if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
-        fightingEnemies.splice(currentEnemy, 1);
-        showEnemy[1];
+        fightingEnemies.splice(0, 1);
+        showEnemy();
 
-    } else if (enemyLife <= 0 && fightingEnemies.length) {
+    } else if (fightingEnemies[0].life <= 0 && fightingEnemies.length) {
 
         winGame();
-        
+
+    } else {
+
+        showEnemy();
+
     }
 
 }
 
-/** Declares the end of the game */
+/** Declares the end of the game by winning */
+
+function winGame() {
+    alert("You win!");
+}
+
+/** Declares the end of the game by losing */
 
 function gameLost() {
     alert("You lost!");

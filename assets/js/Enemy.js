@@ -19,12 +19,12 @@ class Enemy {
 
 const enemyPresets = [
 
-    new Enemy("Enemy1", 20, 30, "PH", "PH"),
-    new Enemy("Enemy2", 50, 80, "PH", "PH"),
-    new Enemy("Enemy3", 10, 20, "PH", "PH"),
-    new Enemy("Enemy4", 100, 75, "PH", "PH"),
-    new Enemy("Enemy5", 45, 23, "PH", "PH"),
-    new Enemy("Enemy6", 5, 10, "PH", "PH")
+    new Enemy("Enemy1", 20, 30, "PH", "PH", 50),
+    new Enemy("Enemy2", 50, 80, "PH", "PH", 60),
+    new Enemy("Enemy3", 10, 20, "PH", "PH", 70),
+    new Enemy("Enemy4", 100, 75, "PH", "PH", 80),
+    new Enemy("Enemy5", 45, 23, "PH", "PH", 90),
+    new Enemy("Enemy6", 5, 10, "PH", "PH", 100)
 
 ]
 
