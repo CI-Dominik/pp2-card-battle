@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     showCardAmount();
     showEnemy(0);
     playerLife(50);
+    attackPhase(true);
 
 });
 
@@ -176,4 +177,36 @@ function enemyLife(value) {
 
 function gameLost() {
     alert("You lost!");
+}
+
+/** Starting attack phase */
+
+function attackPhase(phaseCheck) {
+
+    if (phaseCheck === true) {
+
+        let attackArray = [];
+ 
+    } else {
+
+        alert("Currently in defense phase!");
+        
+    }
+    
+}
+
+/** Starting defense phase */
+
+function defensePhase(phaseCheck) {
+
+    if (phaseCheck === true) {
+
+        let defenseArray = [];
+
+    } else {
+
+        alert("Currently in attack phase!");
+
+    }
+
 }
