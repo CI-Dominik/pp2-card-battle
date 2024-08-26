@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     pickCards();
     scrollCards(currentCard);
-    showCardAmount()
+    showCardAmount();
+    loadEnemies(3);
 
 });
 
