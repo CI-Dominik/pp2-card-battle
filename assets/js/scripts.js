@@ -4,6 +4,7 @@ let cards = loadAvailableCards();
 let handCards = [];
 let currentCard = 0;
 let fightingEnemies = loadEnemies(3);
+let playerHealth = 0;
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -144,21 +145,25 @@ function showEnemy(currentEnemy) {
 
 function playerLife(value) {
 
-    playerLife += value;
+    playerHealth += value;
 
     if (playerLife <= 0) {
         gameLost();
     }
 
+    document.getElementById("player-health").innerHTML = playerHealth;
+
 }
 
+/** Adjust enemy health */
 
 function enemyLife(value) {
 
     enemyLife += value;
 
-    if (enemyLife <= 0 && fightingEnemies.length > 0) {
+    if (enemyLife <= 0 && fightingEnemies.length <= 0) {
 
+        fightingEnemies.splice(currentEnemy, 1);
         showEnemy[1];
 
     } else if (enemyLife <= 0 && fightingEnemies.length) {
