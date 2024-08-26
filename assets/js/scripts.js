@@ -5,6 +5,7 @@ let handCards = [];
 let currentCard = 0;
 let fightingEnemies = loadEnemies(3);
 let playerHealth = 0;
+let phase;
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -16,7 +17,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     showCardAmount();
     showEnemy(0);
     playerLife(50);
-    attackPhase(true);
+    phase = "attack";
+    attackPhase();
+    
 
 });
 
@@ -181,9 +184,11 @@ function gameLost() {
 
 /** Starting attack phase */
 
-function attackPhase(phaseCheck) {
+function attackPhase() {
 
-    if (phaseCheck === true) {
+    if (phase === "attack") {
+
+        // ATTACK PHASE BANNER
 
         let attackArray = [];
  
@@ -197,16 +202,37 @@ function attackPhase(phaseCheck) {
 
 /** Starting defense phase */
 
-function defensePhase(phaseCheck) {
+function defensePhase() {
 
-    if (phaseCheck === true) {
+    // DEFENSE PHASE BANNER
 
-        let defenseArray = [];
+    if (phase === "defense") {
+
+        console.log("You are in defense phase.");
 
     } else {
 
         alert("Currently in attack phase!");
 
+    }
+
+}
+
+function changePhase() {
+    
+    if (phase === "attack") {
+
+        document.getElementById("phase").innerHTML = "Defense phase";
+        phase = "defense";
+
+    } else if (phase ==="defense") {
+
+        document.getElementById("phase").innerHTML = "Attack phase";
+        phase = "attack";
+        attackPhase();
+
+    } else {
+        alert("Invalid phase value!");
     }
 
 }
