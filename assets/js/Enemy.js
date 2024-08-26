@@ -35,9 +35,11 @@ function loadEnemies(difficulty) {
     let enemyInFight = [];
 
     for (let i = 0; i < difficulty; i++) {
-        enemyInFight.push(enemyPresets[Math.floor(Math.random() * enemyPresets.length)]);
-    }
 
-    console.log(enemyInFight);
+        let randomEnemy = Math.floor(Math.random() * enemyPresets.length);
+        enemyInFight.push(enemyPresets[randomEnemy]);
+        enemyPresets.splice(randomEnemy, 1);
+
+    }
 
 }
