@@ -6,6 +6,8 @@ let currentCard = 0;
 let fightingEnemies = loadEnemies(3);
 let playerHealth = 0;
 let phase = "attack";
+let attackArray = [];
+let defenseArray = [];
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -210,15 +212,16 @@ function attackWithCard(card) {
         let addButton = document.getElementById("add-button");
         addButton.style.display = "block";
 
-        enemyLife(-card.attack);
-
-        removeCard();
+        attackArray.push(card);
+        removeCard(1);
  
     } else {
 
         alert("Currently in defense phase!");
         
     }
+
+    console.log(`Attack array: ${attackArray}, handCards: ${handCards}`);
     
 }
 
@@ -238,6 +241,33 @@ function defensePhase() {
 
     }
 
+}
+
+/** Undo last card addition */
+
+function undoAdd() {
+
+    if (phase === "attack") {
+
+        if (attackArray.length > 0) {
+
+            handCards.push(attackArray.pop());
+            showCardAmount();
+            showCurrentCardData();
+
+            console.log("Hand cards:" + handCards);
+            console.log("Cards in array:" + attackArray);
+
+        } else {
+
+            console.log("No cards in array");
+            
+        }
+    }
+
+    if (phase === "defense") {
+
+    }
 }
 
 /** Button to change phase */
