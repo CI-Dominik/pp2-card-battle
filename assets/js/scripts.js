@@ -170,6 +170,7 @@ function enemyLife(value) {
     if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
         fightingEnemies.splice(0, 1);
+        showEnemy();
 
         // Check if enemy counter is 0
 
