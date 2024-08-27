@@ -5,6 +5,7 @@ let handCards = [];
 let currentCard = 0;
 let fightingEnemies = loadEnemies(3);
 let playerHealth = 0;
+let phase = "attack";
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -118,7 +119,7 @@ function showCurrentCardData() {
 
 function removeCard(num) {
 
-    handCards.splice(handCards.length - 1, 1);
+    handCards.splice(currentCard, 1);
 
     if(currentCard === handCards.length) {
         scrollCards(-1);
@@ -200,15 +201,20 @@ function gameLost() {
     alert("You lost!");
 }
 
-/** Starting attack phase */
+/** Attack with currentCard */
 
-function attackPhase() {
+function attackWithCard(currentCard) {
 
     if (phase === "attack") {
 
-        // ATTACK PHASE BANNER
+        let addButton = document.getElementById("add-button");
+        addButton.style.display = "block";
 
-        let attackArray = [];
+        // ATTACK WITH CARD
+
+        removeCard();
+
+        console.log(handCards);
  
     } else {
 
@@ -235,6 +241,8 @@ function defensePhase() {
     }
 
 }
+
+/** Button to change phase */
 
 function changePhase() {
     
