@@ -52,15 +52,14 @@ function pickCards() {
 
         handCards.push(card);
 
-        console.log("Remaining Cards in Stack: " + availableCards.length);
-        console.log("Card picked: " + card.name);
-
     }
 
-    showCardAmount();
-    showCurrentCardData();
+    
     currentCard = 0;
     document.getElementById("current-card").innerHTML = currentCard + 1;
+    showCardAmount();
+    showCurrentCardData();
+    checkZero();
 
 }
 
@@ -91,10 +90,15 @@ function scrollCards(num) {
 /** Check if current card amount equals 0 */
 
 function checkZero() {
+
     if (handCards.length > 0) {
+
         showCurrentCardData();
+
     } else {
+
         document.getElementById("current-card").innerHTML = 0;
+
     }
 }
 
@@ -110,10 +114,22 @@ function showCardAmount() {
 
 function showCurrentCardData() {
 
-    document.getElementById("show-name").innerHTML = handCards[currentCard].name;
-    document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ` + handCards[currentCard].attack;
-    document.getElementById("show-defense").innerHTML = handCards[currentCard].defense + ` <i class="fa-solid fa-shield-halved"></i>`;
-    document.getElementById("show-description").innerHTML = handCards[currentCard].description;
+    if (handCards.length > 0) {
+
+        document.getElementById("show-name").innerHTML = handCards[currentCard].name;
+        document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ` + handCards[currentCard].attack;
+        document.getElementById("show-defense").innerHTML = handCards[currentCard].defense + ` <i class="fa-solid fa-shield-halved"></i>`;
+        document.getElementById("show-description").innerHTML = handCards[currentCard].description;
+
+    } else {
+
+        console.log("No cards on hand.");
+        document.getElementById("show-name").innerHTML = "No card in hand";
+        document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> 0`;
+        document.getElementById("show-defense").innerHTML = `0 <i class="fa-solid fa-shield-halved"></i>`;
+        document.getElementById("show-description").innerHTML = "No card in hand";
+
+    }
 
 }
 
@@ -261,7 +277,7 @@ function undoAdd() {
         } else {
 
             console.log("No cards in array");
-            
+
         }
     }
 
