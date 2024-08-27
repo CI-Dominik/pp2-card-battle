@@ -203,18 +203,16 @@ function gameLost() {
 
 /** Attack with currentCard */
 
-function attackWithCard(currentCard) {
+function attackWithCard(card) {
 
     if (phase === "attack") {
 
         let addButton = document.getElementById("add-button");
         addButton.style.display = "block";
 
-        // ATTACK WITH CARD
+        enemyLife(-card.attack);
 
         removeCard();
-
-        console.log(handCards);
  
     } else {
 
