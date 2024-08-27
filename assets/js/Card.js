@@ -2,7 +2,7 @@
 
 class Card {
 
-    constructor(name, attack, defense, specialDescription, description, maxAmount) {
+    constructor(name, attack, defense, specialDescription, specialType, specialValue, description, maxAmount) {
 
         this.name = name;
         this.attack = attack;
@@ -21,12 +21,12 @@ class Card {
 
 const cardPresets = [
 
-        new Card("Test1", 20, 30, "PH", "PH", "PH", 3),
-        new Card("Test2", 50, 80, "PH", "PH", "PH", 1),
-        new Card("Test3", 10, 20, "PH", "PH", "PH", 3),
-        new Card("Test4", 100, 75, "PH", "PH", "PH", 3),
-        new Card("Test5", 45, 23, "PH", "PH", "PH", 2),
-        new Card("Test6", 5, 10, "PH", "PH", "PH", 10)
+        new Card("Test1", 20, 30, "PH", "PH", "PH", "PH", 3),
+        new Card("Test2", 50, 80, "PH", "PH", "PH", "PH", 1),
+        new Card("Test3", 10, 20, "PH", "PH", "PH", "PH", 3),
+        new Card("Test4", 100, 75, "PH", "PH", "PH", "PH", 3),
+        new Card("Test5", 45, 23, "PH", "PH", "PH", "PH", 2),
+        new Card("Test6", 5, 10, "PH", "PH", "PH", "PH", 10)
 
 ]
 
