@@ -225,19 +225,42 @@ function attackWithCard(card) {
 
     if (phase === "attack") {
 
-        let addButton = document.getElementById("add-button");
-        addButton.style.display = "block";
+        document.getElementById("add-cards-attack").style.display = "block";
+        let attackStrength = 0;
+
+        // Add card to attack array
 
         attackArray.push(card);
-        removeCard(1);
+        handCards.splice(currentCard, 1)
+
+        // Check for current card data
+
+        if (currentCard === handCards.length) {
+            scrollCards(-1);
+        }
+        showCardAmount();
+        showCurrentCardData();
+        checkZero();
+
+        // Add current card's attack power to power display
+
+        for (let i = 0; i < attackArray.length; i++) {
+            attackStrength += attackArray[i].attack;
+            document.getElementById("attack-strength-player").innerHTML = attackStrength;
+        }
+
+        // Disable button once no more cards are in player's hand
+
+        if (handCards.length === 0) {
+            document.getElementById("add-cards-attack").disabled = true;
+            document.getElementById("add-cards-attack").innerHTML = "No more cards";
+        }
  
     } else {
 
         alert("Currently in defense phase!");
         
     }
-
-    console.log(`Attack array: ${attackArray}, handCards: ${handCards}`);
     
 }
 
@@ -270,9 +293,7 @@ function undoAdd() {
             handCards.push(attackArray.pop());
             showCardAmount();
             showCurrentCardData();
-
-            console.log("Hand cards:" + handCards);
-            console.log("Cards in array:" + attackArray);
+            checkZero();
 
         } else {
 
@@ -284,6 +305,7 @@ function undoAdd() {
     if (phase === "defense") {
 
     }
+
 }
 
 /** Button to change phase */
@@ -302,7 +324,9 @@ function changePhase() {
         attackPhase();
 
     } else {
+
         alert("Invalid phase value!");
+
     }
 
 }
