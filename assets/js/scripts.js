@@ -261,6 +261,8 @@ function attackWithCard(card) {
         alert("Currently in defense phase!");
         
     }
+
+    console.log(handCards.length);
     
 }
 
@@ -290,11 +292,18 @@ function undoAdd() {
 
         if (attackArray.length > 0) {
 
+            if (handCards.length === 0) {
+                currentCard = 0;
+                document.getElementById("current-card").innerHTML = currentCard + 1;
+                showCardAmount();
+                showCurrentCardData();
+            }
+
             handCards.push(attackArray.pop());
             showCardAmount();
             showCurrentCardData();
             checkZero();
-
+            
         } else {
 
             console.log("No cards in array");
@@ -305,6 +314,8 @@ function undoAdd() {
     if (phase === "defense") {
 
     }
+
+    console.log(handCards.length);
 
 }
 
