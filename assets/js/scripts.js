@@ -226,7 +226,8 @@ function attackWithCard(card) {
     if (phase === "attack") {
 
         document.getElementById("add-cards-attack").style.display = "block";
-        let attackStrength = 0;
+
+        updateAttackValue(handCards[currentCard].attack);
 
         // Add card to attack array
 
@@ -244,10 +245,7 @@ function attackWithCard(card) {
 
         // Add current card's attack power to power display
 
-        for (let i = 0; i < attackArray.length; i++) {
-            attackStrength += attackArray[i].attack;
-            document.getElementById("attack-strength-player").innerHTML = attackStrength;
-        }
+        
 
         // Disable button once no more cards are in player's hand
 
@@ -262,8 +260,6 @@ function attackWithCard(card) {
         
     }
 
-    console.log(handCards.length);
-    
 }
 
 /** Starting defense phase */
@@ -284,6 +280,18 @@ function defensePhase() {
 
 }
 
+/** Update current attack value */
+
+function updateAttackValue(num) {
+
+    let attackValue = 0;
+    attackValue = parseInt(document.getElementById("attack-strength-player").innerHTML);
+    attackValue += num;
+
+    document.getElementById("attack-strength-player").innerHTML = attackValue;
+
+}
+
 /** Undo last card addition */
 
 function undoAdd() {
@@ -292,6 +300,8 @@ function undoAdd() {
 
         if (attackArray.length > 0) {
 
+            // Check if no cards are currently in hand to update currently selected card
+            
             if (handCards.length === 0) {
                 currentCard = 0;
                 document.getElementById("current-card").innerHTML = currentCard + 1;
@@ -299,6 +309,9 @@ function undoAdd() {
                 showCurrentCardData();
             }
 
+            // Add card to hand
+
+            updateAttackValue(-attackArray[attackArray.length -1].attack); 
             handCards.push(attackArray.pop());
             showCardAmount();
             showCurrentCardData();
@@ -314,8 +327,6 @@ function undoAdd() {
     if (phase === "defense") {
 
     }
-
-    console.log(handCards.length);
 
 }
 
