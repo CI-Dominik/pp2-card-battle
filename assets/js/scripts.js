@@ -311,6 +311,9 @@ function undoAdd() {
             showCardAmount();
             showCurrentCardData();
             checkZero();
+
+            // Enable clicking for add button again
+
             document.getElementById("add-cards-attack").disabled = false;
             document.getElementById("add-cards-attack").innerHTML = "Add card";
             
@@ -318,6 +321,22 @@ function undoAdd() {
     }
 
     if (phase === "defense") {
+
+    }
+
+}
+
+/** Start attacking with the current attackArray */
+
+function startAttack() {
+
+    let attackPower = 0;
+
+    // Calculate attack power from cards in attackArray
+
+    for (let i = 0; i < attackArray.length; i++) {
+
+        attackPower += attackArray[i].attack;
 
     }
 
