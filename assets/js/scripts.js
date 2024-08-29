@@ -183,8 +183,6 @@ function enemyLife(value) {
 
     if(value < 0) {
 
-        //let damage = Math.round((Math.abs(value) * (100 - fightingEnemies[0].defense)) / 100);
-
         fightingEnemies[0].life -= Math.round((Math.abs(value) * (100 - fightingEnemies[0].defense)) / 100);
 
     } else {
@@ -362,17 +360,21 @@ function startAttack() {
 
         } else if (attackArray[i].specialPhase === "none") {
 
-            console.log("No skill used, because card didn't have one.");
+            console.log("Skill does not have special phase requirements.");
 
         } else {
 
-            alert("Invalid skillset!");
+            console.log("Neither right phase nor usable skill.");
 
         }
 
     }
 
-
+    console.log(attackArray);
+    attackArray.splice(0, attackArray.length);
+    console.log(attackArray);
+    document.getElementById("attack-strength-player").innerHTML = 0;
+    pickCards();
 
 }
 
