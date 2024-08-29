@@ -181,7 +181,19 @@ function playerLife(value) {
 
 function enemyLife(value) {
 
-    fightingEnemies[0].life += value;
+    if(value < 0) {
+
+        let damage = Math.round((Math.abs(value) * (100 - fightingEnemies[0].defense)) / 100);
+
+        fightingEnemies[0].life -= damage;
+        console.log(damage);
+        console.log(`Attacked with ${value} damage, enemy blocked ${fightingEnemies[0].defense} damage.`);
+
+    } else {
+
+        fightingEnemies[0].life += value;
+
+    }
 
     // Check if more enemies are available
 
@@ -330,13 +342,11 @@ function undoAdd() {
 
 function startAttack() {
 
-    let attackPower = 0;
-
     // Calculate attack power from cards in attackArray
 
     for (let i = 0; i < attackArray.length; i++) {
 
-        attackPower += attackArray[i].attack;
+        enemyLife(-attackArray[i].attack);
 
     }
 
@@ -354,7 +364,7 @@ function startAttack() {
 
         } else if (attackArray[i].specialPhase === "none") {
 
-            console.log("No skill used, because card didn't have one.")
+            console.log("No skill used, because card didn't have one.");
 
         } else {
 
@@ -363,6 +373,8 @@ function startAttack() {
         }
 
     }
+
+
 
 }
 
