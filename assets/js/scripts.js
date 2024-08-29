@@ -292,6 +292,7 @@ function updateAttackValue(num) {
     attackValue += num;
 
     document.getElementById("attack-strength-player").innerHTML = attackValue;
+    document.getElementById("attack-strength-enemy").innerHTML = Math.round(attackValue * (100 - fightingEnemies[0].defense) / 100);
 
 }
 
