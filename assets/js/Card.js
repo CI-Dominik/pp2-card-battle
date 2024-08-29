@@ -2,12 +2,13 @@
 
 class Card {
 
-    constructor(name, attack, defense, specialDescription, specialType, specialValue, description, maxAmount) {
+    constructor(name, attack, defense, specialDescription, specialPhase, specialType, specialValue, description, maxAmount) {
 
         this.name = name;
         this.attack = attack;
         this.defense = defense;
         this.specialDescription = specialDescription;
+        this.specialPhase = specialPhase;
         this.specialType = specialType;
         this.specialValue = specialValue;
         this.description = description;
@@ -21,12 +22,12 @@ class Card {
 
 const cardPresets = [
 
-        new Card("Test1", 20, 30, "PH", "PH", "PH", "PH", 3),
-        new Card("Test2", 50, 80, "PH", "PH", "PH", "PH", 1),
-        new Card("Test3", 10, 20, "PH", "PH", "PH", "PH", 3),
-        new Card("Test4", 100, 75, "PH", "PH", "PH", "PH", 3),
-        new Card("Test5", 45, 23, "PH", "PH", "PH", "PH", 2),
-        new Card("Test6", 5, 10, "PH", "PH", "PH", "PH", 10)
+        new Card("Test1", 20, 30, "Special Description", "Special Phase", "Special Type", "Special Value", "Description", 3),
+        new Card("Test2", 50, 80, "Special Description", "Special Phase", "Special Type", "Special Value", "Description", 1),
+        new Card("Test3", 10, 20, "Special Description", "Special Phase", "Special Type", "Special Value", "Description", 3),
+        new Card("Test4", 100, 75, "Special Description", "Special Phase", "Special Type", "Special Value", "Description", 3),
+        new Card("Test5", 45, 23, "Special Description", "Special Phase", "Special Type", "Special Value", "Description", 2),
+        new Card("Test6", 5, 10, "Special Description", "Special Phase", "Special Type", "Special Value", "Description", 10)
 
 ]
 
