@@ -340,6 +340,30 @@ function startAttack() {
 
     }
 
+    // Calculate special skill values for each card
+
+    for (let i = 0; i < attackArray.length; i++) {
+
+        // Use skill when right phase is active
+
+        if (attackArray[i].specialPhase === phase) {
+
+            console.log("Skill used in right phase.");
+
+            // Execute when card does not have a skill 
+
+        } else if (attackArray[i].specialPhase === "none") {
+
+            console.log("No skill used, because card didn't have one.")
+
+        } else {
+
+            alert("Invalid skillset!");
+
+        }
+
+    }
+
 }
 
 /** Button to change phase */
