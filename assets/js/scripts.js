@@ -183,11 +183,9 @@ function enemyLife(value) {
 
     if(value < 0) {
 
-        let damage = Math.round((Math.abs(value) * (100 - fightingEnemies[0].defense)) / 100);
+        //let damage = Math.round((Math.abs(value) * (100 - fightingEnemies[0].defense)) / 100);
 
-        fightingEnemies[0].life -= damage;
-        console.log(damage);
-        console.log(`Attacked with ${value} damage, enemy blocked ${fightingEnemies[0].defense} damage.`);
+        fightingEnemies[0].life -= Math.round((Math.abs(value) * (100 - fightingEnemies[0].defense)) / 100);
 
     } else {
 
