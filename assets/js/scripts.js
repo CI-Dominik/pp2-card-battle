@@ -123,7 +123,6 @@ function showCurrentCardData() {
 
     } else {
 
-        console.log("No cards on hand.");
         document.getElementById("show-name").innerHTML = "No card in hand";
         document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> 0`;
         document.getElementById("show-defense").innerHTML = `0 <i class="fa-solid fa-shield-halved"></i>`;
@@ -243,10 +242,6 @@ function attackWithCard(card) {
         showCurrentCardData();
         checkZero();
 
-        // Add current card's attack power to power display
-
-        
-
         // Disable button once no more cards are in player's hand
 
         if (handCards.length === 0) {
@@ -316,12 +311,10 @@ function undoAdd() {
             showCardAmount();
             showCurrentCardData();
             checkZero();
+            document.getElementById("add-cards-attack").disabled = false;
+            document.getElementById("add-cards-attack").innerHTML = "Add card";
             
-        } else {
-
-            console.log("No cards in array");
-
-        }
+        } 
     }
 
     if (phase === "defense") {
