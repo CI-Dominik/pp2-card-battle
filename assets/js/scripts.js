@@ -371,9 +371,8 @@ function startAttack() {
 
     }
 
-    console.log(attackArray);
+    showOverlay();
     attackArray.splice(0, attackArray.length);
-    console.log(attackArray);
     document.getElementById("attack-strength-player").innerHTML = 0;
     pickCards();
 
@@ -398,6 +397,22 @@ function changePhase() {
 
         alert("Invalid phase value!");
 
+    }
+
+}
+
+function showOverlay() {
+    document.getElementById("popup").style.display = "flex";
+
+    if (phase === "attack") {
+
+        document.getElementById("source-name").innerHTML = "Player";
+        document.getElementById("target-damage").innerHTML = document.getElementById("attack-strength-player").innerHTML;
+
+    } else {
+
+        document.getElementById("source-name").innerHTML = "Enemy";
+        
     }
 
 }

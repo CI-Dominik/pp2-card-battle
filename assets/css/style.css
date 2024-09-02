@@ -14,6 +14,7 @@ body {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
     font-family: Verdana, sans-serif;
     background: url(../images/background-image.webp) center center/cover;
@@ -27,6 +28,7 @@ main {
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
+    position: relative;
 }
 
 /********** HEALTH AREA STYLING **********/
@@ -201,6 +203,31 @@ main {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(0, 0, 0, 0.28);
+}
+
+/* Popup Styling */
+
+#popup {
+    display: none;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 80%;
+    height: 300px;
+    position: absolute;
+    font-size: 2rem;
+    text-align: center;
+    z-index: 99;
+    padding: 1rem;
+
+    background-color: green;
+}
+
+#popup button {
+    margin-top: 1.5rem;
+    width: 150px;
+    height: 40px;
 }
 
 /* MEDIA QUERIES */
