@@ -381,6 +381,8 @@ function startAttack() {
 /** Button to change phase */
 
 function changePhase() {
+
+    document.getElementById("popup").style.display = "none";
     
     if (phase === "attack") {
 
