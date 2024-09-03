@@ -8,7 +8,6 @@ let playerHealth = 0;
 let phase = "attack";
 let attackArray = [];
 let defenseArray = [];
-let multiplier = 1;
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -245,14 +244,9 @@ function attackWithCard(card) {
 
     if (phase === "attack") {
 
-        if (card.specialType === "multiplier") {
-            multiplier += card.specialValue;
-            document.getElementById("multiplier").innerHTML = multiplier;
-        }
-
         document.getElementById("add-cards-attack").style.display = "block";
 
-        updateAttackValue(handCards[currentCard].attack * multiplier);
+        updateAttackValue(handCards[currentCard].attack);
 
         // Add card to attack array
 
@@ -333,11 +327,7 @@ function undoAdd() {
 
             // Add card to hand
 
-            updateAttackValue(-attackArray[attackArray.length -1].attack * multiplier);
-            if (attackArray[attackArray.length -1].specialType === "multiplier") {
-                multiplier -= attackArray[attackArray.length -1].specialValue;
-                document.getElementById("multiplier").innerHTML = multiplier;
-            }
+            updateAttackValue(-attackArray[attackArray.length -1].attack);
             handCards.push(attackArray.pop());
             showCardAmount();
             showCurrentCardData();
@@ -367,7 +357,7 @@ function startAttack() {
 
         if (fightingEnemies.length > 0) {
 
-            enemyLife(-attackArray[i].attack * multiplier);
+            enemyLife(-attackArray[i].attack);
 
         } else {
             console.log("No more enemies.");
