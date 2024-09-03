@@ -163,10 +163,17 @@ main {
 }
 
 #enemy-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 90vw;
     height: 90vh;
     max-width: 180px;
     max-height: 180px;
+}
+
+#damage-number-enemy {
+    color: white;
 }
 
 #enemy-card-placement {

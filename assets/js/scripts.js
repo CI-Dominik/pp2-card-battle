@@ -373,6 +373,7 @@ function startAttack() {
 
     }
 
+    // showDamage();
     showOverlay();
     attackArray.splice(0, attackArray.length);
     document.getElementById("attack-strength").innerHTML = 0;
@@ -426,3 +427,69 @@ function showOverlay() {
     }
 
 }
+
+
+/** Show damage number on enemy or player */
+
+/*
+
+function showDamage(type) {
+
+    // Select player or enemy damage number, based on phase
+
+    let number = phase === "attack" ? document.getElementById("damage-number-enemy") : document.getElementById("damage-number-player");
+    let shrinkInterval = null;
+    let size = 0;
+    let increaseInterval = setInterval(increaseSize, 5);
+    number.innerHTML = document.getElementById("attack-strength").innerHTML
+
+    // **************** TO DO ****************
+    // let audioHit = new Audio("assets/sounds/" + type + "-hit.wav");
+
+    function increaseSize() {
+
+        // Increase size up to 50px
+
+        if (size >= 50) {
+
+            // Check if sound is enabled and play audio if true
+            
+            if (soundEnabled === true) {
+
+                audioHit.play();
+
+            }
+            
+            // Stop increase and start shrinking
+
+            clearInterval(increaseInterval);
+            shrinkInterval = setInterval(shrinkSize, 5);
+            
+        } else {
+
+            size++;
+            number.style.fontSize = size + "px";
+
+        }
+    }
+
+    // Shrink damage number
+
+    function shrinkSize() {
+
+        // Check if text is gone
+
+        if (size <= 0) {
+
+            clearInterval(shrinkInterval);
+
+        } else {
+
+            size--;
+            number.style.fontSize = size + "px";
+            
+        }
+
+    }
+    
+} */
