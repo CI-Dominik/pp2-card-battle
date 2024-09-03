@@ -418,7 +418,7 @@ function showOverlay() {
     if (phase === "attack") {
 
         document.getElementById("source-name").innerHTML = "Player";
-        document.getElementById("target-damage").innerHTML = document.getElementById("attack-strength").innerHTML;
+        document.getElementById("target-damage").innerHTML = document.getElementById("calculated-damage").innerHTML;
 
     } else {
 
