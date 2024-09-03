@@ -108,9 +108,11 @@
 
                         <p id="show-special"></p>
 
-                        <button id="add-cards-attack" onclick="attackWithCard(handCards[currentCard])">Add card</button>
+                        <button id="add-cards-attack" onclick="attackWithCard(handCards[currentCard])">Add attack card</button>
                         <button id="undo-add" onclick="undoAdd()">Undo</button>
                         <button id="start-attack" onclick="startAttack()">Start attack</button>
+                        <button id="start-defense" onclick="startDefense()">Start Defense</button>
+                        <button id="add-cards-defense" onclick="defendWithCard(handCards[currentCard])">Add defense card</button>
 
                     </div>
 
@@ -122,8 +124,8 @@
 
                 <div id="score">
                     <p id="phase">ATTACK PHASE</p>
-                    <p>POWER <br> <span id="attack-strength-player">0</span></p>
-                    <p>DAMAGE <br> <span id="attack-strength-enemy">0</span></p>
+                    <p>POWER<br><span id="attack-strength">0</span></p>
+                    <p>DAMAGE<br><span id="calculated-damage">0</span></p>
                 </div>
 
                 <!-- Battle Score End -->

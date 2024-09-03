@@ -288,11 +288,11 @@ function defensePhase() {
 function updateAttackValue(num) {
 
     let attackValue = 0;
-    attackValue = parseInt(document.getElementById("attack-strength-player").innerHTML);
+    attackValue = parseInt(document.getElementById("attack-strength").innerHTML);
     attackValue += num;
 
-    document.getElementById("attack-strength-player").innerHTML = attackValue;
-    document.getElementById("attack-strength-enemy").innerHTML = Math.round(attackValue * (100 - fightingEnemies[0].defense) / 100);
+    document.getElementById("attack-strength").innerHTML = attackValue;
+    document.getElementById("calculated-damage").innerHTML = Math.round(attackValue * (100 - fightingEnemies[0].defense) / 100);
 
 }
 
@@ -373,7 +373,7 @@ function startAttack() {
 
     showOverlay();
     attackArray.splice(0, attackArray.length);
-    document.getElementById("attack-strength-player").innerHTML = 0;
+    document.getElementById("attack-strength").innerHTML = 0;
     pickCards();
 
 }
@@ -386,7 +386,11 @@ function changePhase() {
     
     if (phase === "attack") {
 
+        document.getElementById("add-cards-attack").style.display = "none";
+        document.getElementById("start-attack").style.display = "none";
         document.getElementById("phase").innerHTML = "Defense phase";
+        document.getElementById("calculated-damage").innerHTML = 0;
+        document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
         phase = "defense";
 
     } else if (phase ==="defense") {
@@ -409,7 +413,7 @@ function showOverlay() {
     if (phase === "attack") {
 
         document.getElementById("source-name").innerHTML = "Player";
-        document.getElementById("target-damage").innerHTML = document.getElementById("attack-strength-player").innerHTML;
+        document.getElementById("target-damage").innerHTML = document.getElementById("attack-strength").innerHTML;
 
     } else {
 
