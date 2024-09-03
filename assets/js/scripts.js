@@ -3,7 +3,7 @@
 let cards = loadAvailableCards();
 let handCards = [];
 let currentCard = 0;
-let fightingEnemies = loadEnemies(3);
+let fightingEnemies = loadEnemies(1);
 let playerHealth = 0;
 let phase = "attack";
 let attackArray = [];
@@ -154,13 +154,19 @@ function removeCard(num) {
 
 function showEnemy() {
 
-    document.getElementById("enemy-name").innerHTML = fightingEnemies[0].name;
-    document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[0].attack}`;
-    document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[0].defense} <i class="fa-solid fa-shield-halved"></i>`
-    document.getElementById("enemy-description").innerHTML = fightingEnemies[0].description;
-    document.getElementById("enemy-health").innerHTML = fightingEnemies[0].life;
-    document.getElementById("enemy-image").style.background = "url(../assets/images/enemies/" + fightingEnemies[0].image + ") center center/cover";
+    if (fightingEnemies.length > 0 ) {
 
+        document.getElementById("enemy-name").innerHTML = fightingEnemies[0].name;
+        document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[0].attack}`;
+        document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[0].defense} <i class="fa-solid fa-shield-halved"></i>`
+        document.getElementById("enemy-description").innerHTML = fightingEnemies[0].description;
+        document.getElementById("enemy-health").innerHTML = fightingEnemies[0].life;
+        document.getElementById("enemy-image").style.background = "url(../assets/images/enemies/" + fightingEnemies[0].image + ") center center/cover";
+    
+    } else {
+        winGame();
+    }
+    
 }
 
 /** Shows current player life and adjust HTML elements */
@@ -199,21 +205,15 @@ function enemyLife(value) {
     if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
         fightingEnemies.splice(0, 1);
-        showEnemy();
-
-        // Check if enemy counter is 0
-
-        if (fightingEnemies.length === 0) {
-
-            winGame();
         
-        }
 
-    } else {
+    } else if (fightingEnemies.length === 0) {
 
-        showEnemy();
+        winGame();
 
     }
+
+    showEnemy();
 
 }
 
@@ -228,7 +228,7 @@ function winGame() {
     document.getElementById("enemy-health").innerHTML = 0
     document.getElementById("enemy-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
 
-    alert("You win!");
+    console.log("You win!");
 
 }
 
@@ -355,8 +355,12 @@ function startAttack() {
 
     for (let i = 0; i < attackArray.length; i++) {
 
-        enemyLife(-attackArray[i].attack);
-
+        if (fightingEnemies.length > 0) {
+            enemyLife(-attackArray[i].attack);
+        } else {
+            console.log("No more enemies.");
+        }
+    
     }
 
     // Calculate special skill values for each card
