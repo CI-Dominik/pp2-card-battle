@@ -41,11 +41,19 @@ main {
     width: 100%;
     height: 40px;
     font-weight: bold;
-    background: rgba(48, 255, 127, 0.5);
+    background: rgba(241, 218, 4, 0.5);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 196, 0, 0.28);
+}
+
+#health-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 35rem;
 }
 
 /********** BATTLEFIELD AREA STYLING **********/
@@ -81,10 +89,23 @@ main {
     flex-flow: column nowrap;
 }
 
+#player-card-desc button {
+    width: 8rem;
+    height: 1.5rem;
+    background-color: rgba(255,197,47,1);
+    border: none;
+    box-shadow: 0 0.1rem 0.1rem black;
+}
+
+#player-card-desc button:hover {
+    color: rgba(255,197,47,1);
+    background-color: black;
+    cursor: pointer;
+}
+
 /* Card Styling */
 
 #card {
-
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
@@ -94,9 +115,8 @@ main {
 	border: 2px solid black;
 	border-radius: 20px;
 	box-shadow: 0  0 30px white;
-	background: rgb(0,176,255);
-	background: linear-gradient(0deg, rgba(0,176,255,1) 0%, rgba(0,233,238,1) 100%);
-
+	background: rgb(101,73,0);
+    background: linear-gradient(0deg, rgba(101,73,0,1) 0%, rgba(255,197,47,1) 32%, rgba(186,175,117,1) 71%, rgb(255, 200, 47) 100%);
 }
 
 #card-image {
@@ -140,15 +160,21 @@ main {
 
 #arrow-container button {
 
-    width: 3.5rem;
+    width: 2.5rem;
     height: 2rem;
     border-radius: 0.5rem;
-    background: rgba(255, 0, 0, 0.5);
+    background: rgba(255, 187, 0, 0.5);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(0, 0, 0, 0.28);
 
+}
+
+#arrow-container button:hover {
+    color: rgba(255, 187, 0, 0.5);
+    background-color: black;
+    cursor: pointer;
 }
 
 /* Enemy Area Styling */
@@ -167,7 +193,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 90vw;
-    height: 90vh;
+    height: 90vw;
     max-width: 180px;
     max-height: 180px;
 }
@@ -198,13 +224,15 @@ main {
 
 #score {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: space-between;
+    align-items: center;
     text-align: center;
     width: 100%;
     max-width: 45rem;
-    padding: 2rem;
-    background: rgba(255, 0, 0, 0.5);
+    padding: 1rem;
+    background: rgb(101,73,0);
+    background: linear-gradient(0deg, rgba(101,73,0,1) 0%, rgb(255, 200, 47) 100%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -244,48 +272,4 @@ main {
 
 #start-defense, #add-cards-defense {
     display: none;
-}
-
-/* MEDIA QUERIES */
-
-@media (width > 48rem) {
-
-    /* Battlefield */
-
-    #battlefield {
-        flex-flow: row nowrap;
-        justify-content: center;
-        height: clamp(30rem, 50vh, 60rem);
-    }
-
-    /* Score */
-
-    #score {
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: space-evenly;
-        align-items: center;
-        max-width: 5rem;
-        padding: 1rem;
-        height: 100%;
-    }
-
-    /* Player Area */
-
-    #player-area {
-        height: 100%;
-    }
-
-    #card {
-        width: 200px;
-        height: 300px;
-        font-size: 150%;
-    }
-
-    /* Enemy Area */
-
-    #enemy-area {
-        height: 100%;
-    }
-
 }

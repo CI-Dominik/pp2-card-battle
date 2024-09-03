@@ -272,12 +272,12 @@ function addCard(card) {
     showCurrentCardData();
     checkZero();
 
-    // Disable button once no more cards are in player's hand
+    // Disable button once no cards are in player's hand
 
     if (handCards.length === 0) {
 
         document.getElementById("add-cards").disabled = true;
-        document.getElementById("add-cards").innerHTML = "No more cards";
+        document.getElementById("add-cards").innerHTML = "No cards";
             
     }
 
@@ -350,7 +350,7 @@ function startAttack() {
             enemyLife(-cardUseStack[i].attack);
 
         } else {
-            console.log("No more enemies.");
+            console.log("No enemies.");
         }
     
     }
