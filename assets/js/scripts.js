@@ -12,7 +12,7 @@ const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
 
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
 
     pickCards();
     scrollCards(currentCard);
@@ -164,7 +164,9 @@ function showEnemy() {
         document.getElementById("enemy-image").style.background = "url(../assets/images/enemies/" + fightingEnemies[0].image + ") center center/cover";
     
     } else {
+
         winGame();
+
     }
     
 }
@@ -240,24 +242,31 @@ function gameLost() {
 
 /** Attack with currentCard */
 
-function attackWithCard(card) {
+function addCard(card) {
 
-    if (phase === "attack") {
 
-        document.getElementById("add-cards-attack").style.display = "block";
+        if (phase === "attack") {
 
-        updateAttackValue(handCards[currentCard].attack);
+            updateAttackValue(handCards[currentCard].attack);
+            attackArray.push(card);
 
-        // Add card to attack array
+        } else if (phase === "defense") {
 
-        attackArray.push(card);
+            // TO DO: UPDATE DEFENSE VALUE *******************************************************************************
+            attackArray.push(card);
+
+        }
+
         handCards.splice(currentCard, 1);
 
         // Check for current card data
 
         if (currentCard === handCards.length) {
+
             scrollCards(-1);
+
         }
+
         showCardAmount();
         showCurrentCardData();
         checkZero();
@@ -265,15 +274,11 @@ function attackWithCard(card) {
         // Disable button once no more cards are in player's hand
 
         if (handCards.length === 0) {
-            document.getElementById("add-cards-attack").disabled = true;
-            document.getElementById("add-cards-attack").innerHTML = "No more cards";
-        }
- 
-    } else {
 
-        alert("Currently in defense phase!");
-        
-    }
+            document.getElementById("add-cards").disabled = true;
+            document.getElementById("add-cards").innerHTML = "No more cards";
+            
+        }
 
 }
 
@@ -312,38 +317,40 @@ function updateAttackValue(num) {
 
 function undoAdd() {
 
-    if (phase === "attack") {
-
-        if (attackArray.length > 0) {
+        if (attackArray.length > 0 || defenseArray.length > 0) {
 
             // Check if no cards are currently in hand to update currently selected card
             
             if (handCards.length === 0) {
+
                 currentCard = 0;
                 document.getElementById("current-card").innerHTML = currentCard + 1;
                 showCardAmount();
                 showCurrentCardData();
+
             }
 
             // Add card to hand
 
-            updateAttackValue(-attackArray[attackArray.length -1].attack);
-            handCards.push(attackArray.pop());
+            if (phase === "attack") {
+
+                updateAttackValue(-attackArray[attackArray.length -1].attack);
+                handCards.push(attackArray.pop());
+
+            } else if (phase === "defense") {
+
+                
+                
+            }
+
+            document.getElementById("add-cards").disabled = false;
+            document.getElementById("add-cards").innerHTML = "Add card";
+
             showCardAmount();
             showCurrentCardData();
             checkZero();
 
-            // Enable clicking for add button again
-
-            document.getElementById("add-cards-attack").disabled = false;
-            document.getElementById("add-cards-attack").innerHTML = "Add card";
-            
-        } 
-    }
-
-    if (phase === "defense") {
-
-    }
+        }
 
 }
 
@@ -425,7 +432,6 @@ function changePhase() {
     
     if (phase === "attack") {
 
-        document.getElementById("add-cards-attack").style.display = "none";
         document.getElementById("start-attack").style.display = "none";
         document.getElementById("phase").innerHTML = "Defense phase";
         document.getElementById("calculated-damage").innerHTML = 0;
