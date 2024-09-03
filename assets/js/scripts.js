@@ -128,6 +128,7 @@ function showCurrentCardData() {
         document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> 0`;
         document.getElementById("show-defense").innerHTML = `0 <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("show-description").innerHTML = "No card in hand";
+        document.getElementById("card-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
 
     }
 
