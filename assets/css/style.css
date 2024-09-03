@@ -230,6 +230,12 @@ main {
     height: 40px;
 }
 
+/* Button Styling */
+
+#start-defense, #add-cards-defense {
+    display: none;
+}
+
 /* MEDIA QUERIES */
 
 @media (width > 48rem) {

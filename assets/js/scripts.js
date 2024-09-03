@@ -390,6 +390,8 @@ function changePhase() {
         document.getElementById("start-attack").style.display = "none";
         document.getElementById("phase").innerHTML = "Defense phase";
         document.getElementById("calculated-damage").innerHTML = 0;
+        document.getElementById("add-cards-defense").style.display = "block";
+        document.getElementById("start-defense").style.display = "block";
         document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
         phase = "defense";
 
