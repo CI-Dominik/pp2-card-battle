@@ -6,8 +6,7 @@ let currentCard = 0;
 let fightingEnemies = loadEnemies(3);
 let playerHealth = 0;
 let phase = "attack";
-let attackArray = [];
-let defenseArray = [];
+let cardArray = [];
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -54,7 +53,6 @@ function pickCards() {
 
     }
 
-    
     currentCard = 0;
     document.getElementById("current-card").innerHTML = currentCard + 1;
     showCardAmount();
@@ -186,13 +184,13 @@ function playerLife(value) {
 
     }
 
-    }
+}
 
 /** Adjust enemy health */
 
 function enemyLife(value) {
 
-    if(value < 0) {
+    if (value < 0) {
 
         fightingEnemies[0].life -= Math.round((Math.abs(value) * (100 - fightingEnemies[0].defense)) / 100);
 
@@ -237,7 +235,9 @@ function winGame() {
 /** Declares the end of the game by losing */
 
 function gameLost() {
+
     alert("You lost!");
+
 }
 
 /** Attack with currentCard */
@@ -248,15 +248,15 @@ function addCard(card) {
         if (phase === "attack") {
 
             updateAttackValue(handCards[currentCard].attack);
-            attackArray.push(card);
+            
 
         } else if (phase === "defense") {
 
             // TO DO: UPDATE DEFENSE VALUE *******************************************************************************
-            attackArray.push(card);
 
         }
 
+        cardArray.push(card);
         handCards.splice(currentCard, 1);
 
         // Check for current card data
@@ -317,7 +317,7 @@ function updateAttackValue(num) {
 
 function undoAdd() {
 
-        if (attackArray.length > 0 || defenseArray.length > 0) {
+        if (cardArray.length > 0 || defenseArray.length > 0) {
 
             // Check if no cards are currently in hand to update currently selected card
             
@@ -334,8 +334,8 @@ function undoAdd() {
 
             if (phase === "attack") {
 
-                updateAttackValue(-attackArray[attackArray.length -1].attack);
-                handCards.push(attackArray.pop());
+                updateAttackValue(-cardArray[cardArray.length -1].attack);
+                handCards.push(cardArray.pop());
 
             } else if (phase === "defense") {
 
@@ -354,17 +354,17 @@ function undoAdd() {
 
 }
 
-/** Start attacking with the current attackArray */
+/** Start attacking with the current cardArray */
 
 function startAttack() {
 
-    // Calculate attack power from cards in attackArray
+    // Calculate attack power from cards in cardArray
 
-    for (let i = 0; i < attackArray.length; i++) {
+    for (let i = 0; i < cardArray.length; i++) {
 
         if (fightingEnemies.length > 0) {
 
-            enemyLife(-attackArray[i].attack);
+            enemyLife(-cardArray[i].attack);
 
         } else {
             console.log("No more enemies.");
@@ -374,7 +374,7 @@ function startAttack() {
 
     // showDamage();
     showOverlay();
-    attackArray.splice(0, attackArray.length);
+    cardArray.splice(0, cardArray.length);
     document.getElementById("attack-strength").innerHTML = 0;
     pickCards();
 
@@ -384,13 +384,13 @@ function startAttack() {
 
 function skillUsage() {
 
-    for (let i = 0; i < attackArray.length; i++) {
+    for (let i = 0; i < cardArray.length; i++) {
 
         // Use skill when right phase is active
     
-        if (attackArray[i].specialPhase === phase) {
+        if (cardArray[i].specialPhase === phase) {
     
-            switch (attackArray[i].specialType) {
+            switch (cardArray[i].specialType) {
 
                 case "magic": {
 
@@ -408,7 +408,7 @@ function skillUsage() {
 
             // Execute when card does not have a skill 
     
-        } else if (attackArray[i].specialPhase === "none") {
+        } else if (cardArray[i].specialPhase === "none") {
     
             console.log("Skill does not have special phase requirements.");
     
