@@ -3,11 +3,12 @@
 let cards = loadAvailableCards();
 let handCards = [];
 let currentCard = 0;
-let fightingEnemies = loadEnemies(1);
+let fightingEnemies = loadEnemies(3);
 let playerHealth = 0;
 let phase = "attack";
 let attackArray = [];
 let defenseArray = [];
+let multiplier = 1;
 const maxHandCardsAmount = 4;
 
 /** Function to load when DOM content is loaded */
@@ -244,14 +245,19 @@ function attackWithCard(card) {
 
     if (phase === "attack") {
 
+        if (card.specialType === "multiplier") {
+            multiplier += card.specialValue;
+            document.getElementById("multiplier").innerHTML = multiplier;
+        }
+
         document.getElementById("add-cards-attack").style.display = "block";
 
-        updateAttackValue(handCards[currentCard].attack);
+        updateAttackValue(handCards[currentCard].attack * multiplier);
 
         // Add card to attack array
 
         attackArray.push(card);
-        handCards.splice(currentCard, 1)
+        handCards.splice(currentCard, 1);
 
         // Check for current card data
 
@@ -327,7 +333,11 @@ function undoAdd() {
 
             // Add card to hand
 
-            updateAttackValue(-attackArray[attackArray.length -1].attack); 
+            updateAttackValue(-attackArray[attackArray.length -1].attack * multiplier);
+            if (attackArray[attackArray.length -1].specialType === "multiplier") {
+                multiplier -= attackArray[attackArray.length -1].specialValue;
+                document.getElementById("multiplier").innerHTML = multiplier;
+            }
             handCards.push(attackArray.pop());
             showCardAmount();
             showCurrentCardData();
@@ -356,35 +366,13 @@ function startAttack() {
     for (let i = 0; i < attackArray.length; i++) {
 
         if (fightingEnemies.length > 0) {
-            enemyLife(-attackArray[i].attack);
+
+            enemyLife(-attackArray[i].attack * multiplier);
+
         } else {
             console.log("No more enemies.");
         }
     
-    }
-
-    // Calculate special skill values for each card
-
-    for (let i = 0; i < attackArray.length; i++) {
-
-        // Use skill when right phase is active
-
-        if (attackArray[i].specialPhase === phase) {
-
-            console.log("Skill used in right phase.");
-
-            // Execute when card does not have a skill 
-
-        } else if (attackArray[i].specialPhase === "none") {
-
-            console.log("Skill does not have special phase requirements.");
-
-        } else {
-
-            console.log("Neither right phase nor usable skill.");
-
-        }
-
     }
 
     // showDamage();
@@ -394,6 +382,50 @@ function startAttack() {
     pickCards();
 
 }
+
+/** Calculate special skill values for each card */
+
+function skillUsage() {
+
+    for (let i = 0; i < attackArray.length; i++) {
+
+        // Use skill when right phase is active
+    
+        if (attackArray[i].specialPhase === phase) {
+    
+            switch (attackArray[i].specialType) {
+
+                case "magic": {
+
+                }
+
+                case "heal": {
+
+                }
+
+                case "defense": {
+
+                }
+
+            }
+
+            // Execute when card does not have a skill 
+    
+        } else if (attackArray[i].specialPhase === "none") {
+    
+            console.log("Skill does not have special phase requirements.");
+    
+        } else {
+    
+            console.log("Neither right phase nor usable skill.");
+    
+        }
+
+    }
+
+}
+
+
 
 /** Button to change phase */
 

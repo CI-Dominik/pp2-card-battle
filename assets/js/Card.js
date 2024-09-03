@@ -28,7 +28,7 @@ const cardPresets = [
         new Card("Shamus", 10, 20, "Special Description", "attack", "Special Type", "Special Value", "Description", "forest-shaman.webp", 3),
         new Card("Ingrid", 100, 75, "Special Description", "none", "Special Type", "Special Value", "Description", "forest-spirit.webp", 3),
         new Card("Magus", 45, 23, "Special Description", "none", "Special Type", "Special Value", "Description", "mage.webp", 2),
-        new Card("Rambo", 555, 10, "Special Description", "attack", "Special Type", "Special Value", "Description", "mercenary.webp", 10)
+        new Card("Rambo", 10, 10, "Special Description", "attack", "multiplier", 0.25, "Description", "mercenary.webp", 10)
 
 ]
 
