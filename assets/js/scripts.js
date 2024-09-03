@@ -220,7 +220,16 @@ function enemyLife(value) {
 /** Declares the end of the game by winning */
 
 function winGame() {
+
+    document.getElementById("enemy-name").innerHTML = "No enemy available";
+    document.getElementById("enemy-attack").innerHTML = 0;
+    document.getElementById("enemy-defense").innerHTML = 0;
+    document.getElementById("enemy-description").innerHTML = "No enemy available";
+    document.getElementById("enemy-health").innerHTML = 0
+    document.getElementById("enemy-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
+
     alert("You win!");
+
 }
 
 /** Declares the end of the game by losing */
