@@ -2,7 +2,7 @@
 
 class Card {
 
-    constructor(name, attack, defense, specialDescription, specialPhase, specialType, specialValue, description, maxAmount) {
+    constructor(name, attack, defense, specialDescription, specialPhase, specialType, specialValue, description, image, maxAmount) {
 
         this.name = name;
         this.attack = attack;
@@ -12,6 +12,7 @@ class Card {
         this.specialType = specialType;
         this.specialValue = specialValue;
         this.description = description;
+        this.image = image;
         this.maxAmount = maxAmount;
 
     }
@@ -22,12 +23,12 @@ class Card {
 
 const cardPresets = [
 
-        new Card("Test1", 20, 30, "Special Description", "attack", "Special Type", "Special Value", "Description", 3),
-        new Card("Test2", 50, 80, "Special Description", "defense", "Special Type", "Special Value", "Description", 1),
-        new Card("Test3", 10, 20, "Special Description", "attack", "Special Type", "Special Value", "Description", 3),
-        new Card("Test4", 100, 75, "Special Description", "none", "Special Type", "Special Value", "Description", 3),
-        new Card("Test5", 45, 23, "Special Description", "none", "Special Type", "Special Value", "Description", 2),
-        new Card("Test6", 5, 10, "Special Description", "attack", "Special Type", "Special Value", "Description", 10)
+        new Card("Doctor Goodman", 20, 30, "Special Description", "attack", "Special Type", "Special Value", "Description", "doctor.webp", 3),
+        new Card("Talonus", 50, 80, "Special Description", "defense", "Special Type", "Special Value", "Description", "eagle-warrior.webp", 1),
+        new Card("Shamus", 10, 20, "Special Description", "attack", "Special Type", "Special Value", "Description", "forest-shaman.webp", 3),
+        new Card("Ingrid", 100, 75, "Special Description", "none", "Special Type", "Special Value", "Description", "forest-spirit.webp", 3),
+        new Card("Magus", 45, 23, "Special Description", "none", "Special Type", "Special Value", "Description", "mage.webp", 2),
+        new Card("Rambo", 5, 10, "Special Description", "attack", "Special Type", "Special Value", "Description", "mercenary.webp", 10)
 
 ]
 

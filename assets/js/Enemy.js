@@ -2,7 +2,7 @@
 
 class Enemy {
 
-    constructor(name, attack, defense, special, description, life) {
+    constructor(name, attack, defense, special, description, life, image) {
 
         this.name = name;
         this.attack = attack;
@@ -10,6 +10,7 @@ class Enemy {
         this.special = special;
         this.description = description;
         this.life = life;
+        this.image = image;
 
     }
 
@@ -19,12 +20,12 @@ class Enemy {
 
 const enemyPresets = [
 
-    new Enemy("Enemy1", 20, 30, "PH", "PH", 50),
-    new Enemy("Enemy2", 50, 80, "PH", "PH", 60),
-    new Enemy("Enemy3", 10, 20, "PH", "PH", 70),
-    new Enemy("Enemy4", 100, 75, "PH", "PH", 80),
-    new Enemy("Enemy5", 45, 23, "PH", "PH", 90),
-    new Enemy("Enemy6", 5, 10, "PH", "PH", 100)
+    new Enemy("Monk-E", 20, 30, "PH", "PH", 50, "ape-warrior.webp"),
+    new Enemy("Draco", 50, 80, "PH", "PH", 60, "dragon-warrior.webp"),
+    new Enemy("Nympha", 10, 20, "PH", "PH", 70, "forest-ghost.webp"),
+    new Enemy("Bob", 100, 75, "PH", "PH", 80, "goblin-warrior.webp"),
+    new Enemy("Dargul", 45, 23, "PH", "PH", 90, "mage.webp"),
+    new Enemy("Snakos", 5, 10, "PH", "PH", 100, "snake-warrior.webp")
 
 ]
 
