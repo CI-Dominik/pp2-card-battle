@@ -211,6 +211,10 @@ main {
     border: 1px solid rgba(0, 0, 0, 0.28);
 }
 
+#phase {
+    text-transform: uppercase;
+}
+
 /* Popup Styling */
 
 #popup {
