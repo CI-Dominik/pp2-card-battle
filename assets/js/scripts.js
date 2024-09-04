@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollCards(currentCard);
     showCardAmount();
     showEnemy();
-    playerLife(50);
+    playerLife(500);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
 
 });
@@ -444,7 +444,7 @@ function changePhase() {
     if (phase === "attack") {
 
         document.getElementById("phase").innerHTML = "Defense";
-        document.getElementById("calculated-damage").innerHTML = 0;
+        document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
         document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
         document.getElementById("defense-strength").innerHTML = 0;
         phase = "defense";
