@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showCardAmount();
     showEnemy();
     playerLife(50);
+    document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
 
 });
 
@@ -253,7 +254,7 @@ function addCard(card) {
 
     } else if (phase === "defense") {
 
-        // TO DO: UPDATE DEFENSE VALUE *******************************************************************************
+        updateDefenseValue(handCards[currentCard].defense);
 
     }
 
@@ -296,6 +297,23 @@ function updateAttackValue(num) {
 
 }
 
+/** Update current defense value */
+
+function updateDefenseValue(num) {
+
+    let defenseValue = 0;
+    defenseValue = parseInt(document.getElementById("defense-strength").innerHTML);
+    defenseValue += num;
+
+    document.getElementById("defense-strength").innerHTML = defenseValue;
+    document.getElementById("calculated-damage").innerHTML = Math.round((100 - defenseValue) / 100 * fightingEnemies[0].attack);
+
+    if (document.getElementById("calculated-damage").innerHTML < 0) {
+        document.getElementById("calculated-damage").innerHTML = 0;
+    }
+
+}
+
 /** Undo last card addition */
 
 function undoAdd() {
@@ -321,7 +339,7 @@ function undoAdd() {
                 
         } else if (phase === "defense") {
 
-                
+            updateDefenseValue(-cardUseStack[cardUseStack.length -1].defense);
                 
         }
 
@@ -343,22 +361,35 @@ function startAttack() {
 
     // Calculate attack power from cards in cardUseStack
 
-    for (let i = 0; i < cardUseStack.length; i++) {
+    if (phase === "attack") {
 
-        if (fightingEnemies.length > 0) {
+        for (let i = 0; i < cardUseStack.length; i++) {
 
-            enemyLife(-cardUseStack[i].attack);
-
-        } else {
-            console.log("No enemies.");
-        }
+            if (fightingEnemies.length > 0) {
     
+                enemyLife(-cardUseStack[i].attack);
+    
+            } else {
+                console.log("No enemies.");
+            }
+        
+        }
+
+    } else if (phase === "defense") {
+
+        let defenseValue = 0;
+        
+        for (let i = 0; i < cardUseStack.length; i++) {
+            defenseValue += cardUseStack[i].defense;
+        }
+
+        playerLife(-Math.round((100 - defenseValue) / 100 * fightingEnemies[0].attack));
+
     }
 
     // showDamage();
     showOverlay();
     cardUseStack.splice(0, cardUseStack.length);
-    document.getElementById("attack-strength").innerHTML = 0;
 
 }
 
@@ -412,20 +443,21 @@ function changePhase() {
     
     if (phase === "attack") {
 
-        document.getElementById("start-attack").style.display = "none";
-        document.getElementById("phase").innerHTML = "Defense phase";
+        document.getElementById("phase").innerHTML = "Defense";
         document.getElementById("calculated-damage").innerHTML = 0;
-        document.getElementById("start-defense").style.display = "block";
         document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
+        document.getElementById("defense-strength").innerHTML = 0;
         phase = "defense";
 
     } else if (phase ==="defense") {
 
-        document.getElementById("start-attack").style.display = "block";
-        document.getElementById("phase").innerHTML = "Defense phase";
+        document.getElementById("phase").innerHTML = "Attack";
         document.getElementById("calculated-damage").innerHTML = 0;
-        document.getElementById("start-defense").style.display = "none";
-        document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
+        document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
+        document.getElementById("attack-strength").innerHTML = 0;
+        pickCards();
+        document.getElementById("add-cards").disabled = false;
+        document.getElementById("add-cards").innerHTML = "Add card";
         phase = "attack";
 
     } else {
@@ -448,6 +480,7 @@ function showOverlay() {
     } else {
 
         document.getElementById("source-name").innerHTML = "Enemy";
+        document.getElementById("target-damage").innerHTML = document.getElementById("calculated-damage").innerHTML;
         
     }
 

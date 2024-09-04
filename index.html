@@ -112,8 +112,7 @@
 
                         <button id="add-cards" onclick="addCard(handCards[currentCard])">Add card</button>
                         <button id="undo-add" onclick="undoAdd()">Undo</button>
-                        <button id="start-attack" onclick="startAttack()">Start attack</button>
-                        <button id="start-defense" onclick="startDefense()">Start Defense</button>
+                        <button id="start-attack" onclick="startAttack()">Start fight</button>
 
                     </div>
 
@@ -125,7 +124,7 @@
 
                 <div id="score">
                     <p id="phase">Attack</p>
-                    <p>POWER<br><span id="attack-strength">0</span></p>
+                    <p>POWER<br><span id="attack-strength">0</span> (-<span id="defense-strength">0</span>%)</p>
                     <p>DAMAGE<br><span id="calculated-damage">0</span></p>
                 </div>
 
