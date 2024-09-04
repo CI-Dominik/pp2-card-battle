@@ -231,6 +231,13 @@ function winGame() {
     document.getElementById("enemy-health").innerHTML = 0
     document.getElementById("enemy-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
 
+    document.getElementById("add-cards").disabled = true;
+    document.getElementById("undo-add").disabled = true;
+    document.getElementById("start-attack").disabled = true;
+
+    document.getElementById("button-left").disabled = true;
+    document.getElementById("button-right").disabled = true;
+
     console.log("You win!");
 
 }
@@ -388,7 +395,10 @@ function startAttack() {
     }
 
     // showDamage();
-    showOverlay();
+
+    if (fightingEnemies.length > 0) {
+        showOverlay();
+    }
     cardUseStack.splice(0, cardUseStack.length);
 
 }
