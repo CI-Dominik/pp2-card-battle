@@ -119,7 +119,7 @@ function showCurrentCardData() {
         document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ` + handCards[currentCard].attack;
         document.getElementById("show-defense").innerHTML = handCards[currentCard].defense + ` <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("show-description").innerHTML = handCards[currentCard].description;
-        document.getElementById("card-image").style.background = "url(../images/cards/" + handCards[currentCard].image + ") center center/cover";
+        document.getElementById("card-image").style.background = "url(assets/images/cards/" + handCards[currentCard].image + ".webp) center center/cover";
 
     } else {
 
@@ -127,7 +127,7 @@ function showCurrentCardData() {
         document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> 0`;
         document.getElementById("show-defense").innerHTML = `0 <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("show-description").innerHTML = "No card in hand";
-        document.getElementById("card-image").style.background = "url(../images/no-card.jpg) center center/cover";
+        document.getElementById("card-image").style.background = "url(assets/images/no-card.jpg) center center/cover";
 
     }
 
@@ -162,7 +162,7 @@ function showEnemy() {
         document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[0].defense} <i class="fa-solid fa-shield-halved"></i>`
         document.getElementById("enemy-description").innerHTML = fightingEnemies[0].description;
         document.getElementById("enemy-health").innerHTML = fightingEnemies[0].life;
-        document.getElementById("enemy-image").style.background = "url(../images/enemies/" + fightingEnemies[0].image + ") center center/cover";
+        document.getElementById("enemy-image").style.background = "url(assets/images/enemies/" + fightingEnemies[0].image + ".webp) center center/cover";
     
     } else {
 
