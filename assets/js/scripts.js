@@ -238,7 +238,7 @@ function winGame() {
     document.getElementById("button-left").disabled = true;
     document.getElementById("button-right").disabled = true;
 
-    console.log("You win!");
+    alert("You win!");
 
 }
 
