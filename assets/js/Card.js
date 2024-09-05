@@ -31,10 +31,10 @@ const cardPresets = [
         new Card("Rambo", 10, 10, "Special Description", "attack", "Special Type", "Special Value", "Description", "mercenary", 1),
         new Card("Dominik, the Bearded One", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "dominik", 1),
         new Card("Daniela, the Owl Witch", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "daniela", 1), */
-        new Card("Frederic, the Mad Genius", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "frederic", 1),
+        new Card("Frederic, the Mad Genius", 50, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "frederic", 1),
         new Card("Alicja, the Radiant", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "alicja", 1),
-        new Card("Lentje, the Crazy Chicken Lady", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "lentje", 1),
-        new Card("Lisa, the Soda-Lover", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "lisa", 1),
+        new Card("Lentje, the Crazy Chicken Lady", 50, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "lentje", 1),
+        new Card("Lisa, the Soda-Lover", 50, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "lisa", 1),
         new Card("Nadine, the Dinosaur Tamer", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "nadine", 1),
         new Card("Anita, the Pineapple Freak", 10, 10, "Special Description", "defense", "Special Type", "Special Value", "Description", "anita", 1)
 

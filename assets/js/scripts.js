@@ -3,7 +3,7 @@
 let cards = loadAvailableCards();
 let handCards = [];
 let currentCard = 0;
-let fightingEnemies = loadEnemies(3);
+let fightingEnemies = loadEnemies(1);
 let playerHealth = 0;
 let phase = "attack";
 let cardUseStack = [];
@@ -64,8 +64,6 @@ function pickCards() {
     showCurrentCardData();
     checkZero();
     updateCardCounter();
-
-    console.log(cards.length);
 
 }
 
@@ -241,15 +239,18 @@ function winGame() {
     document.getElementById("button-left").disabled = true;
     document.getElementById("button-right").disabled = true;
 
-    alert("You win!");
-
 }
 
 /** Declares the end of the game by losing */
 
 function gameLost() {
 
-    alert("You lost!");
+    document.getElementById("add-cards").disabled = true;
+    document.getElementById("undo-add").disabled = true;
+    document.getElementById("start-attack").disabled = true;
+
+    document.getElementById("button-left").disabled = true;
+    document.getElementById("button-right").disabled = true;
 
 }
 
@@ -379,8 +380,6 @@ function startAttack() {
     
                 enemyLife(-cardUseStack[i].attack);
     
-            } else {
-                console.log("No enemies.");
             }
         
         }
@@ -413,42 +412,6 @@ function startAttack() {
 
 }
 
-/** Calculate special skill values for each card */
-
-/*
-
-function skillUsage() {
-
-    for (let i = 0; i < cardUseStack.length; i++) {
-
-        // Use skill when right phase is active
-    
-        if (cardUseStack[i].specialPhase === phase) {
-    
-            switch (cardUseStack[i].specialType) {
-
-                case "heal": {
-
-                }
-
-            }
-
-        // Execute when card does not have a skill 
-    
-        } else if (cardUseStack[i].specialPhase === "none") {
-    
-            console.log("Skill does not have special phase requirements.");
-    
-        } else {
-    
-            console.log("Neither right phase nor usable skill.");
-    
-        }
-
-    }
-
-} */
-
 /** Button to change phase */
 
 function changePhase() {
@@ -474,11 +437,7 @@ function changePhase() {
             document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
             phase = "attack";
     
-        } else {
-    
-            alert("Invalid phase value!");
-    
-        }
+        } 
 
 }
 
