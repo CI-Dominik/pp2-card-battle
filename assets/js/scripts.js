@@ -421,12 +421,12 @@ function changePhase() {
 
         if (phase === "attack") {
 
-            document.getElementById("phase").innerHTML = "Defense";
-            document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
-            document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
-            document.getElementById("defense-strength").innerHTML = 0;
-            phase = "defense";
-    
+                document.getElementById("phase").innerHTML = "Defense";
+                document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
+                document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
+                document.getElementById("defense-strength").innerHTML = 0;
+                phase = "defense";
+
         } else if (phase ==="defense") {
     
             document.getElementById("phase").innerHTML = "Attack";
@@ -434,7 +434,13 @@ function changePhase() {
             document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
             document.getElementById("attack-strength").innerHTML = 0;
             pickCards();
-            document.getElementById("add-cards").disabled = false;
+
+            if (cards.length !== 0 && handCards.length > 0) {
+
+                document.getElementById("add-cards").disabled = false;
+
+            }
+
             document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
             phase = "attack";
     
