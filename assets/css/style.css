@@ -312,6 +312,10 @@ main {
     scrollbar-width: none;
 }
 
+#help-popup p {
+    margin: 1rem 0;
+}
+
 #help-popup button {
     position: absolute;
     top: 1rem;
