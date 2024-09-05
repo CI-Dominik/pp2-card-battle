@@ -57,6 +57,14 @@ main {
     max-width: 35rem;
 }
 
+#player-health {
+    color: green;
+}
+
+#enemy-health {
+    color: red;
+}
+
 /********** BATTLEFIELD AREA STYLING **********/
 
 /* General Battlefield Styling */
@@ -320,4 +328,14 @@ main {
 #help-popup button:hover {
     background: rgba(255,197,47,1);
     color: black;
+}
+
+/* Media Query starting from width of 48rem */
+
+@media (width > 48rem) {
+
+    #separate {
+        display: none;
+    }
+
 }
