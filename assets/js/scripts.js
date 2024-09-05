@@ -90,15 +90,21 @@ function scrollCards(num) {
     currentCard += num;
 
     if (handCards.length === 0) {
+
         document.getElementById("current-card").innerHTML = 0;
+
     }
 
     if (currentCard > handCards.length - 1) {
+
         currentCard = 0;
+
     }
 
     if (currentCard < 0) {
+
         currentCard = handCards.length - 1;
+
     }
 
     document.getElementById("current-card").innerHTML = currentCard + 1;
@@ -228,12 +234,16 @@ function enemyLife(value) {
 
 function winGame() {
 
+    // Erase enemy data
+
     document.getElementById("enemy-name").innerHTML = "No enemy available";
     document.getElementById("enemy-attack").innerHTML = 0;
     document.getElementById("enemy-defense").innerHTML = 0;
     document.getElementById("enemy-description").innerHTML = "No enemy available";
     document.getElementById("enemy-health").innerHTML = 0
     document.getElementById("enemy-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
+
+    // Disable buttons
 
     document.getElementById("add-cards").disabled = true;
     document.getElementById("undo-add").disabled = true;
@@ -248,6 +258,8 @@ function winGame() {
 
 function gameLost() {
 
+    // Disable buttons
+
     document.getElementById("add-cards").disabled = true;
     document.getElementById("undo-add").disabled = true;
     document.getElementById("start-attack").disabled = true;
@@ -261,16 +273,21 @@ function gameLost() {
 
 function addCard(card) {
 
+    // Update attack value when adding a card in the attack phase
+
     if (phase === "attack") {
 
         updateAttackValue(handCards[currentCard].attack);
             
+    // Update the defense value when adding a card in the defense phase
 
     } else if (phase === "defense") {
 
         updateDefenseValue(handCards[currentCard].defense);
 
     }
+
+    // Add card to fighting deck and remove currently selected hand card
 
     cardUseStack.push(card);
     handCards.splice(currentCard, 1);
@@ -283,11 +300,13 @@ function addCard(card) {
 
     }
 
+    // Show amount of cards after adding
+
     showCardAmount();
     showCurrentCardData();
     checkZero();
 
-    // Disable button once no cards are in player's hand
+    // Disable add button once no cards are in player's hand
 
     if (handCards.length === 0) {
 
@@ -358,8 +377,13 @@ function undoAdd() {
         }
 
         handCards.push(cardUseStack.pop());
+
+        // Re-enable add cards button
+
         document.getElementById("add-cards").disabled = false;
         document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
+
+        // Show new card amount
 
         showCardAmount();
         showCurrentCardData();
@@ -387,6 +411,8 @@ function startAttack() {
         
         }
 
+    // Calculate defense power from cards in cardUseStack
+
     } else if (phase === "defense") {
 
         let defenseValue = 0;
@@ -403,7 +429,7 @@ function startAttack() {
         
     }
 
-    // showDamage();
+    // Disable buttons to disable actions during popup window
 
     if (fightingEnemies.length > 0 && playerHealth > 0) {
 
@@ -414,9 +440,13 @@ function startAttack() {
         document.getElementById("button-left").disabled = true;
         document.getElementById("button-right").disabled = true;
 
+        // Show popup window for next phase
+
         showOverlay();
 
     }
+
+    // Clear stack after phase
 
     cardUseStack.splice(0, cardUseStack.length);
 
@@ -426,11 +456,19 @@ function startAttack() {
 
 function changePhase() {
 
+    // Hide the popup
+
     document.getElementById("popup").style.display = "none";
 
+    // Check if all cards were played before the popup appeared
+
     if (handCards.length > 0) {
+
         document.getElementById("add-cards").disabled = false;
+
     }
+
+    // Re-enable buttons after closing popup window
 
     document.getElementById("undo-add").disabled = false;
     document.getElementById("start-attack").disabled = false;
@@ -438,43 +476,60 @@ function changePhase() {
     document.getElementById("button-left").disabled = false;
     document.getElementById("button-right").disabled = false;
 
-        if (phase === "attack") {
+    // Change from attack phase to defense phase
 
-                document.getElementById("phase").innerHTML = "Defense";
-                document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
-                document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
-                document.getElementById("defense-strength").innerHTML = 0;
-                phase = "defense";
+    if (phase === "attack") {
 
-        } else if (phase ==="defense") {
+        document.getElementById("phase").innerHTML = "Defense";
+        document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
+        document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
+        document.getElementById("defense-strength").innerHTML = 0;
+        phase = "defense";
+
+    // Change from defense phase to attack phase
+
+    } else if (phase ==="defense") {
     
-            document.getElementById("phase").innerHTML = "Attack";
-            document.getElementById("calculated-damage").innerHTML = 0;
-            document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
-            document.getElementById("attack-strength").innerHTML = 0;
-            pickCards();
+        document.getElementById("phase").innerHTML = "Attack";
+        document.getElementById("calculated-damage").innerHTML = 0;
+        document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
+        document.getElementById("attack-strength").innerHTML = 0;
+        pickCards();
 
-            if (cards.length !== 0 && handCards.length > 0) {
+        // Check if there are more actions available after chaning the phase
 
-                document.getElementById("add-cards").disabled = false;
+        if (cards.length !== 0 && handCards.length > 0) {
 
-            }
+            document.getElementById("add-cards").disabled = false;
 
-            document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
-            phase = "attack";
+        }
+
+        // Change button to plus icon
+
+        document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
+
+        // Change to attack phase
+
+        phase = "attack";
     
-        } 
+    } 
 
 }
+
+/* Show popup for attack summary */
 
 function showOverlay() {
     
     document.getElementById("popup").style.display = "flex";
 
+    // Show damage stats for player
+
     if (phase === "attack") {
 
         document.getElementById("source-name").innerHTML = "Player";
         document.getElementById("target-damage").innerHTML = document.getElementById("calculated-damage").innerHTML;
+
+    // Show damage stats for enemy
 
     } else {
 
@@ -485,17 +540,27 @@ function showOverlay() {
 
 }
 
+/* Show help popup */
+
 function clickPopup() {
+
+    // Get popup window and close button
 
     let popupWindow = document.getElementById("help-popup");
     let infoButton = document.getElementById("info-button");
 
+    // Check for display status and change it
+
     if (popupWindow.style.display === "block") {
+
         popupWindow.style.display = "none";
         infoButton.style.display = "block";
+
     } else {
+
         popupWindow.style.display = "block";
         infoButton.style.display = "none";
+
     }
 
 }
