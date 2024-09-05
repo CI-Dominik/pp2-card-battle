@@ -33,8 +33,13 @@
         <div id="popup">
             <p><span id="source-name">SOURCE</span> has dealt <span id="target-damage">DAMAGE</span> damage. <br>
             Press button to start next phase!</p>
-
             <button aria-label="Start next phase" id="next-phase-button" onclick="changePhase()">Next phase</button>
+        </div>
+
+        <div id="help-popup">
+            <button aria-label="Close help popup" onclick="clickPopup()"><i class="fa-solid fa-xmark"></i></button>
+            <h2>How to play</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus facilis laborum nulla at natus! Quibusdam incidunt consectetur, delectus necessitatibus velit fuga, assumenda odio unde provident sequi eligendi optio magnam voluptatibus.</p>
         </div>
             
         <main>
@@ -153,11 +158,11 @@
 
                 </div>
 
-                
-
             </section>
 
             <!-- Battlefield Area End -->
+
+            <button id="info-button" aria-label="Information button" onclick="clickPopup()"><i class="fa-solid fa-circle-info"></i></p>
 
         </main>
 

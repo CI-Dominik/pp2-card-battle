@@ -471,3 +471,18 @@ function showOverlay() {
     }
 
 }
+
+function clickPopup() {
+
+    let popupWindow = document.getElementById("help-popup");
+    let infoButton = document.getElementById("info-button");
+
+    if (popupWindow.style.display === "block") {
+        popupWindow.style.display = "none";
+        infoButton.style.display = "block";
+    } else {
+        popupWindow.style.display = "block";
+        infoButton.style.display = "none";
+    }
+
+}

@@ -275,8 +275,49 @@ main {
     color: black
 }
 
-/* Button Styling */
+/* Help Popup Styling */
 
-#start-defense, #add-cards-defense {
+#info-button {
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    font-size: 1.5rem;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+}
+
+#help-popup {
     display: none;
+    background:rgba(255,197,47,1);
+    width: 95%;
+    max-width: 55rem;
+    height: 50vh;
+    position: absolute;
+    z-index: 99;
+    padding: 1rem;
+    border: 0.2rem solid black;
+    box-shadow: 0 0 2rem white;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#help-popup button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: black;
+    color: rgba(255,197,47,1);
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+#help-popup button:hover {
+    background: rgba(255,197,47,1);
+    color: black;
 }
