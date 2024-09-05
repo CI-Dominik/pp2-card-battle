@@ -34,7 +34,7 @@
             <p><span id="source-name">SOURCE</span> has dealt <span id="target-damage">DAMAGE</span> damage. <br>
             Press button to start next phase!</p>
 
-            <button id="next-phase-button" onclick="changePhase()">Next phase</button>
+            <button aria-label="Start next phase" id="next-phase-button" onclick="changePhase()">Next phase</button>
         </div>
             
         <main>
@@ -90,9 +90,9 @@
 
                         <div id="arrow-container">
 
-                            <button id="button-left" onclick="scrollCards(-1)"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button aria-label="Scroll hand cards to the left" id="button-left" onclick="scrollCards(-1)"><i class="fa-solid fa-arrow-left"></i></button>
                             <span id="current-card">0</span> / <span id="hand-cards">0</span>
-                            <button id="button-right" onclick="scrollCards(1)"><i class="fa-solid fa-arrow-right"></i></button>
+                            <button aria-label="Scroll hand cards to the right" id="button-right" onclick="scrollCards(1)"><i class="fa-solid fa-arrow-right"></i></button>
 
                         </div>
 
@@ -106,13 +106,15 @@
 
                         <h2 id="show-name">NAME</h2>
 
-                        <p id="show-description">Lorem ipsum dolor sit amet.</p>
+                        <p id="show-description">DESCRIPTION</p>
 
                         <p id="show-special"></p>
 
-                        <button id="add-cards" onclick="addCard(handCards[currentCard])">Add card</button>
-                        <button id="undo-add" onclick="undoAdd()">Undo</button>
-                        <button id="start-attack" onclick="startAttack()">Start fight</button>
+                        <div id="button-container">
+                            <button aria-label="Add cards to attack stack" id="add-cards" onclick="addCard(handCards[currentCard])"><i class="fa-solid fa-plus"></i></button>
+                            <button aria-label="Undo last addition" id="undo-add" onclick="undoAdd()"><i class="fa-solid fa-rotate-left"></i></button>
+                            <button aria-label="Start fighting phase" id="start-attack" onclick="startAttack()"><i class="fa-solid fa-check"></i></button>
+                        </div>
 
                     </div>
 
@@ -161,13 +163,13 @@
 
         <!-- Script Import -->
 
-        <script src="assets/js/Card.js"></script>
-        <script src="assets/js/Enemy.js"></script>
-        <script src="assets/js/scripts.js"></script>
+        <script src="assets/js/Card.js" defer></script>
+        <script src="assets/js/Enemy.js" defer></script>
+        <script src="assets/js/scripts.js" defer></script>
 
         <!-- Fontawesome Import -->
 
-        <script src="https://kit.fontawesome.com/b267705d2e.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/b267705d2e.js" crossorigin="anonymous" defer></script>
         
     </body>
 
