@@ -407,6 +407,13 @@ function startAttack() {
 
     if (fightingEnemies.length > 0 && playerHealth > 0) {
 
+        document.getElementById("add-cards").disabled = true;
+        document.getElementById("undo-add").disabled = true;
+        document.getElementById("start-attack").disabled = true;
+
+        document.getElementById("button-left").disabled = true;
+        document.getElementById("button-right").disabled = true;
+
         showOverlay();
 
     }
@@ -420,6 +427,16 @@ function startAttack() {
 function changePhase() {
 
     document.getElementById("popup").style.display = "none";
+
+    if (handCards.length > 0) {
+        document.getElementById("add-cards").disabled = false;
+    }
+
+    document.getElementById("undo-add").disabled = false;
+    document.getElementById("start-attack").disabled = false;
+
+    document.getElementById("button-left").disabled = false;
+    document.getElementById("button-right").disabled = false;
 
         if (phase === "attack") {
 
