@@ -243,6 +243,12 @@ function winGame() {
     document.getElementById("enemy-health").innerHTML = 0
     document.getElementById("enemy-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
 
+    // Erase fighting data
+
+    document.getElementById("attack-strength").innerHTML = 0;
+    document.getElementById("defense-strength").innerHTML = 0;
+    document.getElementById("calculated-damage").innerHTML = 0;
+
     // Disable buttons
 
     document.getElementById("add-cards").disabled = true;
