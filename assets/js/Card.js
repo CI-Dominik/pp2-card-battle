@@ -23,7 +23,7 @@ class Card {
 
 const cardPresets = [
 
-        new Card("Doctor Goodman", 5, 40, "Special Description", "attack", "Special Type", "Special Value", "Description", "doctor", 3),
+        new Card("Doctor Goodman", 5, 40, "Special Description", "attack", "healing", 30, "Description", "doctor", 15),
         new Card("Talonus", 40, 5, "Special Description", "defense", "Special Type", "Special Value", "Description", "eagle-warrior", 1),
         new Card("Shamus", 30, 10, "Special Description", "attack", "Special Type", "Special Value", "Description", "forest-shaman", 3),
         new Card("Ingrid", 10, 65, "Special Description", "none", "Special Type", "Special Value", "Description", "forest-spirit", 3),

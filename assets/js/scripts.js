@@ -405,6 +405,8 @@ function startAttack() {
 
     // Calculate attack power from cards in cardUseStack
 
+    skillCheck();
+
     if (phase === "attack") {
 
         for (let i = 0; i < cardUseStack.length; i++) {
@@ -465,6 +467,10 @@ function changePhase() {
     // Hide the popup
 
     document.getElementById("popup").style.display = "none";
+
+    // Clear every used skill
+
+    document.getElementById("show-healing").innerHTML = "";
 
     // Check if all cards were played before the popup appeared
 
@@ -566,6 +572,41 @@ function clickPopup() {
 
         popupWindow.style.display = "block";
         infoButton.style.display = "none";
+
+    }
+
+}
+
+/* Check for usable skills */
+
+function skillCheck() {
+
+    for (let card of cardUseStack) {
+
+        if (card.specialPhase === phase) {
+
+            switch (card.specialType) {
+
+                case "healing":
+                    playerLife(card.specialValue);
+                    document.getElementById("show-healing").innerHTML += `${card.name} restored ${card.specialValue} health points.<br>`;
+                    break;
+
+                case "dot":
+                    break;
+
+                case "hot":
+                    break;
+
+                case "stun":
+                    break;
+
+                default:
+                    break;
+
+            }
+
+        }
 
     }
 
