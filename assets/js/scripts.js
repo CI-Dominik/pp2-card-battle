@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollCards(currentCard);
     showCardAmount();
     showEnemy();
-    playerLife(80);
+    playerLife(120);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
 
@@ -210,10 +210,11 @@ function enemyLife(value) {
     if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
         fightingEnemies.splice(0, 1);
-        
+        document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
 
     } else if (fightingEnemies.length === 0) {
 
+        document.getElementById("remaining-enemies").innerHTML = 0;
         winGame();
 
     }
