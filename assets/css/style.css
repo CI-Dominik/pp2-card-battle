@@ -219,7 +219,7 @@ main {
 #enemy-card-desc {
     text-align: right;
     width: 50%;
-    padding: 1rem;
+    margin-right: 1rem;
 }
 
 #enemy-attack, #enemy-defense {
