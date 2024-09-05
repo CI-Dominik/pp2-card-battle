@@ -258,10 +258,12 @@ main {
     align-items: center;
     background:rgba(255,197,47,1);
     width: 95%;
+    height: 50vh;
     max-width: 45rem;
-    height: 300px;
     position: absolute;
-    font-size: 2rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    font-size: 1.5rem;
     text-align: center;
     z-index: 99;
     padding: 1rem;
