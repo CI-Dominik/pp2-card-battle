@@ -86,9 +86,11 @@
             <section id="health-area">
 
                 <div id="health-wrapper">
+
                     <p>Player: <span id="player-health">0</span></p>
                     <p id="separate">|</p>
                     <p>Enemy: <span id="enemy-health">0</span></p>
+
                 </div>
 
             </section>
@@ -110,8 +112,12 @@
                         <div id="card">
 
                             <div id="card-image">
+
                                 <div id="damage-number-player"></div>
+
                             </div>
+
+                            <!-- Container for card stats -->
                 
                             <div id="card-container">
                 
@@ -153,12 +159,14 @@
 
                         <p id="show-description">DESCRIPTION</p>
 
-                        <p id="show-special"></p>
+                        <!-- Container for phase actions -->
 
                         <div id="button-container">
+
                             <button aria-label="Add cards to attack stack" id="add-cards" onclick="addCard(handCards[currentCard])"><i class="fa-solid fa-plus"></i></button>
                             <button aria-label="Undo last addition" id="undo-add" onclick="undoAdd()"><i class="fa-solid fa-rotate-left"></i></button>
                             <button aria-label="Start fighting phase" id="start-attack" onclick="startAttack()"><i class="fa-solid fa-check"></i></button>
+
                         </div>
 
                     </div>
@@ -170,11 +178,13 @@
                 <!-- Battle Score Start -->
 
                 <div id="score">
+
                     <p id="phase">Attack</p>
                     <p>Deck<br><span id="remaining-cards">0</span></p>
                     <p>Enemies<br><span id="remaining-enemies">0</span></p>
                     <p>Power<br><span id="attack-strength">0</span> (-<span id="defense-strength">0</span>%)</p>
                     <p>Damage<br><span id="calculated-damage">0</span></p>
+
                 </div>
 
                 <!-- Battle Score End -->
@@ -184,16 +194,20 @@
                 <div id="enemy-area">
 
                     <div id="enemy-card-desc">
+
                         <h2 id="enemy-name">NAME</h2>
                         <p id="enemy-attack"><i class="fa-solid fa-skull"></i> X</p>
                         <p id="enemy-defense">X <i class="fa-solid fa-shield-halved"></i></p>
                         <p id="enemy-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, necessitatibus!</p>
+
                     </div>
 
                     <div id="enemy-card-placement">
 
                         <div id="enemy-image">
+
                             <div id="damage-number-enemy"></div>
+                            
                         </div>
 
                     </div>
