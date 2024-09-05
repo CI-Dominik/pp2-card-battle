@@ -32,10 +32,14 @@ function pickCards() {
 
     for(i = 0; i < cardsToPick; i++) {
 
-        if (cards.length === 0) {
+        if (cards.length === 0 && handCards.length <= 0) {
 
-            console.log("No cards remaining.");
+            gameLost();
             return;
+
+        } else if(cards.length === 0) {
+
+            continue;
 
         }
     
@@ -59,6 +63,23 @@ function pickCards() {
     showCardAmount();
     showCurrentCardData();
     checkZero();
+    updateCardCounter();
+
+    console.log(cards.length);
+
+}
+
+function updateCardCounter() {
+
+    if (cards.length > 0) {
+
+        document.getElementById("remaining-cards").innerHTML = cards.length;
+
+    } else {
+
+        document.getElementById("remaining-cards").innerHTML = 0;
+
+    }
 
 }
 
@@ -372,15 +393,22 @@ function startAttack() {
             defenseValue += cardUseStack[i].defense;
         }
 
-        playerLife(-Math.round((100 - defenseValue) / 100 * fightingEnemies[0].attack));
+        if (playerHealth > 0) {
 
+            playerLife(-Math.round((100 - defenseValue) / 100 * fightingEnemies[0].attack));
+
+        }
+        
     }
 
     // showDamage();
 
-    if (fightingEnemies.length > 0) {
+    if (fightingEnemies.length > 0 && playerHealth > 0) {
+
         showOverlay();
+
     }
+
     cardUseStack.splice(0, cardUseStack.length);
 
 }
@@ -426,31 +454,31 @@ function skillUsage() {
 function changePhase() {
 
     document.getElementById("popup").style.display = "none";
+
+        if (phase === "attack") {
+
+            document.getElementById("phase").innerHTML = "Defense";
+            document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
+            document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
+            document.getElementById("defense-strength").innerHTML = 0;
+            phase = "defense";
     
-    if (phase === "attack") {
-
-        document.getElementById("phase").innerHTML = "Defense";
-        document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
-        document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
-        document.getElementById("defense-strength").innerHTML = 0;
-        phase = "defense";
-
-    } else if (phase ==="defense") {
-
-        document.getElementById("phase").innerHTML = "Attack";
-        document.getElementById("calculated-damage").innerHTML = 0;
-        document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
-        document.getElementById("attack-strength").innerHTML = 0;
-        pickCards();
-        document.getElementById("add-cards").disabled = false;
-        document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
-        phase = "attack";
-
-    } else {
-
-        alert("Invalid phase value!");
-
-    }
+        } else if (phase ==="defense") {
+    
+            document.getElementById("phase").innerHTML = "Attack";
+            document.getElementById("calculated-damage").innerHTML = 0;
+            document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
+            document.getElementById("attack-strength").innerHTML = 0;
+            pickCards();
+            document.getElementById("add-cards").disabled = false;
+            document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
+            phase = "attack";
+    
+        } else {
+    
+            alert("Invalid phase value!");
+    
+        }
 
 }
 

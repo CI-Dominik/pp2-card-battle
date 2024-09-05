@@ -57,14 +57,6 @@ main {
     max-width: 35rem;
 }
 
-#player-health {
-    color: green;
-}
-
-#enemy-health {
-    color: red;
-}
-
 /********** BATTLEFIELD AREA STYLING **********/
 
 /* General Battlefield Styling */
