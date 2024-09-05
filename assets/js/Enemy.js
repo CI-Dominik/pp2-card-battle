@@ -2,7 +2,7 @@
 
 class Enemy {
 
-    constructor(name, attack, defense, special, description, life, image) {
+    constructor(name, attack, defense, special, description, life, image, damageArray = []) {
 
         this.name = name;
         this.attack = attack;
@@ -11,6 +11,7 @@ class Enemy {
         this.description = description;
         this.life = life;
         this.image = image;
+        this.damageArray = damageArray;
 
     }
 
