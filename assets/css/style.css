@@ -149,6 +149,7 @@ main {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+    text-shadow: 0 0 0.5rem black;
     margin: 1rem;
 	font-weight: bold;
 	color: white;
