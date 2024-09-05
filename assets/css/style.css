@@ -250,13 +250,16 @@ main {
     justify-content: center;
     align-items: center;
     background:rgba(255,197,47,1);
-    width: 80%;
+    width: 95%;
+    max-width: 45rem;
     height: 300px;
     position: absolute;
     font-size: 2rem;
     text-align: center;
     z-index: 99;
     padding: 1rem;
+    border: 0.2rem solid black;
+    box-shadow: 0 0 2rem white;
 }
 
 #popup button {
