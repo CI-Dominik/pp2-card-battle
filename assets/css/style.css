@@ -336,9 +336,13 @@ main {
 
 @media (width > 48rem) {
 
+    /* General Styling */
+
     body {
         font-size: 1rem;
     }
+
+    /* Card Styling */
 
     #card {
         max-width: 11.25rem;
@@ -350,6 +354,8 @@ main {
         max-width: 9rem;
         max-height: 9rem;
     }
+
+    /* Button Styling */
 
     #arrow-container button {
 
@@ -364,10 +370,14 @@ main {
 
     }
 
+    /* Enemy Area Styling */
+
     #enemy-image {
         max-width: 9rem;
         max-height: 9rem;
     }
+
+    /* Health Area Styling */
 
     #separate {
         display: none;
