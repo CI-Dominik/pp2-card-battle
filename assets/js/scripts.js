@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showEnemy();
     playerLife(500);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
+    document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
 
 });
 
@@ -146,7 +147,7 @@ function showCurrentCardData() {
         document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> 0`;
         document.getElementById("show-defense").innerHTML = `0 <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("show-description").innerHTML = "No card in hand";
-        document.getElementById("card-image").style.background = "url(assets/images/no-card.jpg) center center/cover";
+        document.getElementById("card-image").style.background = "url(assets/images/no-card.jpg) no-repeat center center/cover";
 
     }
 
