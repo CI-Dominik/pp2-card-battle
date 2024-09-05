@@ -8,7 +8,7 @@ class Skill {
 
 }
 
-class Dot extends Damage {
+class Dot extends Skill {
 
     constructor(damageValue, damageDuration) {
 
@@ -19,7 +19,7 @@ class Dot extends Damage {
 
 }
 
-class Stun extends Damage {
+class Stun extends Skill {
 
     constructor(damageValue, stunDuration) {
 
