@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollCards(currentCard);
     showCardAmount();
     showEnemy();
-    playerLife(500);
+    playerLife(80);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
 
