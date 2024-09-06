@@ -29,3 +29,14 @@ class Stun extends Skill {
     }
 
 }
+
+class Hot extends Skill {
+
+    constructor(damageValue, damageDuration) {
+
+        super(damageValue);
+        this.damageDuration = damageDuration;
+
+    }
+
+}

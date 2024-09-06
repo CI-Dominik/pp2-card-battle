@@ -5,7 +5,9 @@ let handCards = [];
 let currentCard = 0;
 let fightingEnemies = loadEnemies(3);
 let playerHealth = 0;
+let playerStunDuration = 0;
 let phase = "attack";
+let playerEffects = [];
 let cardUseStack = [];
 const maxHandCardsAmount = 4;
 
@@ -281,46 +283,54 @@ function gameLost() {
 
 function addCard(card) {
 
-    // Update attack value when adding a card in the attack phase
+    if (playerStunDuration <= 0) {
 
-    if (phase === "attack") {
+        // Update attack value when adding a card in the attack phase
 
-        updateAttackValue(handCards[currentCard].attack);
-            
-    // Update the defense value when adding a card in the defense phase
+        if (phase === "attack") {
 
-    } else if (phase === "defense") {
+            updateAttackValue(handCards[currentCard].attack);
+                
+        // Update the defense value when adding a card in the defense phase
 
-        updateDefenseValue(handCards[currentCard].defense);
+        } else if (phase === "defense") {
 
-    }
+            updateDefenseValue(handCards[currentCard].defense);
 
-    // Add card to fighting deck and remove currently selected hand card
+        }
 
-    cardUseStack.push(card);
-    handCards.splice(currentCard, 1);
+        // Add card to fighting deck and remove currently selected hand card
 
-    // Check for current card data
+        cardUseStack.push(card);
+        handCards.splice(currentCard, 1);
 
-    if (currentCard === handCards.length) {
+        // Check for current card data
 
-        scrollCards(-1);
+        if (currentCard === handCards.length) {
 
-    }
+            scrollCards(-1);
 
-    // Show amount of cards after adding
+        }
 
-    showCardAmount();
-    showCurrentCardData();
-    checkZero();
+        // Show amount of cards after adding
 
-    // Disable add button once no cards are in player's hand
+        showCardAmount();
+        showCurrentCardData();
+        checkZero();
 
-    if (handCards.length === 0) {
+        // Disable add button once no cards are in player's hand
 
-        document.getElementById("add-cards").disabled = true;
-        document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-xmark"></i>';
-            
+        if (handCards.length === 0) {
+
+            document.getElementById("add-cards").disabled = true;
+            document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        
+        }
+
+    } else {
+
+        alert("Stunned!");
+
     }
 
 }
@@ -414,22 +424,25 @@ function startAttack() {
         damageCheck();
     }
 
-
     if (phase === "attack") {
 
         for (let i = 0; i < cardUseStack.length; i++) {
-
+    
             if (fightingEnemies.length > 0) {
-    
-                enemyLife(-cardUseStack[i].attack);
-    
-            }
         
+                enemyLife(-cardUseStack[i].attack);
+        
+            }
+            
         }
+
+    }
 
     // Calculate defense power from cards in cardUseStack
 
-    } else if (phase === "defense") {
+    if (phase === "defense") {
+
+        // TODO: CHECK ENEMY SKILLS *********************************************************************************************************************************
 
         if (fightingEnemies[0].stunDuration <= 0) {
 
@@ -456,6 +469,16 @@ function startAttack() {
         
     }
 
+    if (playerStunDuration > 0) {
+
+        document.getElementById("show-stun-player").innerHTML = `Player is stunned for ${playerStunDuration - 1} more rounds.`;
+
+    } else {
+
+        document.getElementById("show-stun-player").innerHTML = "";
+
+    }
+
     // Disable buttons to disable actions during popup window
 
     if (fightingEnemies.length > 0 && playerHealth > 0) {
@@ -476,6 +499,15 @@ function startAttack() {
     // Clear stack after phase
 
     cardUseStack.splice(0, cardUseStack.length);
+
+    if (playerStunDuration > 0) {
+
+        playerStunDuration -= 1;
+
+    }
+
+    stunCheckEnemy();
+    stunCheckPlayer();
 
 }
 
@@ -547,8 +579,9 @@ function changePhase() {
         phase = "attack";
 
         stunCheckEnemy();
+        stunCheckPlayer();
     
-    } 
+    }
 
 }
 
@@ -658,13 +691,14 @@ function skillCheckPlayer() {
 
 }
 
+/* Check for damage over time effects */
+
 function damageCheck() {
 
     for (let dots in fightingEnemies[0].damageArray) {
 
         if (fightingEnemies[0].damageArray[dots].damageDuration > 0 && fightingEnemies[0].damageArray[dots] !== undefined) {
 
-            
             fightingEnemies[0].damageArray[dots].damageDuration -= 1;
             document.getElementById("show-dots").innerHTML += `${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.`;
             enemyLife(-fightingEnemies[0].damageArray[dots].damageValue);
@@ -688,6 +722,40 @@ function stunCheckEnemy() {
     } else {
 
         document.getElementById("enemy-stun").innerHTML = "";
+
+    }
+
+}
+
+function stunCheckPlayer() {
+
+    if (playerStunDuration > 0) {
+
+        document.getElementById("show-player-stun").innerHTML = `Stun: ${playerStunDuration} rounds`;
+
+    } else {
+
+        document.getElementById("show-player-stun").innerHTML = "";
+
+    }
+
+}
+
+function checkPlayerEffects () {
+
+    for (let effect of playerEffects) {
+
+        switch (effect) {
+
+            case "hot":
+
+                break;
+
+            case "dot":
+
+                break;
+
+        }
 
     }
 
