@@ -420,8 +420,18 @@ function startAttack() {
     skillCheckPlayer();
     stunCheckEnemy();
 
+    let randomChance = Math.round(Math.random() * 100);
+    
+    if (randomChance <= 10) {
+
+        skillCheckEnemy();
+
+    }
+
     if (fightingEnemies[0].damageArray.length !== 0) {
-        damageCheck();
+
+        damageCheckEnemy();
+
     }
 
     if (phase === "attack") {
@@ -691,9 +701,39 @@ function skillCheckPlayer() {
 
 }
 
+function skillCheckEnemy() {
+
+    switch (fightingEnemies[0].special) {
+
+        case "hot":
+
+            if (fightingEnemies[0].damageArray.length < 2) {
+
+                fightingEnemies[0].damageArray.push(new Hot(fightingEnemies[0].specialValue, Math.round(Math.random() * 3)));
+
+            } else {
+
+                // TODO: ADD MESSAGE FOR FAILED HOT ********************************************************************************************************************
+
+            }
+
+            break;
+
+        case "dot":
+
+            break;
+
+        case "stun":
+
+            break;
+
+    }
+
+}
+
 /* Check for damage over time effects */
 
-function damageCheck() {
+function damageCheckEnemy() {
 
     for (let dots in fightingEnemies[0].damageArray) {
 
@@ -709,6 +749,24 @@ function damageCheck() {
             document.getElementById(`enemy-status-${dots}`).innerHTML = "";
 
         }
+    }
+
+}
+
+function healingCheckEnemy() {
+
+    for (let hots in fightingEnemies[0].damageArray) {
+
+        if (fightingEnemies[0].damageArray[dots].damageDuration > 0 && fightingEnemies[0].damageArray[dots] !== undefined) {
+
+            // TODO: CHECK FOR ENEMY HOTS **********************************************************************************************************************
+
+        } else {
+
+            document.getElementById(`enemy-status-${dots}`).innerHTML = "";
+
+        }
+
     }
 
 }
@@ -741,7 +799,7 @@ function stunCheckPlayer() {
 
 }
 
-function checkPlayerEffects () {
+function checkPlayerEffects() {
 
     for (let effect of playerEffects) {
 
