@@ -58,6 +58,14 @@ main {
     max-width: 35rem;
 }
 
+#health-area i {
+
+    color: green;
+    font-size: 1.5rem;
+    text-shadow: 0 0 0.5rem darkgoldenrod;
+
+}
+
 /********** BATTLEFIELD AREA STYLING **********/
 
 /* General Battlefield Styling */
@@ -378,12 +386,6 @@ main {
     #enemy-image {
         max-width: 9rem;
         max-height: 9rem;
-    }
-
-    /* Health Area Styling */
-
-    #separate {
-        display: none;
     }
 
 }

@@ -407,7 +407,8 @@ function startAttack() {
 
     // Calculate attack power from cards in cardUseStack
 
-    skillCheck();
+    skillCheckPlayer();
+    stunCheckEnemy();
 
     if (fightingEnemies[0].damageArray.length !== 0) {
         damageCheck();
@@ -452,8 +453,6 @@ function startAttack() {
             fightingEnemies[0].stunDuration -= 1;
 
         }
-
-        
         
     }
 
@@ -546,6 +545,8 @@ function changePhase() {
         // Change to attack phase
 
         phase = "attack";
+
+        stunCheckEnemy();
     
     } 
 
@@ -602,7 +603,7 @@ function clickPopup() {
 
 /* Check for usable skills */
 
-function skillCheck() {
+function skillCheckPlayer() {
 
     for (let card of cardUseStack) {
 
@@ -667,8 +668,27 @@ function damageCheck() {
             fightingEnemies[0].damageArray[dots].damageDuration -= 1;
             document.getElementById("show-dots").innerHTML += `${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.`;
             enemyLife(-fightingEnemies[0].damageArray[dots].damageValue);
+            document.getElementById(`enemy-status-${dots}`).innerHTML = `DoT: ${fightingEnemies[0].damageArray[dots].damageValue} dmg / ${fightingEnemies[0].damageArray[dots].damageDuration} rounds.`;
+
+        } else {
+
+            document.getElementById(`enemy-status-${dots}`).innerHTML = "";
 
         }
+    }
+
+}
+
+function stunCheckEnemy() {
+
+    if (fightingEnemies[0].stunDuration > 0) {
+
+        document.getElementById("enemy-stun").innerHTML = `Stunned: ${fightingEnemies[0].stunDuration} rounds`;
+
+    } else {
+
+        document.getElementById("enemy-stun").innerHTML = "";
+
     }
 
 }
