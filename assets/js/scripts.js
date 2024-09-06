@@ -419,12 +419,17 @@ function startAttack() {
 
     skillCheckPlayer();
     stunCheckEnemy();
+    healingCheckEnemy();
 
     let randomChance = Math.round(Math.random() * 100);
     
-    if (randomChance <= 10) {
+    if (randomChance <= 80) {
 
-        skillCheckEnemy();
+        if (fightingEnemies[0].stunDuration <= 0) {
+
+            skillCheckEnemy();
+
+        } 
 
     }
 
@@ -532,7 +537,7 @@ function changePhase() {
     // Clear every used skill
 
     document.getElementById("show-healing").innerHTML = "";
-    document.getElementById("show-dots").innerHTML = "";
+    document.getElementById("show-enemy-dots").innerHTML = "";
     document.getElementById("show-stun-enemy").innerHTML = "";
     document.getElementById("show-stun-player").innerHTML = "";
 
@@ -669,7 +674,7 @@ function skillCheckPlayer() {
 
                     } else {
 
-                        document.getElementById("show-dots").innerHTML += `Usage of ${card.name}'s DoT effect failed, because every slot is occupied.`;
+                        document.getElementById("show-enemy-dots").innerHTML += `Usage of ${card.name}'s DoT effect failed, because every slot is occupied.`;
 
                     }
 
@@ -707,15 +712,18 @@ function skillCheckEnemy() {
 
         case "hot":
 
-            if (fightingEnemies[0].damageArray.length < 2) {
+            if (fightingEnemies[0].healingArray.length < 1) {
 
-                fightingEnemies[0].damageArray.push(new Hot(fightingEnemies[0].specialValue, Math.round(Math.random() * 3)));
+                fightingEnemies[0].healingArray.push(new Hot(fightingEnemies[0].specialValue, Math.round(Math.random() * 3)));
+                document.getElementById("show-enemy-hots").innerHTML = `${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].healingArray[0].damageDuration} rounds.`
 
             } else {
 
-                // TODO: ADD MESSAGE FOR FAILED HOT ********************************************************************************************************************
+                document.getElementById("show-enemy-hots").innerHTML = `${fightingEnemies[0].name} tried to apply a HoT, but one is already active.<br>They healed for ${fightingEnemies[0].specialValue}. The HoT will run for another ${fightingEnemies[0].healingArray[0].damageDuration} rounds.`;
 
             }
+
+            
 
             break;
 
@@ -740,13 +748,14 @@ function damageCheckEnemy() {
         if (fightingEnemies[0].damageArray[dots].damageDuration > 0 && fightingEnemies[0].damageArray[dots] !== undefined) {
 
             fightingEnemies[0].damageArray[dots].damageDuration -= 1;
-            document.getElementById("show-dots").innerHTML += `${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.`;
+            document.getElementById("show-enemy-dots").innerHTML += `${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.`;
             enemyLife(-fightingEnemies[0].damageArray[dots].damageValue);
             document.getElementById(`enemy-status-${dots}`).innerHTML = `DoT: ${fightingEnemies[0].damageArray[dots].damageValue} dmg / ${fightingEnemies[0].damageArray[dots].damageDuration} rounds.`;
 
         } else {
 
             document.getElementById(`enemy-status-${dots}`).innerHTML = "";
+            fightingEnemies[0].damageArray.splice(dots, 1);
 
         }
     }
@@ -755,15 +764,20 @@ function damageCheckEnemy() {
 
 function healingCheckEnemy() {
 
-    for (let hots in fightingEnemies[0].damageArray) {
+    for (let hots in fightingEnemies[0].healingArray) {
 
-        if (fightingEnemies[0].damageArray[dots].damageDuration > 0 && fightingEnemies[0].damageArray[dots] !== undefined) {
+        if (fightingEnemies[0].healingArray[hots].damageDuration > 0 && fightingEnemies[0].healingArray[hots] !== undefined) {
 
             // TODO: CHECK FOR ENEMY HOTS **********************************************************************************************************************
 
+            fightingEnemies[0].healingArray[hots].damageDuration -= 1;
+            enemyLife(fightingEnemies[0].healingArray[hots].damageValue);
+            document.getElementById("show-enemy-hots").innerHTML = `${fightingEnemies[0].name} healed for ${fightingEnemies[0].healingArray[hots].damageValue}. This will last ${fightingEnemies[0].healingArray[hots].damageDuration} more rounds.`;
+
         } else {
 
-            document.getElementById(`enemy-status-${dots}`).innerHTML = "";
+            document.getElementById("show-enemy-hots").innerHTML = "";
+            fightingEnemies[0].healingArray.splice(hots, 1);
 
         }
 
