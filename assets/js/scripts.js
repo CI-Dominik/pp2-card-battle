@@ -670,7 +670,10 @@ function skillCheckPlayer() {
 
                     if (fightingEnemies[0].damageArray.length < 2) {
 
-                        fightingEnemies[0].damageArray.push(new Dot(card.specialValue, 3));
+                        let randomRounds = Math.round(Math.random() * 2 + 1);
+
+                        fightingEnemies[0].damageArray.push(new Dot(card.specialValue, randomRounds));
+                        document.getElementById("show-new-dot").innerHTML = `${card.name} applied a DoT effect for ${randomRounds} rounds.`;
 
                     } else {
 
@@ -714,7 +717,7 @@ function skillCheckEnemy() {
 
             if (fightingEnemies[0].healingArray.length < 1) {
 
-                fightingEnemies[0].healingArray.push(new Hot(fightingEnemies[0].specialValue, Math.round(Math.random() * 3)));
+                fightingEnemies[0].healingArray.push(new Hot(fightingEnemies[0].specialValue, Math.round(Math.random() * 2 + 1)));
                 document.getElementById("show-enemy-hots").innerHTML = `${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].healingArray[0].damageDuration} rounds.`
 
             } else {
