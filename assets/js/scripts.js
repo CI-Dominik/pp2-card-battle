@@ -598,7 +598,7 @@ function changePhase() {
 
 }
 
-/* Show popup for attack summary */
+/** Show popup for attack summary */
 
 function showOverlay() {
     
@@ -622,7 +622,7 @@ function showOverlay() {
 
 }
 
-/* Show help popup */
+/** Show help popup */
 
 function clickPopup() {
 
@@ -647,7 +647,7 @@ function clickPopup() {
 
 }
 
-/* Check for usable skills */
+/** Check for usable skills of cards in fight stack */
 
 function skillCheckPlayer() {
 
@@ -707,6 +707,8 @@ function skillCheckPlayer() {
 
 }
 
+/** Check which skill the enemy is able to perform */
+
 function skillCheckEnemy() {
 
     switch (fightingEnemies[0].special) {
@@ -734,11 +736,15 @@ function skillCheckEnemy() {
 
             break;
 
+        default:
+
+            break;
+
     }
 
 }
 
-/* Check for damage over time effects */
+/** Check for damage over time effects */
 
 function damageCheckEnemy() {
 
@@ -761,6 +767,8 @@ function damageCheckEnemy() {
 
 }
 
+/** Check for healing over time effects on enemy */
+
 function healingCheckEnemy() {
 
     for (let hots in fightingEnemies[0].healingArray) {
@@ -782,6 +790,8 @@ function healingCheckEnemy() {
 
 }
 
+/** Update stun duration for enemy */
+
 function stunCheckEnemy() {
 
     if (fightingEnemies[0].stunDuration > 0) {
@@ -796,6 +806,8 @@ function stunCheckEnemy() {
 
 }
 
+/** Update stun duration for player */
+
 function stunCheckPlayer() {
 
     if (playerStunDuration > 0) {
@@ -809,6 +821,10 @@ function stunCheckPlayer() {
     }
 
 }
+
+/** Check which effects are affecting the player */
+
+// TODO: CHANGE TO TWO DIFFERENT VARIABLES ******************************************************************************************
 
 function checkPlayerEffects() {
 
