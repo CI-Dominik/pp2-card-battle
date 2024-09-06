@@ -457,8 +457,6 @@ function startAttack() {
 
     if (phase === "defense") {
 
-        // TODO: CHECK ENEMY SKILLS *********************************************************************************************************************************
-
         if (fightingEnemies[0].stunDuration <= 0) {
 
             let defenseValue = 0;
@@ -726,8 +724,6 @@ function skillCheckEnemy() {
 
             }
 
-            
-
             break;
 
         case "dot":
@@ -770,8 +766,6 @@ function healingCheckEnemy() {
     for (let hots in fightingEnemies[0].healingArray) {
 
         if (fightingEnemies[0].healingArray[hots].damageDuration > 0 && fightingEnemies[0].healingArray[hots] !== undefined) {
-
-            // TODO: CHECK FOR ENEMY HOTS **********************************************************************************************************************
 
             fightingEnemies[0].healingArray[hots].damageDuration -= 1;
             enemyLife(fightingEnemies[0].healingArray[hots].damageValue);
