@@ -2,7 +2,7 @@
 
 class Enemy {
 
-    constructor(name, attack, defense, special, description, life, image, damageArray = []) {
+    constructor(name, attack, defense, special, description, life, image, stunDuration, damageArray = []) {
 
         this.name = name;
         this.attack = attack;
@@ -11,6 +11,7 @@ class Enemy {
         this.description = description;
         this.life = life;
         this.image = image;
+        this.stunDuration = stunDuration;
         this.damageArray = damageArray;
 
     }
@@ -21,12 +22,12 @@ class Enemy {
 
 const enemyPresets = [
 
-    new Enemy("Monk-E", 20, 50, "PH", "PH", 60, "ape-warrior"),
-    new Enemy("Draco", 50, 50, "PH", "PH", 80, "dragon-warrior"),
-    new Enemy("Nympha", 30, 20, "PH", "PH", 70, "forest-ghost"),
-    new Enemy("Bob", 25, 60, "PH", "PH", 60, "goblin-warrior"),
-    new Enemy("Dargul", 40, 25, "PH", "PH", 40, "mage"),
-    new Enemy("Snakos", 60, 10, "PH", "PH", 25, "snake-warrior")
+    new Enemy("Monk-E", 20, 50, "PH", "PH", 150, "ape-warrior", 0),
+    new Enemy("Draco", 50, 50, "PH", "PH", 150, "dragon-warrior", 0),
+    new Enemy("Nympha", 30, 20, "PH", "PH", 150, "forest-ghost", 0),
+    new Enemy("Bob", 25, 60, "PH", "PH", 150, "goblin-warrior", 0),
+    new Enemy("Dargul", 40, 25, "PH", "PH", 150, "mage", 0),
+    new Enemy("Snakos", 60, 10, "PH", "PH", 150, "snake-warrior", 0)
 
 ]
 

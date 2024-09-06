@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollCards(currentCard);
     showCardAmount();
     showEnemy();
-    playerLife(120);
+    playerLife(12000);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
     clickPopup();
@@ -216,6 +216,8 @@ function enemyLife(value) {
 
     if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
+        fightingEnemies[0].damageArray.length = 0;
+        fightingEnemies[0].stunDuration = 0;
         fightingEnemies.splice(0, 1);
         document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
 
@@ -407,6 +409,11 @@ function startAttack() {
 
     skillCheck();
 
+    if (fightingEnemies[0].damageArray.length !== 0) {
+        damageCheck();
+    }
+
+
     if (phase === "attack") {
 
         for (let i = 0; i < cardUseStack.length; i++) {
@@ -423,17 +430,30 @@ function startAttack() {
 
     } else if (phase === "defense") {
 
-        let defenseValue = 0;
+        if (fightingEnemies[0].stunDuration <= 0) {
+
+            let defenseValue = 0;
         
-        for (let i = 0; i < cardUseStack.length; i++) {
-            defenseValue += cardUseStack[i].defense;
+            for (let i = 0; i < cardUseStack.length; i++) {
+
+                defenseValue += cardUseStack[i].defense;
+
+            }
+
+            if (playerHealth > 0) {
+
+                playerLife(-Math.round((100 - defenseValue) / 100 * fightingEnemies[0].attack));
+
+            }
+
+        } else {
+
+            document.getElementById("show-stun-enemy").innerHTML = `${fightingEnemies[0].name} is stunned and did not attack. They will be able to attack again in ${fightingEnemies[0].stunDuration} rounds.`;
+            fightingEnemies[0].stunDuration -= 1;
+
         }
 
-        if (playerHealth > 0) {
-
-            playerLife(-Math.round((100 - defenseValue) / 100 * fightingEnemies[0].attack));
-
-        }
+        
         
     }
 
@@ -471,6 +491,9 @@ function changePhase() {
     // Clear every used skill
 
     document.getElementById("show-healing").innerHTML = "";
+    document.getElementById("show-dots").innerHTML = "";
+    document.getElementById("show-stun-enemy").innerHTML = "";
+    document.getElementById("show-stun-player").innerHTML = "";
 
     // Check if all cards were played before the popup appeared
 
@@ -588,17 +611,39 @@ function skillCheck() {
             switch (card.specialType) {
 
                 case "healing":
+
                     playerLife(card.specialValue);
                     document.getElementById("show-healing").innerHTML += `${card.name} restored ${card.specialValue} health points.<br>`;
+
                     break;
 
                 case "dot":
+
+                    if (fightingEnemies[0].damageArray.length < 2) {
+
+                        fightingEnemies[0].damageArray.push(new Dot(card.specialValue, 3));
+
+                    } else {
+
+                        document.getElementById("show-dots").innerHTML += `Usage of ${card.name}'s DoT effect failed, because every slot is occupied.`;
+
+                    }
+
                     break;
 
                 case "hot":
+
+
+
                     break;
 
                 case "stun":
+
+                    fightingEnemies[0].stunDuration += card.specialValue;
+
+                    break;
+
+                case "clear":
                     break;
 
                 default:
@@ -608,6 +653,22 @@ function skillCheck() {
 
         }
 
+    }
+
+}
+
+function damageCheck() {
+
+    for (let dots in fightingEnemies[0].damageArray) {
+
+        if (fightingEnemies[0].damageArray[dots].damageDuration > 0 && fightingEnemies[0].damageArray[dots] !== undefined) {
+
+            
+            fightingEnemies[0].damageArray[dots].damageDuration -= 1;
+            document.getElementById("show-dots").innerHTML += `${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.`;
+            enemyLife(-fightingEnemies[0].damageArray[dots].damageValue);
+
+        }
     }
 
 }
