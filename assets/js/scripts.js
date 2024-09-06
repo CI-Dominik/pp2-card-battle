@@ -475,6 +475,8 @@ function startAttack() {
 
         } else {
 
+            // TODO: USE THIS AT END OF START FIGHT? ******************************************************************************************************************
+
             document.getElementById("show-stun-enemy").innerHTML = `${fightingEnemies[0].name} is stunned and did not attack. They will be able to attack again in ${fightingEnemies[0].stunDuration} rounds.`;
             fightingEnemies[0].stunDuration -= 1;
 
