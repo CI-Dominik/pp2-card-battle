@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerLife(250);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
-    //clickPopup();
+    clickPopup();
 
     window.onclick = function(event) {
 
