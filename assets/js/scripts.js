@@ -417,14 +417,20 @@ function undoAdd() {
 
 function startAttack() {
 
-    checkPlayerEffects();
+    if (playerStunDuration > 0) { 
 
+        playerStunDuration -= 1;
+
+    }
+
+    checkPlayerEffects();
+    stunCheckPlayer();
     stunCheckEnemy();
     healingCheckEnemy();
 
     let randomChance = Math.round(Math.random() * 100);
     
-    if (randomChance <= 80) {
+    if (randomChance <= 10) {
 
         if (fightingEnemies[0].stunDuration <= 0) {
 
@@ -485,16 +491,6 @@ function startAttack() {
         
     }
 
-    if (playerStunDuration > 0) {
-
-        document.getElementById("show-stun-player").innerHTML = `• Player is stunned for ${playerStunDuration - 1} more rounds.`;
-
-    } else {
-
-        document.getElementById("show-stun-player").innerHTML = "";
-
-    }
-
     // Disable buttons to disable actions during popup window
 
     if (fightingEnemies.length > 0 && playerHealth > 0) {
@@ -515,11 +511,6 @@ function startAttack() {
     // Clear stack after phase
 
     cardUseStack.splice(0, cardUseStack.length);
-
-    
-
-    stunCheckEnemy();
-    stunCheckPlayer();
 
 }
 
@@ -589,6 +580,8 @@ function changePhase() {
 
     }
 
+    
+
 }
 
 /** Show popup for attack summary */
@@ -615,12 +608,6 @@ function showOverlay() {
         document.getElementById("source-name").innerHTML = "Enemy";
         document.getElementById("target-damage").innerHTML = document.getElementById("calculated-damage").innerHTML;
         
-    }
-
-    if (playerStunDuration > 0) { 
-
-        playerStunDuration -= 1;
-
     }
 
 }
@@ -762,6 +749,23 @@ function skillCheckEnemy() {
 
         case "stun":
 
+            if (playerStunDuration > 0) {
+
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} tried to stun the player, but they are already stunned.<br>`;
+
+            } else {
+
+                let randomStun = Math.round(Math.random() * 2 + 1);
+
+                playerStunDuration = randomStun;
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} stunned the player for ${randomStun} rounds.<br>`;
+                document.getElementById("show-player-stun").style.display = "block";
+                document.getElementById("show-player-stun").innerHTML = `Stun: ${playerStunDuration} rounds`;
+
+            }
+
+            
+
             break;
 
         default:
@@ -857,11 +861,14 @@ function stunCheckPlayer() {
 
     if (playerStunDuration > 0) {
 
+        document.getElementById("show-player-stun").style.display = "block";
+
         document.getElementById("show-player-stun").innerHTML = `Stun: ${playerStunDuration} rounds`;
+        document.getElementById("effect-text").innerHTML += `• Player is stunned for ${playerStunDuration} more rounds.<br>`;
 
     } else {
 
-        document.getElementById("show-player-stun").innerHTML = "";
+        document.getElementById("show-player-stun").style.display = "none";
 
     }
 
