@@ -428,6 +428,12 @@ function startAttack() {
     stunCheckEnemy();
     healingCheckEnemy();
 
+    if (fightingEnemies[0].damageArray.length !== 0) {
+
+        damageCheckEnemy();
+
+    }
+
     skillCheckPlayer();
 
     let randomChance = Math.round(Math.random() * 100);
@@ -442,11 +448,7 @@ function startAttack() {
 
     }
 
-    if (fightingEnemies[0].damageArray.length !== 0) {
-
-        damageCheckEnemy();
-
-    }
+    
 
     
 
