@@ -263,7 +263,7 @@ main {
     gap: 5px;
     max-width: 45rem;
     padding: 1rem;
-    background: lightpink;
+    background: #FFCCCB;
     
 }
 
@@ -376,7 +376,7 @@ main {
 
 /* Media Query starting from width of 48rem */
 
-@media (width > 48rem) {
+@media (width > 28rem) {
 
     /* General Styling */
 

@@ -573,7 +573,7 @@ function changePhase() {
 
         // Change background color on change to attack phase
 
-        document.getElementById("score").style.background = "lightblue";
+        document.getElementById("score").style.background = "#CCFEFF";
 
         phase = "defense";
 
@@ -601,7 +601,7 @@ function changePhase() {
 
         // Change background color on change to attack phase
 
-        document.getElementById("score").style.background = "lightpink";
+        document.getElementById("score").style.background = "#FFCCCB";
 
         // Change to attack phase
 
