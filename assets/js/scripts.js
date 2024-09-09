@@ -876,7 +876,7 @@ function addRandomSkill() {
 
     for (let i = 0; i < fightingEnemies.length; i++) {
 
-        let randomSkill = Math.floor(Math.random() * 4);
+        let randomSkill = Math.floor(Math.random() * 5);
 
         switch (randomSkill) {
 
@@ -906,6 +906,12 @@ function addRandomSkill() {
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 2 + 1);
                 fightingEnemies[i].specialDescription = `Able to stun the player for ${fightingEnemies[0].specialDuration} rounds.`;
                 break;
+
+            case 4:
+                fightingEnemies[i].special = "none";
+                fightingEnemies[i].specialValue = 0;
+                fightingEnemies[i].specialDuration = 0;
+                fightingEnemies[i].specialDescription = `No special skill available.`;
 
             default:
                 break;
