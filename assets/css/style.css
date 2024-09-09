@@ -273,9 +273,10 @@ main {
 
 /* Popup Styling */
 
-#popup {
+#popup, #win-lose-popup {
     display: none;
     flex-flow: column nowrap;
+    align-items: center;
     justify-content: center;
     background:rgba(255,197,47,1);
     width: 95%;
@@ -291,20 +292,21 @@ main {
     box-shadow: 0 0 2rem white;
 }
 
-#popup button {
+#popup button, #win-lose-popup button {
     background: black;
     align-self: center;
     color: rgba(255,197,47,1);
+    padding: 0.5rem;
     margin-top: 1rem;
-    width: 6.25rem;
+    width: 7rem;
     height: 2.5rem;
 }
 
-#popup h2 {
+#popup h2, #win-lose-popup h2 {
     margin-bottom: 0.5rem;
 }
 
-#popup button:hover {
+#popup button:hover, #win-lose-popup button:hover {
     background: rgba(255,197,47,1);;
     color: black
 }

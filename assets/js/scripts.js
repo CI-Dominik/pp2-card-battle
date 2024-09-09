@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerLife(250);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
-    clickPopup();
+    //clickPopup();
 
     window.onclick = function(event) {
 
@@ -278,6 +278,9 @@ function winGame() {
     document.getElementById("button-left").disabled = true;
     document.getElementById("button-right").disabled = true;
 
+    document.getElementById("win-lose-message").innerHTML = "You have won the game! Do you want to play again?";
+    document.getElementById("win-lose-popup").style.display = "flex";
+
 }
 
 /** Declares the end of the game by losing */
@@ -292,6 +295,9 @@ function gameLost() {
 
     document.getElementById("button-left").disabled = true;
     document.getElementById("button-right").disabled = true;
+
+    document.getElementById("win-lose-message").innerHTML = "You have lost the game! Do you want to play again?";
+    document.getElementById("win-lose-popup").style.display = "flex";
 
 }
 
@@ -969,5 +975,13 @@ function checkEnemyEffects() {
         }
 
     }
+
+}
+
+/** Reload the homepage to start a new game */
+
+function reloadDocument() {
+
+    location.reload();
 
 }
