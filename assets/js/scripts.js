@@ -946,22 +946,22 @@ function addRandomSkill() {
 
             case 0:
                 fightingEnemies[i].special = "dot";
-                fightingEnemies[i].specialValue = 0;
+                fightingEnemies[i].specialValue = Math.floor(Math.random() * 10 + 5);
                 break;
 
             case 1:
                 fightingEnemies[i].special = "hot";
-                fightingEnemies[i].specialValue = 0;
+                fightingEnemies[i].specialValue = Math.floor(Math.random() * 10 + 5);
                 break;
 
             case 2:
                 fightingEnemies[i].special = "healing";
-                fightingEnemies[i].specialValue = 0;
+                fightingEnemies[i].specialValue = Math.floor(Math.random() * 20 + 3);
                 break;
 
             case 3:
                 fightingEnemies[i].special = "stun";
-                fightingEnemies[i].specialValue = 0;
+                fightingEnemies[i].specialValue = Math.floor(Math.random() * 2 + 1);
                 break;
 
             default:
