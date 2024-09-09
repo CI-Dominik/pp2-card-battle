@@ -727,8 +727,8 @@ function skillCheckEnemy() {
 
             if (fightingEnemies[0].healingArray.length < 1) {
 
-                fightingEnemies[0].healingArray.push(new Hot(fightingEnemies[0].specialValue, Math.round(Math.random() * 2 + 1)));
-                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].healingArray[0].damageDuration} rounds.<br>`
+                fightingEnemies[0].healingArray.push(new Hot(fightingEnemies[0].specialValue, fightingEnemies[0].specialDuration));
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].specialDuration} rounds.<br>`
 
             } else {
 
@@ -739,13 +739,11 @@ function skillCheckEnemy() {
             break;
 
         case "dot":
-
-            let randomRounds = Math.round(Math.random() * 5 + 1);
             
             if (playerEffects.length === 0) {
 
-                playerEffects.push(new Dot(fightingEnemies[0].specialValue, randomRounds));
-                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a DoT to the player for ${fightingEnemies[0].specialValue} damage over ${randomRounds} rounds.<br>`;
+                playerEffects.push(new Dot(fightingEnemies[0].specialValue, fightingEnemies[0].specialDuration));
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a DoT to the player for ${fightingEnemies[0].specialValue} damage over ${fightingEnemies[0].specialDuration} rounds.<br>`;
 
             } else {
 
@@ -763,10 +761,8 @@ function skillCheckEnemy() {
 
             } else {
 
-                let randomStun = Math.round(Math.random() * 2 + 1);
-
-                playerStunDuration = randomStun;
-                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} stunned the player for ${randomStun} rounds.<br>`;
+                playerStunDuration = fightingEnemies[0].specialDuration;
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} stunned the player for ${fightingEnemies[0].specialDuration} rounds.<br>`;
                 document.getElementById("show-player-stun").style.display = "block";
                 document.getElementById("show-player-stun").innerHTML = `Stun: ${playerStunDuration} rounds`;
 
@@ -974,3 +970,50 @@ function addRandomSkill() {
     
 
 }
+
+/*
+function checkEnemyEffects() {
+
+    for (let effect of enemyEffects) {
+
+        if (effect instanceof Dot) {
+
+            document.getElementById(`show-enemy-effect-${playerEffects.indexOf(effect)}`).style.display = "block";
+
+            playerLife(-effect.damageValue);
+            effect.damageDuration -= 1;
+            document.getElementById("effect-text").innerHTML += `• Player suffered ${effect.damageValue} damage from their DoT.<br>`;
+            document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).innerHTML = `DoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
+
+            if (effect.damageDuration <= 0) {
+
+                document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).innerHTML = "";
+                document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).style.display = "none";
+                playerEffects.splice(playerEffects.indexOf(effect), 1);
+
+            }
+
+        }
+
+        if (effect instanceof Hot) {
+
+            document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).style.display = "block";
+
+            playerLife(effect.damageValue);
+            effect.damageDuration -= 1;
+            document.getElementById("effect-text").innerHTML += `• Player was healed for ${effect.damageValue} HP.<br>`;
+            document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).innerHTML = `HoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
+
+            if (effect.damageDuration <= 0) {
+
+                document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).innerHTML = "";
+                document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).style.display = "none";
+                playerEffects.splice(playerEffects.indexOf(effect), 1);
+
+            }
+
+        }
+
+    }
+
+} */
