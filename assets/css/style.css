@@ -109,7 +109,7 @@ main {
     cursor: pointer;
 }
 
-#show-player-stun, #show-player-dot, #show-player-hot {
+#show-player-effect-0, #show-player-effect-1 {
     display: none;
 }
 
