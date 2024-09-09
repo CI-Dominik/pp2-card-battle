@@ -621,25 +621,10 @@ function showOverlay() {
 
     let source = "";
 
-    phase === "attack" ? source = "Player" : source = "Enemy"; // TODO: EDIT POPUP MESSAGE *********************************************************************************
-    
+    phase === "attack" ? source = "Player" : source = "Enemy";
+
+    document.getElementById("damage-summary").innerHTML = `${source} inflicted ${document.getElementById("calculated-damage").innerHTML} damage.`;
     document.getElementById("popup").style.display = "flex";
-
-    // Show damage stats for player
-
-    if (phase === "attack") {
-
-        document.getElementById("source-name").innerHTML = "Player";
-        document.getElementById("target-damage").innerHTML = document.getElementById("calculated-damage").innerHTML;
-
-    // Show damage stats for enemy
-
-    } else {
-
-        document.getElementById("source-name").innerHTML = "Enemy";
-        document.getElementById("target-damage").innerHTML = document.getElementById("calculated-damage").innerHTML;
-        
-    }
 
 }
 
