@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerLife(12000);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
-    clickPopup();
+    // clickPopup();
 
 });
 
@@ -148,6 +148,7 @@ function showCurrentCardData() {
         document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ` + handCards[currentCard].attack;
         document.getElementById("show-defense").innerHTML = handCards[currentCard].defense + ` <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("show-description").innerHTML = handCards[currentCard].description;
+        document.getElementById("show-special-description").innerHTML = handCards[currentCard].specialDescription;
         document.getElementById("card-image").style.background = "url(assets/images/cards/" + handCards[currentCard].image + ".webp) center center/cover";
 
     } else {
@@ -156,6 +157,7 @@ function showCurrentCardData() {
         document.getElementById("show-attack").innerHTML = `<i class="fa-solid fa-skull"></i> 0`;
         document.getElementById("show-defense").innerHTML = `0 <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("show-description").innerHTML = "No card in hand";
+        document.getElementById("show-special-description").innerHTML = "No card in hand";
         document.getElementById("card-image").style.background = "url(assets/images/no-card.jpg) no-repeat center center/cover";
 
     }
@@ -329,7 +331,7 @@ function addCard(card) {
 
     } else {
 
-        alert("Stunned!");
+        alert("Stunned!"); // TODO: OPEN STUNNED DIALOGUE **********************************************************************************************
 
     }
 
@@ -415,9 +417,8 @@ function undoAdd() {
 
 function startAttack() {
 
-    // Calculate attack power from cards in cardUseStack
+    checkPlayerEffects();
 
-    skillCheckPlayer();
     stunCheckEnemy();
     healingCheckEnemy();
 
@@ -438,6 +439,8 @@ function startAttack() {
         damageCheckEnemy();
 
     }
+
+    skillCheckPlayer();
 
     if (phase === "attack") {
 
@@ -475,9 +478,7 @@ function startAttack() {
 
         } else {
 
-            // TODO: USE THIS AT END OF START FIGHT? ******************************************************************************************************************
-
-            document.getElementById("show-stun-enemy").innerHTML = `${fightingEnemies[0].name} is stunned and did not attack. They will be able to attack again in ${fightingEnemies[0].stunDuration} rounds.`;
+            document.getElementById("show-stun-enemy").innerHTML = `• ${fightingEnemies[0].name} is stunned and did not attack. They will be able to attack again in ${fightingEnemies[0].stunDuration} rounds.`;
             fightingEnemies[0].stunDuration -= 1;
 
         }
@@ -486,7 +487,7 @@ function startAttack() {
 
     if (playerStunDuration > 0) {
 
-        document.getElementById("show-stun-player").innerHTML = `Player is stunned for ${playerStunDuration - 1} more rounds.`;
+        document.getElementById("show-stun-player").innerHTML = `• Player is stunned for ${playerStunDuration - 1} more rounds.`;
 
     } else {
 
@@ -515,11 +516,7 @@ function startAttack() {
 
     cardUseStack.splice(0, cardUseStack.length);
 
-    if (playerStunDuration > 0) {
-
-        playerStunDuration -= 1;
-
-    }
+    
 
     stunCheckEnemy();
     stunCheckPlayer();
@@ -536,10 +533,7 @@ function changePhase() {
 
     // Clear every used skill
 
-    document.getElementById("show-healing").innerHTML = "";
-    document.getElementById("show-enemy-dots").innerHTML = "";
-    document.getElementById("show-stun-enemy").innerHTML = "";
-    document.getElementById("show-stun-player").innerHTML = "";
+    document.getElementById("effect-text").innerHTML = "";
 
     // Check if all cards were played before the popup appeared
 
@@ -593,9 +587,6 @@ function changePhase() {
 
         phase = "attack";
 
-        stunCheckEnemy();
-        stunCheckPlayer();
-    
     }
 
 }
@@ -603,6 +594,10 @@ function changePhase() {
 /** Show popup for attack summary */
 
 function showOverlay() {
+
+    let source = "";
+
+    phase === "attack" ? source = "Player" : source = "Enemy"; // TODO: EDIT POPUP MESSAGE *********************************************************************************
     
     document.getElementById("popup").style.display = "flex";
 
@@ -620,6 +615,12 @@ function showOverlay() {
         document.getElementById("source-name").innerHTML = "Enemy";
         document.getElementById("target-damage").innerHTML = document.getElementById("calculated-damage").innerHTML;
         
+    }
+
+    if (playerStunDuration > 0) { 
+
+        playerStunDuration -= 1;
+
     }
 
 }
@@ -662,7 +663,7 @@ function skillCheckPlayer() {
                 case "healing":
 
                     playerLife(card.specialValue);
-                    document.getElementById("show-healing").innerHTML += `${card.name} restored ${card.specialValue} health points.<br>`;
+                    document.getElementById("effect-text").innerHTML += `• ${card.name} restored ${card.specialValue} health points.<br>`;
 
                     break;
 
@@ -673,11 +674,11 @@ function skillCheckPlayer() {
                         let randomRounds = Math.round(Math.random() * 2 + 1);
 
                         fightingEnemies[0].damageArray.push(new Dot(card.specialValue, randomRounds));
-                        document.getElementById("show-new-dot").innerHTML = `${card.name} applied a DoT effect for ${randomRounds} rounds.`;
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a DoT effect for ${randomRounds} rounds.<br>`;
 
                     } else {
 
-                        document.getElementById("show-enemy-dots").innerHTML += `Usage of ${card.name}'s DoT effect failed, because every slot is occupied.`;
+                        document.getElementById("effect-text").innerHTML += `• Usage of ${card.name}'s DoT effect failed, because every slot is occupied.<br>`;
 
                     }
 
@@ -685,7 +686,17 @@ function skillCheckPlayer() {
 
                 case "hot":
 
+                    if (playerEffects.length < 2) {
 
+                        playerEffects.push(new Hot(10, card.specialValue));
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a HoT effect for ${card.specialValue} rounds.<br>`;
+                        
+
+                    } else {
+
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} tried to apply a HoT effect, but all slots are taken.<br>`;
+
+                    }              
 
                     break;
 
@@ -696,9 +707,11 @@ function skillCheckPlayer() {
                     break;
 
                 case "clear":
+
                     break;
 
                 default:
+                    
                     break;
 
             }
@@ -720,17 +733,30 @@ function skillCheckEnemy() {
             if (fightingEnemies[0].healingArray.length < 1) {
 
                 fightingEnemies[0].healingArray.push(new Hot(fightingEnemies[0].specialValue, Math.round(Math.random() * 2 + 1)));
-                document.getElementById("show-enemy-hots").innerHTML = `${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].healingArray[0].damageDuration} rounds.`
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].healingArray[0].damageDuration} rounds.<br>`
 
             } else {
 
-                document.getElementById("show-enemy-hots").innerHTML = `${fightingEnemies[0].name} tried to apply a HoT, but one is already active.<br>They healed for ${fightingEnemies[0].specialValue}. The HoT will run for another ${fightingEnemies[0].healingArray[0].damageDuration} rounds.`;
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} tried to apply a HoT, but one is already active.<br>They healed for ${fightingEnemies[0].specialValue}. The HoT will run for another ${fightingEnemies[0].healingArray[0].damageDuration} rounds.<br>`;
 
             }
 
             break;
 
         case "dot":
+
+            let randomRounds = Math.round(Math.random() * 5 + 1);
+            
+            if (playerEffects.length < 2) {
+
+                playerEffects.push(new Dot(fightingEnemies[0].specialValue, randomRounds));
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a DoT to the player for ${fightingEnemies[0].specialValue} damage over ${randomRounds} rounds.`;
+
+            } else {
+
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} tried to apply a DoT effect, but all slots are occupied.`;
+
+            }
 
             break;
 
@@ -755,9 +781,9 @@ function damageCheckEnemy() {
         if (fightingEnemies[0].damageArray[dots].damageDuration > 0 && fightingEnemies[0].damageArray[dots] !== undefined) {
 
             fightingEnemies[0].damageArray[dots].damageDuration -= 1;
-            document.getElementById("show-enemy-dots").innerHTML += `${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.`;
+            document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.<br>`;
             enemyLife(-fightingEnemies[0].damageArray[dots].damageValue);
-            document.getElementById(`enemy-status-${dots}`).innerHTML = `DoT: ${fightingEnemies[0].damageArray[dots].damageValue} dmg / ${fightingEnemies[0].damageArray[dots].damageDuration} rounds.`;
+            document.getElementById(`enemy-status-${dots}`).innerHTML = `DoT: ${fightingEnemies[0].damageArray[dots].damageValue} DMG / ${fightingEnemies[0].damageArray[dots].damageDuration} rounds`;
 
         } else {
 
@@ -777,14 +803,29 @@ function healingCheckEnemy() {
 
         if (fightingEnemies[0].healingArray[hots].damageDuration > 0 && fightingEnemies[0].healingArray[hots] !== undefined) {
 
-            fightingEnemies[0].healingArray[hots].damageDuration -= 1;
             enemyLife(fightingEnemies[0].healingArray[hots].damageValue);
-            document.getElementById("show-enemy-hots").innerHTML = `${fightingEnemies[0].name} healed for ${fightingEnemies[0].healingArray[hots].damageValue}. This will last ${fightingEnemies[0].healingArray[hots].damageDuration} more rounds.`;
+            fightingEnemies[0].healingArray[hots].damageDuration -= 1;
+
+            if (fightingEnemies[0].healingArray[hots].damageDuration > 0) {
+
+                document.getElementById("enemy-hot").style.display = "block";
+                document.getElementById("enemy-hot").innerHTML = `HoT: ${fightingEnemies[0].healingArray[hots].damageValue} HP / ${fightingEnemies[0].healingArray[hots].damageDuration} rounds`;
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} healed for ${fightingEnemies[0].healingArray[hots].damageValue}. This will last ${fightingEnemies[0].healingArray[hots].damageDuration} more rounds.<br>`;
+
+            } else {
+
+                fightingEnemies[0].healingArray.splice(hots, 1);
+                document.getElementById("enemy-hot").innerHTML = "";
+                document.getElementById("enemy-hot").style.display = "none";
+
+            }
+            
 
         } else {
 
-            document.getElementById("show-enemy-hots").innerHTML = "";
             fightingEnemies[0].healingArray.splice(hots, 1);
+            document.getElementById("enemy-hot").innerHTML = "";
+            document.getElementById("enemy-hot").style.display = "none";
 
         }
 
@@ -798,11 +839,13 @@ function stunCheckEnemy() {
 
     if (fightingEnemies[0].stunDuration > 0) {
 
+        document.getElementById("enemy-stun").style.display = "block";
         document.getElementById("enemy-stun").innerHTML = `Stunned: ${fightingEnemies[0].stunDuration} rounds`;
 
     } else {
 
         document.getElementById("enemy-stun").innerHTML = "";
+        document.getElementById("enemy-stun").style.display = "none";
 
     }
 
@@ -826,21 +869,47 @@ function stunCheckPlayer() {
 
 /** Check which effects are affecting the player */
 
-// TODO: CHANGE TO TWO DIFFERENT VARIABLES ******************************************************************************************
+// TODO: CHANGE HOT / DOT TO TWO DIFFERENT VARIABLES ******************************************************************************************
 
 function checkPlayerEffects() {
 
     for (let effect of playerEffects) {
 
-        switch (effect) {
+        if (effect instanceof Dot) {
 
-            case "hot":
+            document.getElementById("show-player-hot").style.display = "block";
 
-                break;
+            playerLife(-effect.damageValue);
+            effect.damageDuration -= 1;
+            document.getElementById("effect-text").innerHTML += `• Player suffered ${effect.damageValue} damage from their DoT. This will last another ${effect.damageDuration} round(s)<br>`;
+            document.getElementById("show-player-dot").innerHTML = `DoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
 
-            case "dot":
+            if (effect.damageDuration <= 0) {
 
-                break;
+                playerEffects.splice(effect, 1);
+                document.getElementById("show-player-dot").innerHTML = "";
+                document.getElementById("show-player-dot").style.display = "none";
+
+            }
+
+        }
+
+        if (effect instanceof Hot) {
+
+            document.getElementById("show-player-hot").style.display = "block";
+
+            playerLife(effect.damageValue);
+            effect.damageDuration -= 1;
+            document.getElementById("effect-text").innerHTML += `• Player was healed for ${effect.damageValue} HP. This will last another ${effect.damageDuration} round(s)<br>`;
+            document.getElementById("show-player-hot").innerHTML = `HoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
+
+            if (effect.damageDuration <= 0) {
+
+                playerEffects.splice(effect, 1);
+                document.getElementById("show-player-hot").innerHTML = "";
+                document.getElementById("show-player-hot").style.display = "none";
+
+            }
 
         }
 

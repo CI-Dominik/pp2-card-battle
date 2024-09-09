@@ -109,6 +109,10 @@ main {
     cursor: pointer;
 }
 
+#show-player-stun, #show-player-dot, #show-player-hot {
+    display: none;
+}
+
 /* Action Buttons Stytling */
 
 #button-container button {
@@ -263,16 +267,14 @@ main {
     display: none;
     flex-flow: column nowrap;
     justify-content: center;
-    align-items: center;
     background:rgba(255,197,47,1);
     width: 95%;
-    height: 50vh;
+    height: 40vh;
     max-width: 45rem;
     position: absolute;
     overflow-y: scroll;
+    gap: 0.2rem;
     scrollbar-width: none;
-    font-size: 1.5rem;
-    text-align: center;
     z-index: 99;
     padding: 1rem;
     border: 0.2rem solid black;
@@ -281,10 +283,15 @@ main {
 
 #popup button {
     background: black;
+    align-self: center;
     color: rgba(255,197,47,1);
     margin-top: 1rem;
     width: 6.25rem;
     height: 2.5rem;
+}
+
+#popup h2 {
+    margin-bottom: 0.5rem;
 }
 
 #popup button:hover {

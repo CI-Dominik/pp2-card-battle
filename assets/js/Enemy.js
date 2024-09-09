@@ -24,12 +24,12 @@ class Enemy {
 
 const enemyPresets = [
 
-    new Enemy("Monk-E", 20, 50, "hot", 10, "PH", 150, "ape-warrior", 0),
-    new Enemy("Draco", 50, 50, "hot", 10, "PH", 150, "dragon-warrior", 0),
-    new Enemy("Nympha", 30, 20, "hot", 10, "PH", 150, "forest-ghost", 0),
-    new Enemy("Bob", 25, 60, "hot", 10, "PH", 150, "goblin-warrior", 0),
-    new Enemy("Dargul", 40, 25, "hot", 10, "PH", 150, "mage", 0),
-    new Enemy("Snakos", 60, 10, "hot", 10, "PH", 150, "snake-warrior", 0)
+    new Enemy("Monk-E", 20, 50, "dot", 10, "PH", 150, "ape-warrior", 0),
+    new Enemy("Draco", 50, 50, "dot", 10, "PH", 150, "dragon-warrior", 0),
+    new Enemy("Nympha", 30, 20, "dot", 10, "PH", 150, "forest-ghost", 0),
+    new Enemy("Bob", 25, 60, "dot", 10, "PH", 150, "goblin-warrior", 0),
+    new Enemy("Dargul", 40, 25, "dot", 10, "PH", 150, "mage", 0),
+    new Enemy("Snakos", 60, 10, "dot", 10, "PH", 150, "snake-warrior", 0)
 
 ]
 

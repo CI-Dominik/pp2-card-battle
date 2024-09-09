@@ -32,13 +32,13 @@
 
         <div id="popup">
             <h2>Phase summary</h2>
-            <p><span id="source-name">SOURCE</span> has dealt <span id="target-damage">DAMAGE</span> damage.</p>
-            <div id="show-healing"></div>
-            <div id="show-new-dot"></div>
-            <div id="show-enemy-dots"></div>
-            <div id="show-enemy-hots"></div>
+            <p>• <span id="source-name">SOURCE</span> has dealt <span id="target-damage">DAMAGE</span> damage.</p>
+
             <div id="show-stun-enemy"></div>
             <div id="show-stun-player"></div>
+
+            <div id="effect-text"></div>
+
             <p>Press button to start next phase!</p>
             <button aria-label="Start next phase" id="next-phase-button" onclick="changePhase()">Next phase</button>
         </div>
@@ -165,8 +165,12 @@
                         <h2 id="show-name">NAME</h2>
 
                         <p id="show-player-stun"></p>
+                        <p id="show-player-dot"></p>
+                        <p id="show-player-hot"></p>
 
                         <p id="show-description">DESCRIPTION</p>
+
+                        <p id="show-special-description">SPECIAL</p>
 
                         <!-- Container for phase actions -->
 
@@ -209,6 +213,7 @@
                         <p id="enemy-defense">X <i class="fa-solid fa-shield-halved"></i></p>
                         <p id="enemy-status-0"></p>
                         <p id="enemy-status-1"></p>
+                        <p id="enemy-hot"></p>
                         <p id="enemy-stun"></p>
                         <p id="enemy-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, necessitatibus!</p>
 
