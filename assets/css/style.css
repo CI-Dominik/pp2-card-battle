@@ -115,8 +115,14 @@ main {
 
 /* Action Buttons Stytling */
 
+#button-container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.4rem;
+}
+
 #button-container button {
-    width: 1.5rem;
+    width: 3rem;
     height: 1.5rem;
     background-color: rgba(255,197,47,1);
     border: none;
@@ -233,6 +239,10 @@ main {
     text-align: right;
     width: 100%;
     margin-right: 1rem;
+}
+
+#enemy-card-desc p {
+    margin: 0.5rem 0;
 }
 
 #enemy-attack, #enemy-defense {
@@ -376,16 +386,13 @@ main {
     /* Button Styling */
 
     #arrow-container button {
-
         width: 2rem;
         height: 2rem;
-
     }
 
     #button-container button {
-        width: 2rem;
+        width: 4rem;
         height: 2rem;
-
     }
 
     /* Enemy Area Styling */

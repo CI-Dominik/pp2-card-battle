@@ -175,6 +175,7 @@ function showEnemy() {
         document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[0].attack}`;
         document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[0].defense} <i class="fa-solid fa-shield-halved"></i>`
         document.getElementById("enemy-description").innerHTML = fightingEnemies[0].description;
+        document.getElementById("enemy-special-description").innerHTML = fightingEnemies[0].specialDescription;
         document.getElementById("enemy-health").innerHTML = fightingEnemies[0].life;
         document.getElementById("enemy-image").style.background = "url(assets/images/enemies/" + fightingEnemies[0].image + ".webp) center center/cover";
     
@@ -880,24 +881,27 @@ function addRandomSkill() {
                 fightingEnemies[i].special = "hot";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 10 + 5);
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
+                fightingEnemies[i].specialDescription = `Able to heal ${fightingEnemies[0].specialValue} HP every round for ${fightingEnemies[0].specialDuration} rounds.`;
                 break;
 
             case 1:
-                fightingEnemies[i].special = "hot";
+                fightingEnemies[i].special = "dot";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 10 + 5);
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
+                fightingEnemies[i].specialDescription = `Able to deal ${fightingEnemies[0].specialValue} damage every round for ${fightingEnemies[0].specialDuration} rounds.`;
                 break;
 
             case 2:
-                fightingEnemies[i].special = "hot";
+                fightingEnemies[i].special = "healing";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 20 + 3);
-                fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
+                fightingEnemies[i].specialDescription = `Able to heal ${fightingEnemies[0].specialValue} HP.`;
                 break;
 
             case 3:
-                fightingEnemies[i].special = "hot";
+                fightingEnemies[i].special = "stun";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 2 + 1);
-                fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
+                fightingEnemies[i].specialDuration = Math.floor(Math.random() * 2 + 1);
+                fightingEnemies[i].specialDescription = `Able to stune the player for ${fightingEnemies[0].specialDuration} rounds.`;
                 break;
 
             default:
