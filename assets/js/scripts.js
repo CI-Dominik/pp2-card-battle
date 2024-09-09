@@ -222,7 +222,7 @@ function enemyLife(value) {
 
     if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
-        document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} was defeated.`;
+        document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} was defeated.<br>`;
 
         fightingEnemies[0].enemyEffects.length = 0;
         fightingEnemies[0].stunDuration = 0;
@@ -772,7 +772,8 @@ function skillCheckEnemy() {
 
         case "healing":
 
-            // TODO: ADD HEALING SPELL **************************************************************************************************************************
+            enemyLife(fightingEnemies[0].specialValue);
+            document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} healed for ${fightingEnemies[0].specialValue} HP.<br>`;
 
             break;
 
@@ -903,7 +904,7 @@ function addRandomSkill() {
                 fightingEnemies[i].special = "stun";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 2 + 1);
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 2 + 1);
-                fightingEnemies[i].specialDescription = `Able to stune the player for ${fightingEnemies[0].specialDuration} rounds.`;
+                fightingEnemies[i].specialDescription = `Able to stun the player for ${fightingEnemies[0].specialDuration} rounds.`;
                 break;
 
             default:
