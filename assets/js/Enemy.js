@@ -2,7 +2,7 @@
 
 class Enemy {
 
-    constructor(name, attack, defense, special, specialValue, specialDuration, description, life, image, stunDuration, damageArray = [], healingArray = []) {
+    constructor(name, attack, defense, special, specialValue, specialDuration, description, life, image, stunDuration, enemyEffects = []) {
 
         this.name = name;
         this.attack = attack;
@@ -14,8 +14,7 @@ class Enemy {
         this.life = life;
         this.image = image;
         this.stunDuration = stunDuration;
-        this.damageArray = damageArray;
-        this.healingArray = healingArray;
+        this.enemyEffects = enemyEffects;
 
     }
 
