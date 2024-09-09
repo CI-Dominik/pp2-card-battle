@@ -671,7 +671,7 @@ function skillCheckPlayer() {
 
                     if (fightingEnemies[0].damageArray.length < 2) {
 
-                        let randomRounds = Math.round(Math.random() * 2 + 1);
+                        let randomRounds = Math.round(Math.random() * 4);
 
                         fightingEnemies[0].damageArray.push(new Dot(card.specialValue, randomRounds));
                         document.getElementById("effect-text").innerHTML += `• ${card.name} applied a DoT effect for ${randomRounds} rounds.<br>`;
@@ -782,7 +782,7 @@ function damageCheckEnemy() {
 
             document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} suffered ${Math.round((fightingEnemies[0].damageArray[dots].damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT effect.<br>`;
             enemyLife(-fightingEnemies[0].damageArray[dots].damageValue);
-            document.getElementById(`enemy-status-${dots}`).innerHTML = `DoT: ${fightingEnemies[0].damageArray[dots].damageValue} DMG / ${fightingEnemies[0].damageArray[dots].damageDuration} rounds`;
+            document.getElementById(`enemy-status-${dots}`).innerHTML = `DoT: ${fightingEnemies[0].damageArray[dots].damageValue} DMG / ${fightingEnemies[0].damageArray[dots].damageDuration - 1} rounds`;
             fightingEnemies[0].damageArray[dots].damageDuration -= 1;
 
         } else {
