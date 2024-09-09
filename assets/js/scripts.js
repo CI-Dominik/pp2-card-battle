@@ -169,7 +169,7 @@ function showCurrentCardData() {
         document.getElementById("show-defense").innerHTML = `0 <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("show-description").innerHTML = "No card in hand";
         document.getElementById("show-special-description").innerHTML = "No card in hand";
-        document.getElementById("card-image").style.background = "url(assets/images/no-card.jpg) no-repeat center center/cover";
+        document.getElementById("card-image").style.background = "url(assets/images/no-cards.webp) no-repeat center center/cover";
 
     }
 
