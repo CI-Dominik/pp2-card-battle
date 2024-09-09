@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showCardAmount();
     addRandomSkill();
     showEnemy();
-    playerLife(12000);
+    playerLife(250);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
     // clickPopup();
@@ -222,7 +222,9 @@ function enemyLife(value) {
 
     if (fightingEnemies[0].life <= 0 && fightingEnemies.length > 0) {
 
-        fightingEnemies[0].damageArray.length = 0;
+        document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} was defeated.`;
+
+        fightingEnemies[0].enemyEffects.length = 0;
         fightingEnemies[0].stunDuration = 0;
         fightingEnemies.splice(0, 1);
         document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
