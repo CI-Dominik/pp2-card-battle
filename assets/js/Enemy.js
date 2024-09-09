@@ -25,10 +25,10 @@ class Enemy {
 const enemyPresets = [
 
     new Enemy("Winston", 20, 50, "special", 10, 0, "PH", 150, "ape-warrior", 0),
-    new Enemy("Drakthul", 25, 25, "special", 10, 0, "PH", 110, "dragon-warrior", 0),
+    new Enemy("Drakthul", 25, 25, "special", 10, 0, "PH", 120, "dragon-warrior", 0),
     new Enemy("Necra", 30, 10, "special", 10, 0, "PH", 90, "forest-ghost", 0),
-    new Enemy("Gerrit", 10, 60, "special", 10, 0, "PH", 200, "goblin-warrior", 0),
-    new Enemy("Dargul", 35, 25, "special", 10, 0, "PH", 120, "mage", 0),
+    new Enemy("Gerrit", 10, 60, "special", 10, 0, "PH", 160, "goblin-warrior", 0),
+    new Enemy("Dargul", 35, 25, "special", 10, 0, "PH", 130, "mage", 0),
     new Enemy("Sal'thras", 45, 10, "special", 10, 0, "PH", 100, "snake-warrior", 0)
 
 ]

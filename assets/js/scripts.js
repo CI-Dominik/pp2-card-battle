@@ -236,6 +236,8 @@ function enemyLife(value) {
 
         fightingEnemies[0].enemyEffects.length = 0;
         fightingEnemies[0].stunDuration = 0;
+        document.getElementById("show-enemy-effect").innerHTML = "";
+        document.getElementById("show-enemy-effect").style.display = "none";
         fightingEnemies.splice(0, 1);
         document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
 
