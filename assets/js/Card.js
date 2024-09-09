@@ -27,7 +27,7 @@ const cardPresets = [
         new Card("Doctor Goodman", 5, 40, "DEFENSE MODE: Healing over time effect for 10 HP", "defense", "hot", 10, 3, "Description", "doctor", 6),
         new Card("Nest Protector", 40, 5, "Special Description", "defense", "Special Type", "Special Value", 3, "Description", "eagle-warrior", 4),
         new Card("Woodland Shaman", 5, 30, `ATTACK MODE: DoT effect for 15 damage`, "attack", "dot", 15, 3, "Description", "forest-shaman", 5),
-        new Card("Irydil", 10, 25, "Special Description", "none", "Special Type", "Special Value", 3, "Description", "forest-spirit", 6),
+        new Card("Irydil", 10, 25, "Special Description", "defense", "clear", 0, 3, "Description", "forest-spirit", 6),
         new Card("Magna", 35, 5, "Special Description", "none", "Special Type", "Special Value", 3, "Description", "mage", 4),
         new Card("Mercenary", 40, 10, "Special Description", "attack", "Special Type", "Special Value", 3, "Description", "mercenary", 3),
         new Card("Dominik, the Bearded One", 30, 30, "Special Description", "defense", "Special Type", "Special Value", 3, "Description", "dominik", 1),

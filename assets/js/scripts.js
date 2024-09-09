@@ -699,7 +699,14 @@ function skillCheckPlayer() {
 
                 case "clear":
 
-                    // TODO: ADD CLEAR SPELL ******************************************************************************************************************
+                    if (playerEffects.length > 0 && playerEffects[0] instanceof Dot) {
+
+                        playerEffects.splice(0, 1);
+                        document.getElementById("show-player-effect").innerHTML = "";
+                        document.getElementById("show-player-effect").style.display = "none";
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} cleared player's DoT effect.`;
+
+                    }
 
                     break;
 
