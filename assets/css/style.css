@@ -189,8 +189,8 @@ main {
 
 #arrow-container button {
 
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     background-color: rgba(255,197,47,1);
     border: none;
     box-shadow: 0 0.1rem 0.1rem black;
