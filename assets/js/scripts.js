@@ -570,6 +570,11 @@ function changePhase() {
         document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
         document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
         document.getElementById("defense-strength").innerHTML = 0;
+
+        // Change background color on change to attack phase
+
+        document.getElementById("score").style.background = "lightblue";
+
         phase = "defense";
 
     // Change from defense phase to attack phase
@@ -593,6 +598,10 @@ function changePhase() {
         // Change button to plus icon
 
         document.getElementById("add-cards").innerHTML = '<i class="fa-solid fa-plus"></i>';
+
+        // Change background color on change to attack phase
+
+        document.getElementById("score").style.background = "lightpink";
 
         // Change to attack phase
 
@@ -748,6 +757,7 @@ function skillCheckEnemy() {
 
                 playerEffects.push(new Dot(fightingEnemies[0].specialValue, fightingEnemies[0].specialDuration));
                 document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a DoT to the player for ${fightingEnemies[0].specialValue} damage over ${fightingEnemies[0].specialDuration} rounds.<br>`;
+                document.getElementById("show-player-effect").innerHTML = `DoT: ${fightingEnemies[0].specialValue} HP / ${fightingEnemies[0].specialDuration} rounds`;
 
             } else {
 
