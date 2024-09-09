@@ -418,8 +418,6 @@ function undoAdd() {
 
 function startAttack() {
 
-    
-
     if (playerStunDuration > 0) { 
 
         playerStunDuration -= 1;
@@ -441,7 +439,7 @@ function startAttack() {
 
     let randomChance = Math.round(Math.random() * 100);
     
-    if (randomChance <= 80) {
+    if (randomChance <= 10) {
 
         if (fightingEnemies[0].stunDuration <= 0) {
 
@@ -661,10 +659,9 @@ function skillCheckPlayer() {
 
                     if (fightingEnemies[0].enemyEffects.length === 0) {
 
-                        let randomRounds = Math.round(Math.random() * 4 + 1);
-
-                        fightingEnemies[0].enemyEffects.push(new Dot(card.specialValue, randomRounds));
-                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a DoT effect for ${randomRounds} rounds.<br>`;
+                        fightingEnemies[0].enemyEffects.push(new Dot(card.specialValue, card.specialDuration));
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a DoT effect for ${card.specialDuration} rounds.<br>`;
+                        document.getElementById("show-enemy-effect").innerHTML = `DoT: ${card.specialValue} / ${card.specialDuration} rounds`;
 
                     } else {
 
@@ -678,10 +675,9 @@ function skillCheckPlayer() {
 
                     if (playerEffects.length === 0) {
 
-                        let randomHeal = Math.round(Math.random() * 4 + 1);
-
-                        playerEffects.push(new Hot(card.specialValue, randomHeal));
-                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a HoT effect for ${randomHeal} rounds.<br>`;
+                        playerEffects.push(new Hot(card.specialValue, card.specialDuration));
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a HoT effect for ${card.specialValue} HP for ${card.specialDuration} rounds.<br>`;
+                        document.getElementById("show-player-effect").innerHTML = `HoT: ${card.specialValue} HP / ${card.specialDuration} rounds`;
                         
 
                     } else {
@@ -727,11 +723,13 @@ function skillCheckEnemy() {
             if (fightingEnemies[0].enemyEffects.length < 1) {
 
                 fightingEnemies[0].enemyEffects.push(new Hot(fightingEnemies[0].specialValue, fightingEnemies[0].specialDuration));
-                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].specialDuration} rounds.<br>`
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].specialDuration} rounds.<br>`;
+                document.getElementById("show-enemy-effect").style.display = "block";
+                document.getElementById("show-enemy-effect").innerHTML = `HoT: ${fightingEnemies[0].specialValue} HP / ${fightingEnemies[0].specialDuration} rounds`;
 
             } else {
 
-                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} tried to apply a HoT, but one is already active.<br>`;
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} tried to apply a HoT, but the slot is occupied.<br>`;
 
             }
 
@@ -746,7 +744,7 @@ function skillCheckEnemy() {
 
             } else {
 
-                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} tried to apply a DoT effect, but all slots are occupied.<br>`;
+                document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} tried to apply a DoT effect, but the slot is occupied.<br>`;
 
             }
 
@@ -852,7 +850,7 @@ function checkPlayerEffects() {
             playerLife(effect.damageValue);
             effect.damageDuration -= 1;
             document.getElementById("effect-text").innerHTML += `• Player was healed for ${effect.damageValue} HP.<br>`;
-            document.getElementById("show-player-effect").innerHTML = `HoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
+            document.getElementById("show-player-effect").innerHTML = `HoT: ${effect.damageValue} HP / ${effect.damageDuration} rounds`;
 
             if (effect.damageDuration <= 0) {
 
@@ -879,7 +877,7 @@ function addRandomSkill() {
         switch (randomSkill) {
 
             case 0:
-                fightingEnemies[i].special = "dot";
+                fightingEnemies[i].special = "hot";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 10 + 5);
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
                 break;
@@ -891,13 +889,13 @@ function addRandomSkill() {
                 break;
 
             case 2:
-                fightingEnemies[i].special = "healing";
+                fightingEnemies[i].special = "hot";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 20 + 3);
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
                 break;
 
             case 3:
-                fightingEnemies[i].special = "stun";
+                fightingEnemies[i].special = "hot";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 2 + 1);
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
                 break;
@@ -941,13 +939,19 @@ function checkEnemyEffects() {
             enemyLife(effect.damageValue);
             effect.damageDuration -= 1;
             document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} was healed for ${effect.damageValue} HP.<br>`;
-            document.getElementById("show-enemy-effect").innerHTML = `HoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
+
+            if (fightingEnemies[0].enemyEffects.length > 0) {
+
+                document.getElementById("show-enemy-effect").innerHTML = `HoT: ${effect.damageValue} HP / ${effect.damageDuration} rounds`;
+
+            }
+            
 
             if (effect.damageDuration <= 0) {
 
                 document.getElementById("show-enemy-effect").innerHTML = "";
                 document.getElementById("show-enemy-effect").style.display = "none";
-                enemyEffects.splice(enemyEffects.indexOf(effect), 1);
+                fightingEnemies[0].enemyEffects.splice(fightingEnemies[0].enemyEffects.indexOf(effect), 1);
 
             }
 
