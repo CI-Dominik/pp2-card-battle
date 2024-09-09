@@ -23,7 +23,7 @@ class Card {
 
 const cardPresets = [
 
-        new Card("Doctor Goodman", 5, 40, "ATTACK MODE: Healing over time effect for 10 HP", "attack", "hot", 3, "Description", "doctor", 30),
+        new Card("Doctor Goodman", 5, 40, "ATTACK MODE: Healing over time effect for 10 HP", "attack", "hot", 10, "Description", "doctor", 30),
         new Card("Talonus", 40, 5, "Special Description", "defense", "Special Type", "Special Value", "Description", "eagle-warrior", 1),
         new Card("Shamus", 3, 20, `ATTACK MODE: DoT effect for 15 damage`, "attack", "dot", 15, "Description", "forest-shaman", 40),
         new Card("Ingrid", 10, 65, "Special Description", "none", "Special Type", "Special Value", "Description", "forest-spirit", 1),

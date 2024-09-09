@@ -428,9 +428,11 @@ function startAttack() {
     stunCheckEnemy();
     healingCheckEnemy();
 
+    skillCheckPlayer();
+
     let randomChance = Math.round(Math.random() * 100);
     
-    if (randomChance <= 10) {
+    if (randomChance <= 80) {
 
         if (fightingEnemies[0].stunDuration <= 0) {
 
@@ -446,7 +448,7 @@ function startAttack() {
 
     }
 
-    skillCheckPlayer();
+    
 
     if (phase === "attack") {
 
@@ -656,7 +658,7 @@ function skillCheckPlayer() {
 
                 case "dot":
 
-                    if (fightingEnemies[0].damageArray.length < 2) {
+                    if (fightingEnemies[0].damageArray.length === 0) {
 
                         let randomRounds = Math.round(Math.random() * 4 + 1);
 
@@ -673,10 +675,12 @@ function skillCheckPlayer() {
 
                 case "hot":
 
-                    if (playerEffects.length < 2) {
+                    if (playerEffects.length === 0) {
 
-                        playerEffects.push(new Hot(10, card.specialValue));
-                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a HoT effect for ${card.specialValue} rounds.<br>`;
+                        let randomHeal = Math.round(Math.random() * 4 + 1);
+
+                        playerEffects.push(new Hot(card.specialValue, randomHeal));
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} applied a HoT effect for ${randomHeal} rounds.<br>`;
                         
 
                     } else {
@@ -734,7 +738,7 @@ function skillCheckEnemy() {
 
             let randomRounds = Math.round(Math.random() * 5 + 1);
             
-            if (playerEffects.length < 2) {
+            if (playerEffects.length === 0) {
 
                 playerEffects.push(new Dot(fightingEnemies[0].specialValue, randomRounds));
                 document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a DoT to the player for ${fightingEnemies[0].specialValue} damage over ${randomRounds} rounds.<br>`;
@@ -893,7 +897,7 @@ function checkPlayerEffects() {
 
                 document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).innerHTML = "";
                 document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).style.display = "none";
-                playerEffects.splice(effect, 1);
+                playerEffects.splice(playerEffects.indexOf(effect), 1);
 
             }
 
@@ -912,7 +916,7 @@ function checkPlayerEffects() {
 
                 document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).innerHTML = "";
                 document.getElementById(`show-player-effect-${playerEffects.indexOf(effect)}`).style.display = "none";
-                playerEffects.splice(effect, 1);
+                playerEffects.splice(playerEffects.indexOf(effect), 1);
 
             }
 
