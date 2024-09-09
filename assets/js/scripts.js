@@ -883,28 +883,28 @@ function addRandomSkill() {
             case 0:
                 fightingEnemies[i].special = "hot";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 10 + 5);
-                fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
-                fightingEnemies[i].specialDescription = `Able to heal ${fightingEnemies[0].specialValue} HP every round for ${fightingEnemies[0].specialDuration} rounds.`;
+                fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 2);
+                fightingEnemies[i].specialDescription = `Able to heal ${fightingEnemies[i].specialValue} HP every round for ${fightingEnemies[i].specialDuration} rounds.`;
                 break;
 
             case 1:
                 fightingEnemies[i].special = "dot";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 10 + 5);
-                fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 1);
-                fightingEnemies[i].specialDescription = `Able to deal ${fightingEnemies[0].specialValue} damage every round for ${fightingEnemies[0].specialDuration} rounds.`;
+                fightingEnemies[i].specialDuration = Math.floor(Math.random() * 4 + 2);
+                fightingEnemies[i].specialDescription = `Able to deal ${fightingEnemies[i].specialValue} damage every round for ${fightingEnemies[i].specialDuration} rounds.`;
                 break;
 
             case 2:
                 fightingEnemies[i].special = "healing";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 20 + 3);
-                fightingEnemies[i].specialDescription = `Able to heal ${fightingEnemies[0].specialValue} HP.`;
+                fightingEnemies[i].specialDescription = `Able to heal ${fightingEnemies[i].specialValue} HP.`;
                 break;
 
             case 3:
                 fightingEnemies[i].special = "stun";
                 fightingEnemies[i].specialValue = Math.floor(Math.random() * 2 + 1);
                 fightingEnemies[i].specialDuration = Math.floor(Math.random() * 2 + 1);
-                fightingEnemies[i].specialDescription = `Able to stun the player for ${fightingEnemies[0].specialDuration} rounds.`;
+                fightingEnemies[i].specialDescription = `Able to stun the player for ${fightingEnemies[i].specialDuration} rounds.`;
                 break;
 
             case 4:
