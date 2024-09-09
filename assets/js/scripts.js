@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pickCards();
     scrollCards(currentCard);
     showCardAmount();
+    addRandomSkill();
     showEnemy();
     playerLife(12000);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
@@ -417,19 +418,22 @@ function undoAdd() {
 
 function startAttack() {
 
+    
+
     if (playerStunDuration > 0) { 
 
         playerStunDuration -= 1;
 
     }
 
-    checkPlayerEffects();
     stunCheckPlayer();
     stunCheckEnemy();
-    healingCheckEnemy();
+
+    checkPlayerEffects();
 
     if (fightingEnemies[0].damageArray.length !== 0) {
 
+        healingCheckEnemy();
         damageCheckEnemy();
 
     }
@@ -447,10 +451,6 @@ function startAttack() {
         } 
 
     }
-
-    
-
-    
 
     if (phase === "attack") {
 
@@ -701,6 +701,8 @@ function skillCheckPlayer() {
 
                 case "clear":
 
+                    // TODO: ADD CLEAR SPELL ******************************************************************************************************************
+
                     break;
 
                 default:
@@ -770,7 +772,11 @@ function skillCheckEnemy() {
 
             }
 
-            
+            break;
+
+        case "healing":
+
+            // TODO: ADD HEALING SPELL **************************************************************************************************************************
 
             break;
 
@@ -925,5 +931,46 @@ function checkPlayerEffects() {
         }
 
     }
+
+}
+
+/** Add random skill to generated enemy */
+
+function addRandomSkill() {
+
+    for (let i = 0; i < fightingEnemies.length; i++) {
+
+        let randomSkill = Math.floor(Math.random() * 4);
+
+        switch (randomSkill) {
+
+            case 0:
+                fightingEnemies[i].special = "dot";
+                fightingEnemies[i].specialValue = 0;
+                break;
+
+            case 1:
+                fightingEnemies[i].special = "hot";
+                fightingEnemies[i].specialValue = 0;
+                break;
+
+            case 2:
+                fightingEnemies[i].special = "healing";
+                fightingEnemies[i].specialValue = 0;
+                break;
+
+            case 3:
+                fightingEnemies[i].special = "stun";
+                fightingEnemies[i].specialValue = 0;
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
+    
 
 }
