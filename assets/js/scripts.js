@@ -658,7 +658,7 @@ function skillCheckPlayer() {
 
                     if (fightingEnemies[0].damageArray.length < 2) {
 
-                        let randomRounds = Math.round(Math.random() * 4);
+                        let randomRounds = Math.round(Math.random() * 4 + 1);
 
                         fightingEnemies[0].damageArray.push(new Dot(card.specialValue, randomRounds));
                         document.getElementById("effect-text").innerHTML += `• ${card.name} applied a DoT effect for ${randomRounds} rounds.<br>`;
