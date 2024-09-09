@@ -325,8 +325,20 @@ main {
     color: white;
 }
 
-#help-popup {
+#popup-handler {
+
     display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+
+}
+
+#help-popup {
     background:rgba(255,197,47,1);
     width: 95%;
     max-width: 55rem;

@@ -43,78 +43,82 @@
             <button aria-label="Start next phase" id="next-phase-button" onclick="changePhase()">Next phase</button>
         </div>
 
-        <div id="help-popup">
+        <section id="popup-handler">
 
-            <button aria-label="Close help popup" onclick="clickPopup()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="help-popup">
 
-            <h2>How to play</h2>
+                <button aria-label="Close help popup" onclick="clickPopup()"><i class="fa-solid fa-xmark"></i></button>
+    
+                <h2>How to play</h2>
+    
+                <p>Welcome to Steampunk Struggle, a thrilling card-based combat game set in a world of gears, steam-powered contraptions, 
+                and strategic duels! In this game, players must carefully balance attack and defense, using a unique mix of cards, 
+                skills, and timing to outmaneuver their enemies. Below you'll find the core rules and mechanics of the game, ensuring 
+                you're fully equipped for battle.</p>
+    
+                <h3>Objective</h3>
+                <p>The goal of Steampunk Struggle is simple: defeat the enemy before they deplete your health to zero or before you run out 
+                of cards. Your success will depend on how well you manage both your attack and defense phases, as well as the 
+                skills your cards possess.</p>
+    
+                <h3>Game Setup</h3>
+                <p>You start the game with a deck of cards, an initial pool of Health Points (HP), and a randomly 
+                assigned enemy to face. Both, the player cards and your enemies have varying attack and defense values, 
+                as well as special skills that can turn the tide of battle.
+                The game alternates between two distinct phases: the Attack Phase and the Defense Phase.</p>
+    
+                <h3>Attack Phase</h3>
+                <p>During the attack phase, you can play cards from your hand to the Attack Stack to deal damage to the enemy. 
+                Each card has an Attack Value, and the total attack strength is the sum of all the cards you place in this stack. 
+                Once your attack stack is ready, you'll deal damage based on the total Attack Value minus the enemy's Defense Value. 
+                Any remaining damage is subtracted from the enemy's HP. Every card attacks by itself. If you defeat an enemy, any 
+                remaining cards in the attack stack will damage the following enemy if one is present.</p>
+    
+                <h3>Defense Phase</h3>
+                <p>In the defense phase, the enemy attacks and you must place cards in the Defense Stack to block as much damage as possible. 
+                The combined Defense Value of the cards you play will reduce the damage dealt by the enemy's Attack Power. After 
+                calculations, any leftover damage will be subtracted from your HP.</p>
+    
+                <h3>Card Attributes</h3>
+                <p>• Attack Value: The card's power when used offensively in the Attack Phase.<br>
+                • Defense Value: The card's power when used defensively in the Defense Phase.<br>
+                • Special Skill: A card's unique skill, which can be triggered depending on the phase.<br>
+                • Skill Duration: How long the skill remains in effect after being activated.</p>
+    
+                <h3>Special Skills</h3>
+                <p>Cards and enemies may also have one of the following Special Skills, which are randomly assigned and can have a profound impact on the battle:<br>
+                • Healing over Time (HoT): Gradually restores health to the player or enemy over a set amount of turns.<br>
+                • Damage over Time (DoT): Inflicts damage on the player or enemy over a number of turns.<br>
+                • Stun: Temporarily disables the player or enemy, preventing them from attacking or defending for a set amount of turns.<br>
+                • Heal: Instantly restores a chunk of HP to either the player or the enemy.<br>
+                The special skills of your cards are only triggered during the appropriate phase. For instance, a skill designed for the attack phase 
+                will only activate during the attack phase, and the same applies to the defense phase. The strength and duration of each skill are 
+                determined randomly when the card is drawn.</p>
+    
+                <h3>Win and Loss Conditions</h3>
+                <p>• Victory: You win if the enemy's HP is reduced to 0.<br>
+                • Defeat: You lose if your HP reaches 0 or if you run out of cards to play.</p>
+    
+                <h3>Buttons</h3>
+                <p>To ensure smooth gameplay, the following buttons will help you navigate each phase:</p>
+    
+                <h4>Add Card Button:</h4>
+                <p>Use this button to add a card to your current stack (Attack Stack in the Attack Phase, Defense Stack in the Defense Phase).</p>
+    
+                <h4>Undo Button:</h4>
+                <p>Allows you to undo your last action. If you accidentally added the wrong card to your stack, this button will let you correct your move.</p>
+    
+                <h4>Start Phase Button:</h4>
+                <p>When you've finished placing your cards for a phase (either attack or defense), hit this button to calculate the results and proceed to the next phase.</p>
+    
+                <h3>Hints</h3>
+                <p>Every participant has exactly one slot for either a HoT or DoT effect. Try to counter or preempt enemy actions with this.<br>
+                Additionally, use the card's special skills for any given situation. A card may have a small attack value, but may possess a 
+                strong effect when you play it in the Attack Phase anyway.</p>
+    
+            </div>
 
-            <p>Welcome to Steampunk Struggle, a thrilling card-based combat game set in a world of gears, steam-powered contraptions, 
-            and strategic duels! In this game, players must carefully balance attack and defense, using a unique mix of cards, 
-            skills, and timing to outmaneuver their enemies. Below you'll find the core rules and mechanics of the game, ensuring 
-            you're fully equipped for battle.</p>
-
-            <h3>Objective</h3>
-            <p>The goal of Steampunk Struggle is simple: defeat the enemy before they deplete your health to zero or before you run out 
-            of cards. Your success will depend on how well you manage both your attack and defense phases, as well as the 
-            skills your cards possess.</p>
-
-            <h3>Game Setup</h3>
-            <p>You start the game with a deck of cards, an initial pool of Health Points (HP), and a randomly 
-            assigned enemy to face. Both, the player cards and your enemies have varying attack and defense values, 
-            as well as special skills that can turn the tide of battle.
-            The game alternates between two distinct phases: the Attack Phase and the Defense Phase.</p>
-
-            <h3>Attack Phase</h3>
-            <p>During the attack phase, you can play cards from your hand to the Attack Stack to deal damage to the enemy. 
-            Each card has an Attack Value, and the total attack strength is the sum of all the cards you place in this stack. 
-            Once your attack stack is ready, you'll deal damage based on the total Attack Value minus the enemy's Defense Value. 
-            Any remaining damage is subtracted from the enemy's HP. Every card attacks by itself. If you defeat an enemy, any 
-            remaining cards in the attack stack will damage the following enemy if one is present.</p>
-
-            <h3>Defense Phase</h3>
-            <p>In the defense phase, the enemy attacks and you must place cards in the Defense Stack to block as much damage as possible. 
-            The combined Defense Value of the cards you play will reduce the damage dealt by the enemy's Attack Power. After 
-            calculations, any leftover damage will be subtracted from your HP.</p>
-
-            <h3>Card Attributes</h3>
-            <p>• Attack Value: The card's power when used offensively in the Attack Phase.<br>
-            • Defense Value: The card's power when used defensively in the Defense Phase.<br>
-            • Special Skill: A card's unique skill, which can be triggered depending on the phase.<br>
-            • Skill Duration: How long the skill remains in effect after being activated.</p>
-
-            <h3>Special Skills</h3>
-            <p>Cards and enemies may also have one of the following Special Skills, which are randomly assigned and can have a profound impact on the battle:<br>
-            • Healing over Time (HoT): Gradually restores health to the player or enemy over a set amount of turns.<br>
-            • Damage over Time (DoT): Inflicts damage on the player or enemy over a number of turns.<br>
-            • Stun: Temporarily disables the player or enemy, preventing them from attacking or defending for a set amount of turns.<br>
-            • Heal: Instantly restores a chunk of HP to either the player or the enemy.<br>
-            The special skills of your cards are only triggered during the appropriate phase. For instance, a skill designed for the attack phase 
-            will only activate during the attack phase, and the same applies to the defense phase. The strength and duration of each skill are 
-            determined randomly when the card is drawn.</p>
-
-            <h3>Win and Loss Conditions</h3>
-            <p>• Victory: You win if the enemy's HP is reduced to 0.<br>
-            • Defeat: You lose if your HP reaches 0 or if you run out of cards to play.</p>
-
-            <h3>Buttons</h3>
-            <p>To ensure smooth gameplay, the following buttons will help you navigate each phase:</p>
-
-            <h4>Add Card Button:</h4>
-            <p>Use this button to add a card to your current stack (Attack Stack in the Attack Phase, Defense Stack in the Defense Phase).</p>
-
-            <h4>Undo Button:</h4>
-            <p>Allows you to undo your last action. If you accidentally added the wrong card to your stack, this button will let you correct your move.</p>
-
-            <h4>Start Phase Button:</h4>
-            <p>When you've finished placing your cards for a phase (either attack or defense), hit this button to calculate the results and proceed to the next phase.</p>
-
-            <h3>Hints</h3>
-            <p>Every participant has exactly one slot for either a HoT or DoT effect. Try to counter or preempt enemy actions with this.<br>
-            Additionally, use the card's special skills for any given situation. A card may have a small attack value, but may possess a 
-            strong effect when you play it in the Attack Phase anyway.</p>
-
-        </div>
+        </section>
             
         <main>
 

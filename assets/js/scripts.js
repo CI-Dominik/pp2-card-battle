@@ -23,7 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
     playerLife(250);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
-    // clickPopup();
+    clickPopup();
+
+    window.onclick = function(event) {
+
+        if (event.target == document.getElementById("popup-handler")) {
+
+            document.getElementById("popup-handler").style.display = "none";
+
+        }
+
+    }
 
 });
 
@@ -622,23 +632,11 @@ function clickPopup() {
 
     // Get popup window and close button
 
-    let popupWindow = document.getElementById("help-popup");
-    let infoButton = document.getElementById("info-button");
+    let popupWindow = document.getElementById("popup-handler");
 
     // Check for display status and change it
 
-    if (popupWindow.style.display === "block") {
-
-        popupWindow.style.display = "none";
-        infoButton.style.display = "block";
-
-    } else {
-
-        popupWindow.style.display = "block";
-        infoButton.style.display = "none";
-
-    }
-
+    popupWindow.style.display === "flex" ? popupWindow.style.display = "none" : popupWindow.style.display = "flex";
 }
 
 /** Check for usable skills of cards in fight stack */
