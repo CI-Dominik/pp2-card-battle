@@ -15,7 +15,7 @@ body {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     min-height: 100vh;
     font-family: Verdana, sans-serif;
     background: url(../images/background-image.webp) center center/cover;
@@ -138,8 +138,8 @@ main {
 	width: 90vw;
 	height: 90vh;
     font-size: 1rem;
-    max-width: 7.5rem;
-    max-height: 11.25rem;
+    max-width: 8.5rem;
+    max-height: 12rem;
 	background: white;
 	border: 2px solid black;
 	border-radius: 20px;
@@ -153,8 +153,8 @@ main {
 	border-radius: 10px;
 	width: 90vw;
 	height: 90vw;
-	max-width: 6.5rem;
-	max-height: 6.5rem;
+	max-width: 7.5rem;
+	max-height: 7.5rem;
 	border: 2px solid black;
 
 }
@@ -220,8 +220,10 @@ main {
     justify-content: center;
     width: 90vw;
     height: 90vw;
-    max-width: 7rem;
-    max-height: 7rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 0.5rem black;
+    max-width: 9rem;
+    max-height: 9rem;
 }
 
 #damage-number-enemy {
@@ -411,8 +413,8 @@ main {
     /* Enemy Area Styling */
 
     #enemy-image {
-        max-width: 9rem;
-        max-height: 9rem;
+        max-width: 12rem;
+        max-height: 12rem;
     }
 
 }
