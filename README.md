@@ -72,7 +72,6 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 [**BUGS**](#bugs)
   * [Unfixed bugs](#unfixed-bugs)
-  * [Fixed bugs](#fixed-bugs)
 
 <br>
 
@@ -153,8 +152,6 @@ The white background delivers enough contrast to the machinery and is itself con
 ### Mobile view
 
 ![Screenshot of Game Area in mobile view](docs/wireframes/wireframe-homepage-mobile.jpg)
-
-<br>
 
 ### Desktop view
 
@@ -372,9 +369,6 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ## Unfixed bugs
 * When adding cards to the attack or defense stack, Mozilla Firefox sometimes increases the height of the battlefield. This bug was recreateable but not fixable for the author at the time of deployment.
-
-## Fixed bugs
-* PH
 
 ---
 
