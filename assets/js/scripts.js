@@ -860,7 +860,7 @@ function checkPlayerEffects() {
             playerLife(-effect.damageValue);
             effect.damageDuration -= 1;
             document.getElementById("effect-text").innerHTML += `• Player suffered ${effect.damageValue} damage from their DoT.<br>`;
-            document.getElementById("show-player-effect").innerHTML = `DoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
+            document.getElementById("show-player-effect").innerHTML = `DoT: ${effect.damageValue} HP / ${effect.damageDuration} rounds`;
 
             if (effect.damageDuration <= 0) {
 
@@ -960,7 +960,7 @@ function checkEnemyEffects() {
             effect.damageDuration -= 1;
             document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} suffered ${Math.round((effect.damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT.<br>`;
             enemyLife(-effect.damageValue);
-            document.getElementById("show-enemy-effect").innerHTML = `DoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
+            document.getElementById("show-enemy-effect").innerHTML = `DoT: ${effect.damageValue} HP / ${effect.damageDuration} rounds`;
 
             if (effect.damageDuration <= 0) {
 
