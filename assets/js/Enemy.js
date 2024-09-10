@@ -24,12 +24,12 @@ class Enemy {
 
 const enemyPresets = [
 
-    new Enemy("Winston", 20, 50, "special", 10, 0, "PH", 150, "ape-warrior", 0),
-    new Enemy("Drakthul", 25, 25, "special", 10, 0, "PH", 120, "dragon-warrior", 0),
-    new Enemy("Necra", 30, 10, "special", 10, 0, "PH", 90, "forest-ghost", 0),
-    new Enemy("Gerrit", 10, 60, "special", 10, 0, "PH", 160, "goblin-warrior", 0),
-    new Enemy("Dargul", 35, 25, "special", 10, 0, "PH", 130, "mage", 0),
-    new Enemy("Sal'thras", 45, 10, "special", 10, 0, "PH", 100, "snake-warrior", 0)
+    new Enemy("Winston", 20, 50, "special", 10, 0, "Starting out as an experiment for social behaviour studies, this subject escaped and terrorizes the citizens.", 150, "ape-warrior", 0),
+    new Enemy("Drakthul", 25, 25, "special", 10, 0, "A dragon mercenary, hired by Dargul, the head of social experiments.", 120, "dragon-warrior", 0),
+    new Enemy("Necra", 30, 10, "special", 10, 0, "A restless soul that was disturbed in the enchanted woods and seeks out for revenge.", 90, "forest-ghost", 0),
+    new Enemy("Gerrit", 10, 60, "special", 10, 0, "The leader of the forest goblins, ready to free anyone of his head who stands in his way.", 160, "goblin-warrior", 0),
+    new Enemy("Dargul", 35, 25, "special", 10, 0, "Being in charge of Winston's social experiment, this man tries to hide the truth behind his project.", 130, "mage", 0),
+    new Enemy("Sal'thras", 45, 10, "special", 10, 0, "A slithering desert mecenary hired by Dargul.", 100, "snake-warrior", 0)
 
 ]
 
