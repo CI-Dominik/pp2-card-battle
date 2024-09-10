@@ -399,6 +399,42 @@ main {
     color: black;
 }
 
+/* 404 Page Styling */
+
+#not-found-main {
+    align-items: center;
+}
+
+#not-found-content {
+    width: 100%;
+    max-width: 30rem;
+    height: 100%;
+    max-height: 20rem;
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255,197,47,1);
+    border: 0.2rem solid black;
+    box-shadow: 0 0 1rem white;
+}
+
+#not-found-content p {
+    margin: 2rem 0 3rem 0;
+}
+
+#not-found-content a {
+    width: 5rem;
+    background-color: black;
+    color: rgba(255,197,47,1);
+    padding: 1rem;
+    text-decoration: none;
+}
+
+#not-found-content a:hover {
+    background-color: rgba(255,197,47,1);
+    color: black;
+    border: 0.1rem solid black;
+}
+
 /* Media Query starting from width of 48rem */
 
 @media (width > 28rem) {

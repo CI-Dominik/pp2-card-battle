@@ -16,6 +16,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 [**FEATURES**](#features)
   * [----------](#----------)
+  * [404 page](#404-page)
 
 <br>
 
@@ -128,7 +129,8 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 ![----------](docs/----------.jpg)
 
 ## 404 page
-* PH
+* The 404 page gets called when an improper URL is typed or the page cannot be found. <br>
+It features a link back to the homepage with an aria-label to state that the link opens in a new tab. The target value is set to _blank to do this.
 
 <br>
 
