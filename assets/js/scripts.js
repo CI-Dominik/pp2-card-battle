@@ -247,6 +247,7 @@ function enemyLife(value) {
 
         document.getElementById("remaining-enemies").innerHTML = 0;
         winGame();
+        return;
 
     }
 
@@ -531,6 +532,18 @@ function startAttack() {
 
         }
         
+    }
+
+    if (cards.length === 0 && handCards.length <= 0 && fightingEnemies.length === 0) {
+
+        winGame();
+        return;
+
+    } else if (cards.length === 0 && handCards.length <= 0) {
+
+        gameLost();
+        return;
+
     }
 
     // Disable buttons to disable actions during popup window
