@@ -39,7 +39,7 @@ const cardPresets = [
         new Card("Nadine, the Dinosaur Tamer", 30, 15, "ATTACK PHASE: DoT effect of 10 damage over 4 rounds", "attack", "dot", 10, 4, "Dinosaurs and turtles, those are her companions. She is quite chaotic, but a pure soul.", "nadine", 1),
         new Card("Anita, the Pineapple Freak", 15, 20, "DEFENSE PHASE: HoT effect for 15 HP over 3 rounds", "defense", "hot", 15, 3, "A girl with pure intentions and always thoughtful about the people around her.", "anita", 1)
 
-]
+];
 
 // Create deck variable
 

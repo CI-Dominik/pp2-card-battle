@@ -15,7 +15,7 @@ body {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     min-height: 100vh;
     font-family: Verdana, sans-serif;
     background: url(../images/background-image.webp) center center/cover;

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerLife(250);
     document.getElementById("defense-strength").innerHTML = fightingEnemies[0].defense;
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
-    //clickPopup();
+    clickPopup();
 
     window.onclick = function(event) {
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-    }
+    };
 
 });
 
@@ -183,7 +183,7 @@ function showEnemy() {
 
         document.getElementById("enemy-name").innerHTML = fightingEnemies[0].name;
         document.getElementById("enemy-attack").innerHTML = `<i class="fa-solid fa-skull"></i> ${fightingEnemies[0].attack}`;
-        document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[0].defense} <i class="fa-solid fa-shield-halved"></i>`
+        document.getElementById("enemy-defense").innerHTML = `${fightingEnemies[0].defense} <i class="fa-solid fa-shield-halved"></i>`;
         document.getElementById("enemy-description").innerHTML = fightingEnemies[0].description;
         document.getElementById("enemy-special-description").innerHTML = fightingEnemies[0].specialDescription;
         document.getElementById("enemy-health").innerHTML = fightingEnemies[0].life;
@@ -262,7 +262,7 @@ function winGame() {
     document.getElementById("enemy-attack").innerHTML = 0;
     document.getElementById("enemy-defense").innerHTML = 0;
     document.getElementById("enemy-description").innerHTML = "No enemy available";
-    document.getElementById("enemy-health").innerHTML = 0
+    document.getElementById("enemy-health").innerHTML = 0;
     document.getElementById("enemy-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
 
     // Erase fighting data
@@ -632,7 +632,15 @@ function showOverlay() {
 
     let source = "";
 
-    phase === "attack" ? source = "Player" : source = "Enemy";
+    if (phase === "attack") {
+
+        source = "Player";
+
+    } else {
+
+        source = "Enemy";
+
+    }
 
     document.getElementById("damage-summary").innerHTML = `${source} inflicted ${document.getElementById("calculated-damage").innerHTML} damage.`;
     document.getElementById("popup").style.display = "flex";
@@ -649,7 +657,15 @@ function clickPopup() {
 
     // Check for display status and change it
 
-    popupWindow.style.display === "flex" ? popupWindow.style.display = "none" : popupWindow.style.display = "flex";
+    if (popupWindow.style.display === "flex") {
+
+        popupWindow.style.display = "none";
+
+    } else {
+
+        popupWindow.style.display = "flex";
+
+    }
 }
 
 /** Check for usable skills of cards in fight stack */
@@ -937,6 +953,7 @@ function addRandomSkill() {
                 fightingEnemies[i].specialValue = 0;
                 fightingEnemies[i].specialDuration = 0;
                 fightingEnemies[i].specialDescription = `No special skill available.`;
+                break;
 
             default:
                 break;

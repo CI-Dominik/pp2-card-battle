@@ -132,7 +132,8 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 ## **DESIGN**
 
 ## Colour choice
-* PH
+* The overarching colour is #FFC52F, as steampunk architecture and steam-powered machines commonly get associated with a darker yellow. It fits nicely to the background that supports the battlefield for the player's cards and the enemies.<br>
+The white background delivers enough contrast to the machinery and is itself contrasted with the black letters used in the battlefield area. <br>Mint green and Tea rose (red) are used for displaying the current combat phase as red gets associated with conflict and the green colour represents defense and restraint.
 
 <br>
 
@@ -206,19 +207,34 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 <br>
 
-![----------](docs/html-validation.jpg)
+![Screenshot of the HTML validation](docs/html-validation.jpg)
 
 ### CSS validator
 * The stylesheet file was checked via the W3C CSS Validation Service. No errors were found.
 
 <br>
 
-![----------](docs/css-validation.jpg)
+![Screenshot of the CSS validation](docs/css-validation.jpg)
 
-### JavaScript validator
-* PH
+### JavaScript validator (scripts.js)
+* The JavaScript validator caught errors which are almost exclusively related to usage in another document like in a HTML button with an onclick event. Variable i used in line 48 just got used to iterate over an array as long as the player's hand is not filled with cards.
 
-![----------](docs/javascript-validation.jpg)
+![Screenshot of the JavaScript validation for scripts.js](docs/javascript-validation.jpg)
+
+### JavaScript validator (Card.js)
+* The JavaScript validator caught one error related to the usage of the function loadAvailableCards(). This was called in scripts.js.
+
+![Screenshot of the JavaScript validation for Card.js](docs/javascript-validation2.jpg)
+
+### JavaScript validator (Enemy.js)
+* The JavaScript validator caught one error related to the usage of the function loadEnemies(). This was called in scripts.js.
+
+![Screenshot of the JavaScript validation for Enemy.js](docs/javascript-validation3.jpg)
+
+### JavaScript validator (Skill.js)
+* The JavaScript validator caught three errors related to the usage of the classes Dot, Stun and Hot. Those were called in scripts.js.
+
+![Screenshot of the JavaScript validation for Skill.js](docs/javascript-validation4.jpg)
 
 ---
 
@@ -239,11 +255,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 ### Unfixed bugs
 * Enlarging layout in Mozilla Firefox
-------- When adding a card, layout gets a bit taller
-
-<br>
-
-![----------](docs/----------.jpg)
+When adding cards to the attack or defense stack, Mozilla Firefox sometimes increases the height of the battlefield. This bug was recreateable but not fixable for the author at the time of deployment.
 
 ### Fixed bugs
 * PH

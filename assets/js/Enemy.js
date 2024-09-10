@@ -31,7 +31,7 @@ const enemyPresets = [
     new Enemy("Dargul", 35, 25, "special", 10, 0, "Being in charge of Winston's social experiment, this man tries to hide the truth behind his project.", 130, "mage", 0),
     new Enemy("Sal'thras", 45, 10, "special", 10, 0, "A slithering desert mecenary hired by Dargul.", 100, "snake-warrior", 0)
 
-]
+];
 
 /** Load enemies randomly based on difficulty */
 
