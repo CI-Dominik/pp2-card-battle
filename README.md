@@ -141,13 +141,17 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ## Wireframes
 
-### WIREFRAME 1
+### Game Area
 
-![---------- in mobile view](docs/wireframes/-----------mobile-wireframe.jpg)
+* Mobile view
+
+![Screenshot of Game Area in mobile view](docs/wireframes/wireframe-homepage-mobile.jpg)
 
 <br>
 
-![----------](docs/wireframes/-----------wireframe.jpg)
+* Desktop view
+
+![Screenshot of Game Area in desktop view](docs/wireframes/wireframe-homepage-desktop.jpg)
 
 ### WIREFRAME 2
 
