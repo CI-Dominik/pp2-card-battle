@@ -20,11 +20,6 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 <br>
 
-[**FEATURES EXPLAINED**](#features-explained)
-  * [----------](#----------)
-    
-<br>
-
 [**DESIGN**](#design)
   * [Colour choice](#colour-choice)
   * [Wireframes](#wireframes)
@@ -136,26 +131,6 @@ It features a link back to the homepage with an aria-label to state that the lin
 <br>
 
 ![Screenshot of the site's 404 page](docs/404.jpg)
-
----
-
-## **FEATURES EXPLAINED**
-
-## Existing
-
-### FEATURE 1
-* PH
-
-### FEATURE 2
-* PH
-
-## Upcoming
-
-### FEATURE 1
-* PH
-
-### FEATURE 2
-* PH
 
 ---
 
