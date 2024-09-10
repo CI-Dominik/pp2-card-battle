@@ -75,7 +75,7 @@ main {
     flex-flow: column nowrap;
     align-items: center;
     width: 100%;
-    background: rgba(255, 255, 255, 0.34);
+    background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -107,6 +107,10 @@ main {
     color: rgba(255,197,47,1);
     background-color: black;
     cursor: pointer;
+}
+
+#show-special-description {
+    font-style: italic;
 }
 
 #show-player-effect, #show-player-stun, #show-enemy-effect, #show-enemy-stun {
@@ -250,6 +254,10 @@ main {
     font-size: 150%;
     font-weight: bold;
     margin: 0.5rem 0;
+}
+
+#enemy-special-description {
+    font-style: italic;
 }
 
 /* Fighting Phase Styling */
