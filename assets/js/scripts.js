@@ -439,17 +439,23 @@ function undoAdd() {
 
 function startAttack() {
 
+    // Check for player stun and reduce the amount by one round
+
     if (playerStunDuration > 0) { 
 
         playerStunDuration -= 1;
 
     }
 
+    // Check for enemy stun and reduce the amount by one round
+
     if (fightingEnemies[0].stunDuration > 0) {
 
         fightingEnemies[0].stunDuration -= 1;
 
     }
+
+    // Check the stun status of the player and current enemy
 
     stunCheckPlayer();
     stunCheckEnemy();
@@ -461,6 +467,8 @@ function startAttack() {
         checkEnemyEffects();
 
     }
+
+    // Check for player an enemy skills
 
     skillCheckPlayer();
 
@@ -616,8 +624,6 @@ function changePhase() {
 
     }
 
-    
-
 }
 
 /** Show popup for attack summary */
@@ -633,7 +639,7 @@ function showOverlay() {
 
 }
 
-/** Show help popup */
+/** Close help popup */
 
 function clickPopup() {
 
@@ -889,7 +895,7 @@ function checkPlayerEffects() {
 
 }
 
-/** Add random skill to generated enemy */
+/** Add random values to generated enemies */
 
 function addRandomSkill() {
 
@@ -940,6 +946,8 @@ function addRandomSkill() {
     }
 
 }
+
+/** Check if enemy has HoT or DoT effects */
 
 function checkEnemyEffects() {
 
@@ -1000,6 +1008,8 @@ function reloadDocument() {
     location.reload();
 
 }
+
+/** Close the stun popup */
 
 function closeStunPopup() {
 
