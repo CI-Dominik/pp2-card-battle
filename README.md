@@ -120,16 +120,12 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 ## **FEATURES**
 
-## FEATURE X
+## FEATURE 1
 * PH
 
 <br>
 
 ![----------](docs/----------.jpg)
-
-<br>
-
-![---------- in mobile view](docs/----------.jpg)
 
 ## 404 page
 * PH
