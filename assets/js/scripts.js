@@ -54,6 +54,7 @@ function pickCards() {
 
         } else if(cards.length === 0) {
 
+            document.getElementById("add-cards").disabled = false;
             continue;
 
         }
