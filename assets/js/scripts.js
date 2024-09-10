@@ -3,7 +3,7 @@
 let cards = loadAvailableCards();
 let handCards = [];
 let currentCard = 0;
-let fightingEnemies = loadEnemies(3);
+let fightingEnemies = loadEnemies(1);
 let playerHealth = 0;
 let playerStunDuration = 0;
 let phase = "attack";
@@ -262,8 +262,13 @@ function winGame() {
     document.getElementById("enemy-attack").innerHTML = 0;
     document.getElementById("enemy-defense").innerHTML = 0;
     document.getElementById("enemy-description").innerHTML = "No enemy available";
+    document.getElementById("enemy-special-description").innerHTML = "No enemy available";
     document.getElementById("enemy-health").innerHTML = 0;
     document.getElementById("enemy-image").style.background = "url(../assets/images/no-card.jpg) center center/cover";
+    document.getElementById("show-enemy-effect").innerHTML = "";
+    document.getElementById("show-enemy-effect").style.display = "none";
+    document.getElementById("show-enemy-stun").innerHTML = "";
+    document.getElementById("show-enemy-stun").style.display = "none";
 
     // Erase fighting data
 
