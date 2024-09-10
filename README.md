@@ -376,5 +376,8 @@ After the deployment, a link to the deployed page can be found on the frontpage 
 ### [Adobe Firefly](https://firefly.adobe.com/)
 * Used to generate the images for the game's cards and enemies.
 
+### [CSS glassmorphism generator](https://css.glass/)
+* Used for the glass effect of the battlefield background.
+
 ### Visual Studio Code
 * Used to generate HTML boilerplate code.
