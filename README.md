@@ -23,6 +23,8 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 [**DESIGN**](#design)
   * [Colour choice](#colour-choice)
   * [Wireframes](#wireframes)
+    * [Mobile view](#mobile-view)
+    * [Desktop view](#desktop-view)
     
 <br>
 
@@ -102,6 +104,8 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
   * [CSS glassmorphism generator](#css-glassmorphism-generator)
   * [Visual Studio Code](#visual-studio-code-1)
 
+---
+
 ## **USER EXPERIENCE**
 
 ## Target audience
@@ -146,13 +150,13 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ## Wireframes
 
-* Mobile view
+### Mobile view
 
 ![Screenshot of Game Area in mobile view](docs/wireframes/wireframe-homepage-mobile.jpg)
 
 <br>
 
-* Desktop view
+### Desktop view
 
 ![Screenshot of Game Area in desktop view](docs/wireframes/wireframe-homepage-desktop.jpg)
 
