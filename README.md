@@ -53,6 +53,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
     * [Game won](#game-won)
     * [Game lost due to lack of health points](#game-lost-due-to-lack-of-health-points)
     * [Game lost due to lack of cards](#game-lost-due-to-lack-of-cards)
+  * [404 page](#404-page-1)
     
 <br>
 
@@ -322,6 +323,18 @@ The white background delivers enough contrast to the machinery and is itself con
 <br>
 
 ![Screenshot of lost game due to no left cards in deck](docs/testing/game-lost-cards.jpg)
+
+## 404 page
+
+|Testing method | Expected result | Actual result |
+|:-------------:|:---------------:|:-------------:|
+| Typing /404.html at the end of the URL instead of index.html | 404 page should open up | Expected result achieved |
+| Creating a typo in the URL | 404 page should open up | Expected result achieved |
+| Click the return to homepage button | Homepage should open in a new tab | Expected result achieved |
+
+<br>
+
+![Screenshot of the site's 404 page](docs/404.jpg)
 
 ---
 
