@@ -283,7 +283,11 @@ The results for desktop view were perfect in every category.
 ![404 page in desktop view](docs/benchmarks/404-desktop.jpg)
 
 ### WAVE extension
-* PH
+* The WAVE extension was used to determine errors on the homepage that could lead to a worse user experience. Only some alerts were found stating that some elements may be potential headings. This is due to the usage of a big font-sizes on some elements that are buttons or other non-heading elements.
+
+<br>
+
+![Screenshot of the WAVE extension validator](docs/wave-extension.jpg)
 
 ### Use of font sizes
 * Throughout the whole homepage, every element was sized using the rem unit. This way, it is ensured that the experience is the same on any font size setting of the browser. The unit was used to give people who cannot read small texts a better time and feel included.
@@ -297,7 +301,7 @@ Lastly, the colours of the homepage were chosen to ensure enough contrast for vi
 
 ---
 
-## **Deployment**
+## **DEPLOYMENT**
 
 ### Visual Studio Code connection
 * A connection between Visual Studio Code and GitHub was established using the built-in function to include the ability to clone, stage, commit and push content directly to GitHub.
