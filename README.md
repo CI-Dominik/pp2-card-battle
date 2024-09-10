@@ -23,7 +23,8 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 <br>
 
 [**DESIGN**](#design)
-  * [----------](#----------)
+  * [Colour choice](#colour-choice)
+  * [Wireframes](#wireframes)
     
 <br>
 
@@ -39,12 +40,38 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 <br>
 
 [**TESTING**](#testing)
-  * [----------](#----------)
+  * [Responsiveness](#responsiveness)
+  * [Manual testing](#manual-testing)
+    * [Starting the game](#starting-the-game)
+    * [Attack phase](#attack-phase)
+    * [Defense phase](#defense-phase)
+    * [Phase summary](#phase-summary)
+    * [Enemy defeated](#enemy-defeated)
+    * [Game won](#game-won)
+    * [Game lost due to lack of health points](#game-lost-due-to-lack-of-health-points)
+    * [Game lost due to lack of cards](#game-lost-due-to-lack-of-cards)
     
 <br>
 
 [**VALIDATOR TESTING**](#validator-testing)
-  * [----------](#----------)
+  * [HTML validator](#html-validator)
+  * [CSS validator](#css-validator)
+  * [JavaScript validator (scripts.js)](#javascript-validator-scriptsjs)
+  * [JavaScript validator (Card.js)](#javascript-validator-cardjs)
+  * [JavaScript validator (Enemy.js)](#javascript-validator-enemyjs)
+  * [JavaScript validator (Skill.js)](#javascript-validator-skilljs)
+
+<br>
+
+[**USED PLATFORMS AND DEVICES**](#used-platforms-and-devices)
+  * [Browsers](#browsers)
+  * [Smartphones](#smartphones)
+
+<br>
+
+[**BUGS**](#bugs)
+  * [Unfixed bugs](#unfixed-bugs)
+  * [Fixed bugs](#fixed-bugs)
 
 <br>
 
@@ -140,8 +167,6 @@ The white background delivers enough contrast to the machinery and is itself con
 ![Colour palette of the homepage](docs/colour-palette.jpg)
 
 ## Wireframes
-
-### Game Area
 
 * Mobile view
 
@@ -298,7 +323,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ---
 
-## **Validator testing**
+## **VALIDATOR TESTING**
 
 ### HTML validator
 * All pages were checked for their HTML structure by the W3C Markup Validation Service. No document showed any errors.
@@ -336,37 +361,35 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ---
 
-## **Used platforms and devices**
+## **USED PLATFORMS AND DEVICES**
 
-### Browsers
+## Browsers
 * Google Chrome
 * Mozilla Firefox
 * Microsoft Edge
 
-### Smartphones
+## Smartphones
 * Poco F5 Pro
 * Samsung S21
 * Samsung S23
 * iPhone XS
 
-## Bugs
+## **BUGS**
 
-### Unfixed bugs
+## Unfixed bugs
 * When adding cards to the attack or defense stack, Mozilla Firefox sometimes increases the height of the battlefield. This bug was recreateable but not fixable for the author at the time of deployment.
 
-### Fixed bugs
+## Fixed bugs
 * PH
 
 ---
 
 ## **ACCESSIBILITY**
 
-### Lighthouse testing
+## Lighthouse testing
 * Lighthouse testing was used to determine the site's performance, accessibility, best practices and SEO. Special emphasis was layed on performance and accessibility to provide a great user experience for every visitor, no matter the device or conditions.<br>
 The performance rating on mobile devices gave varying results between 84% and 99%, depending on the run. This is because of the largest contentful paint and needs to be addressed in the future for more stable results.<br>
 The results for desktop view were perfect in every category.
-
-**HOMEPAGE**
 
 ![First screenshot of page results in mobile view](docs/benchmarks/page-benchmark-mobile-01.jpg)
 <br><br>
@@ -380,17 +403,17 @@ The results for desktop view were perfect in every category.
 <br><br>
 ![404 page in desktop view](docs/benchmarks/404-desktop.jpg)
 
-### WAVE extension
+## WAVE extension
 * The WAVE extension was used to determine errors on the homepage that could lead to a worse user experience. Only some alerts were found stating that some elements may be potential headings. This is due to the usage of a big font-sizes on some elements that are buttons or other non-heading elements.
 
 <br>
 
 ![Screenshot of the WAVE extension validator](docs/wave-extension.jpg)
 
-### Use of font sizes
+## Use of font sizes
 * Throughout the whole homepage, every element was sized using the rem unit. This way, it is ensured that the experience is the same on any font size setting of the browser. The unit was used to give people who cannot read small texts a better time and feel included.
 
-### Goal of accessibility measures
+## Goal of accessibility measures
 
 * Everyone should be able to enjoy the website content, so an alt tag was added to every picture to describe it.<br>
 In addition to this, aria labels were added to all buttons to describe their behaviour.<br>
@@ -401,7 +424,7 @@ Lastly, the colours of the homepage were chosen to ensure enough contrast for vi
 
 ## **DEPLOYMENT**
 
-### Visual Studio Code connection
+## Visual Studio Code connection
 * A connection between Visual Studio Code and GitHub was established using the built-in function to include the ability to clone, stage, commit and push content directly to GitHub.
 Once you start Visual Studio Code with no connection, you simply need to click on the person icon in the lower left corner and select "GitHub". From there, you can connect your existing account to Visual Studio Code.
 
@@ -409,14 +432,14 @@ Once you start Visual Studio Code with no connection, you simply need to click o
 
 ![Screenshot of the menu to connect Visual Studio Code with GitHub](docs/vscode-connection.jpg)
 
-### Cloning, commiting and pushing via Visual Studio Code
+## Cloning, commiting and pushing via Visual Studio Code
 * Visual Studio code was used to stage all changed files and commit them with an included message directly to GitHub.
 
 <br>
 
 ![Screenshot of the menu to commit changes to GitHub](docs/vscode-commit.jpg)
 
-### Deployment via GitHub Pages
+## Deployment via GitHub Pages
 * Once a version that should be visible on the internet has been established, to deploy a page, one needs to visit the GitHub repository that is used to store all data of the project.
 
 <br>
@@ -449,37 +472,37 @@ After the deployment, a link to the deployed page can be found on the frontpage 
 
 ---
 
-## **Credits**
+## **CREDITS**
 
-### [Fontawesome](https://fontawesome.com/)
+## [Fontawesome](https://fontawesome.com/)
 * Used to implement website icons.
 
-### [Techsini](https://techsini.com/multi-mockup/index.php)
+## [Techsini](https://techsini.com/multi-mockup/index.php)
 * Used to create the mockup in the readme file.
 
-### [HTML validator](https://validator.w3.org/)
+## [HTML validator](https://validator.w3.org/)
 * Used to verify HTML code.
 
-### [CSS validator](https://jigsaw.w3.org/css-validator/)
+## [CSS validator](https://jigsaw.w3.org/css-validator/)
 * Used to verify CSS code.
 
-### [JavaScript validator](https://jshint.com/)
+## [JavaScript validator](https://jshint.com/)
 * Used to verify JavaScript code.
 
-### [W3Schools](https://www.w3schools.com/)
+## [W3Schools](https://www.w3schools.com/)
 * Used to lookup tips for the code.
 
-### [Favicon Generator](https://realfavicongenerator.net/)
+## [Favicon Generator](https://realfavicongenerator.net/)
 * Used to generate favicons for the homepage.
 
-### [YouTube](https://youtube.com)
+## [YouTube](https://youtube.com)
 * Videos for understanding some code areas.
 
-### [Adobe Firefly](https://firefly.adobe.com/)
+## [Adobe Firefly](https://firefly.adobe.com/)
 * Used to generate the images for the game's cards and enemies.
 
-### [CSS glassmorphism generator](https://css.glass/)
+## [CSS glassmorphism generator](https://css.glass/)
 * Used for the glass effect of the battlefield background.
 
-### Visual Studio Code
+## Visual Studio Code
 * Used to generate HTML boilerplate code.
