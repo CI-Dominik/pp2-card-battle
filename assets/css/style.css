@@ -109,7 +109,7 @@ main {
     cursor: pointer;
 }
 
-#show-player-effect-0, #show-player-effect-1, #show-player-stun {
+#show-player-effect, #show-player-stun, #show-enemy-effect, #show-enemy-stun {
     display: none;
 }
 

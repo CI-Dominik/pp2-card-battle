@@ -445,6 +445,12 @@ function startAttack() {
 
     }
 
+    if (fightingEnemies[0].stunDuration > 0) {
+
+        fightingEnemies[0].stunDuration -= 1;
+
+    }
+
     stunCheckPlayer();
     stunCheckEnemy();
 
@@ -506,8 +512,7 @@ function startAttack() {
 
         } else {
 
-            document.getElementById("show-stun-enemy").innerHTML = `• ${fightingEnemies[0].name} is stunned and did not attack. They will be able to attack again in ${fightingEnemies[0].stunDuration} rounds.`;
-            fightingEnemies[0].stunDuration -= 1;
+            document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} is stunned and did not attack. They will be able to attack again in ${fightingEnemies[0].stunDuration} rounds.`;
 
         }
         
@@ -693,7 +698,10 @@ function skillCheckPlayer() {
 
                 case "stun":
 
-                    fightingEnemies[0].stunDuration += card.specialValue;
+                    fightingEnemies[0].stunDuration += card.specialDuration;
+                    document.getElementById("effect-text").innerHTML += `• ${card.name} stunned the enemy for ${card.specialDuration} rounds.<br>`;
+                    document.getElementById("show-enemy-stun").style.display = "block";
+                    document.getElementById("show-enemy-stun").innerHTML = `Stun: ${card.specialDuration} rounds`;
 
                     break;
 
@@ -799,13 +807,13 @@ function stunCheckEnemy() {
 
     if (fightingEnemies[0].stunDuration > 0) {
 
-        document.getElementById("enemy-stun").style.display = "block";
-        document.getElementById("enemy-stun").innerHTML = `Stun: ${fightingEnemies[0].stunDuration} rounds`;
+        document.getElementById("show-enemy-stun").style.display = "block";
+        document.getElementById("show-enemy-stun").innerHTML = `Stun: ${fightingEnemies[0].stunDuration} rounds`;
 
     } else {
 
-        document.getElementById("enemy-stun").innerHTML = "";
-        document.getElementById("enemy-stun").style.display = "none";
+        document.getElementById("show-enemy-stun").innerHTML = "";
+        document.getElementById("show-enemy-stun").style.display = "none";
 
     }
 
