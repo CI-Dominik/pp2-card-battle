@@ -1,5 +1,5 @@
 # Steampunk Struggle
-PH
+Steampunk Struggle is a fantasy card game that takes place in a fictional steampunk world. It features different cards, enemies and combat phases. Strategic combat planning is one of the key aspects of the game.
 
 The live page can be viewed here: [Link to Steampunk Struggle](https://ci-dominik.github.io/pp2-card-battle/ "Link to the live website")
 
@@ -254,15 +254,10 @@ The white background delivers enough contrast to the machinery and is itself con
 ## Bugs
 
 ### Unfixed bugs
-* Enlarging layout in Mozilla Firefox
-When adding cards to the attack or defense stack, Mozilla Firefox sometimes increases the height of the battlefield. This bug was recreateable but not fixable for the author at the time of deployment.
+* When adding cards to the attack or defense stack, Mozilla Firefox sometimes increases the height of the battlefield. This bug was recreateable but not fixable for the author at the time of deployment.
 
 ### Fixed bugs
 * PH
-
-<br>
-
-![----------](docs/----------.jpg)
 
 ---
 
