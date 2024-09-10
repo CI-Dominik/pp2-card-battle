@@ -669,6 +669,7 @@ function skillCheckPlayer() {
 
                         fightingEnemies[0].enemyEffects.push(new Dot(card.specialValue, card.specialDuration));
                         document.getElementById("effect-text").innerHTML += `• ${card.name} applied a DoT effect for ${card.specialDuration} rounds.<br>`;
+                        document.getElementById("show-enemy-effect").style.display = "block";
                         document.getElementById("show-enemy-effect").innerHTML = `DoT: ${card.specialValue} / ${card.specialDuration} rounds`;
 
                     } else {
@@ -685,6 +686,7 @@ function skillCheckPlayer() {
 
                         playerEffects.push(new Hot(card.specialValue, card.specialDuration));
                         document.getElementById("effect-text").innerHTML += `• ${card.name} applied a HoT effect for ${card.specialValue} HP for ${card.specialDuration} rounds.<br>`;
+                        document.getElementById("show-player-effect").style.display = "block";
                         document.getElementById("show-player-effect").innerHTML = `HoT: ${card.specialValue} HP / ${card.specialDuration} rounds`;
                         
 
@@ -759,6 +761,7 @@ function skillCheckEnemy() {
 
                 playerEffects.push(new Dot(fightingEnemies[0].specialValue, fightingEnemies[0].specialDuration));
                 document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a DoT to the player for ${fightingEnemies[0].specialValue} damage over ${fightingEnemies[0].specialDuration} rounds.<br>`;
+                document.getElementById("show-player-effect").style.display = "block";
                 document.getElementById("show-player-effect").innerHTML = `DoT: ${fightingEnemies[0].specialValue} HP / ${fightingEnemies[0].specialDuration} rounds`;
 
             } else {
