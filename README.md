@@ -100,7 +100,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 ![---------- in mobile view](docs/----------.jpg)
 
-### 404 page
+## 404 page
 * PH
 
 <br>
