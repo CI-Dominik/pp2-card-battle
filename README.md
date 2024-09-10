@@ -95,10 +95,12 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
   * [Techsini](#techsini)
   * [HTML validator](#html-validator-1)
   * [CSS validator](#css-validator-1)
-  * [JavaScript validator](#javascript-validator-1)
+  * [JavaScript validator](#javascript-validator)
   * [W3Schools](#w3schools)
+  * [Favicon generator](#favicon-generator)
   * [YouTube](#youtube)
   * [Adobe Firefly](#adobe-firefly)
+  * [CSS glassmorphism generator](#css-glassmorphism-generator)
   * [Visual Studio Code](#visual-studio-code-1)
 
 ## **USER EXPERIENCE**
@@ -397,12 +399,6 @@ The results for desktop view were perfect in every category.
 <br><br>
 ![Screenshot of page results in desktop view](docs/benchmarks/page-benchmark-desktop.jpg)
 
-**404 page**
-
-![404 page in mobile view](docs/benchmarks/404-mobile.jpg)
-<br><br>
-![404 page in desktop view](docs/benchmarks/404-desktop.jpg)
-
 ## WAVE extension
 * The WAVE extension was used to determine errors on the homepage that could lead to a worse user experience. Only some alerts were found stating that some elements may be potential headings. This is due to the usage of a big font-sizes on some elements that are buttons or other non-heading elements.
 
@@ -504,5 +500,5 @@ After the deployment, a link to the deployed page can be found on the frontpage 
 ## [CSS glassmorphism generator](https://css.glass/)
 * Used for the glass effect of the battlefield background.
 
-## Visual Studio Code
-* Used to generate HTML boilerplate code.
+## [Visual Studio Code](https://code.visualstudio.com/)
+* Used to generate HTML boilerplate code and code editing.
