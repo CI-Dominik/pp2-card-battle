@@ -466,7 +466,7 @@ function startAttack() {
 
     let randomChance = Math.round(Math.random() * 100);
     
-    if (randomChance <= 10) {
+    if (randomChance <= 8) {
 
         if (fightingEnemies[0].stunDuration <= 0) {
 
