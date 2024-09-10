@@ -444,3 +444,14 @@ main {
     }
 
 }
+
+/* Media Query for devices under width of 21rem */
+
+@media (width < 23rem) {
+
+    #button-container button {
+        width: 2rem;
+        height: 2rem;
+    }
+
+}
