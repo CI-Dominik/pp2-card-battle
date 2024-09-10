@@ -208,6 +208,8 @@ function playerLife(value) {
 
     if (playerHealth <= 0) {
 
+        playerHealth = 0;
+        document.getElementById("player-health").innerHTML = playerHealth;
         gameLost();
 
     }
