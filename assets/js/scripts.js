@@ -654,7 +654,7 @@ function skillCheckPlayer() {
                 case "healing":
 
                     playerLife(card.specialValue);
-                    document.getElementById("effect-text").innerHTML += `• ${card.name} restored ${card.specialValue} health points.<br>`;
+                    document.getElementById("effect-text").innerHTML += `• ${card.name} restored ${card.specialValue} HP to the player.<br>`;
 
                     break;
 
@@ -704,7 +704,7 @@ function skillCheckPlayer() {
                         playerEffects.splice(0, 1);
                         document.getElementById("show-player-effect").innerHTML = "";
                         document.getElementById("show-player-effect").style.display = "none";
-                        document.getElementById("effect-text").innerHTML += `• ${card.name} cleared player's DoT effect.`;
+                        document.getElementById("effect-text").innerHTML += `• ${card.name} cleared player's DoT effect.<br>`;
 
                     }
 
@@ -730,7 +730,7 @@ function skillCheckEnemy() {
 
         case "hot":
 
-            if (fightingEnemies[0].enemyEffects.length < 1) {
+            if (fightingEnemies[0].enemyEffects.length === 0) {
 
                 fightingEnemies[0].enemyEffects.push(new Hot(fightingEnemies[0].specialValue, fightingEnemies[0].specialDuration));
                 document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} applied a HoT effect for ${fightingEnemies[0].specialValue} health points for ${fightingEnemies[0].specialDuration} rounds.<br>`;
@@ -800,7 +800,7 @@ function stunCheckEnemy() {
     if (fightingEnemies[0].stunDuration > 0) {
 
         document.getElementById("enemy-stun").style.display = "block";
-        document.getElementById("enemy-stun").innerHTML = `Stunned: ${fightingEnemies[0].stunDuration} rounds`;
+        document.getElementById("enemy-stun").innerHTML = `Stun: ${fightingEnemies[0].stunDuration} rounds`;
 
     } else {
 
@@ -938,9 +938,9 @@ function checkEnemyEffects() {
 
             document.getElementById("show-enemy-effect").style.display = "block";
 
-            enemyLife(-effect.damageValue);
             effect.damageDuration -= 1;
             document.getElementById("effect-text").innerHTML += `• ${fightingEnemies[0].name} suffered ${Math.round((effect.damageValue * (100 - fightingEnemies[0].defense)) / 100)} damage from their DoT.<br>`;
+            enemyLife(-effect.damageValue);
             document.getElementById("show-enemy-effect").innerHTML = `DoT: ${effect.damageValue} / ${effect.damageDuration} rounds`;
 
             if (effect.damageDuration <= 0) {
