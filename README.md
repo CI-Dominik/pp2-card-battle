@@ -212,7 +212,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ## Responsiveness
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | TEXT1	| TEXT2 | TEXT 3 |
 
@@ -220,7 +220,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Starting the game
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Clicking on close button of help popup | Window should close down | Expected result achieved |
 | Clicking outside of the help popup | Window should close down | Expected result achieved |
@@ -232,7 +232,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Attack phase
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Looking for starting phase | Game should start in attack phase | Expected result achieved |
 | Click on scroll buttons | Four cards should get added to the hand and they should be scrollable | Expected result achieved |
@@ -252,7 +252,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Defense phase
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Check if power value changed | Power value of enemy should be displayed | Expected result achieved |
 | Add cards to defense stack | Power value should be subtracted by the combined defense value in percent | Expected result achieved |
@@ -266,7 +266,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Phase summary
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Checking if every action was used | Enemy and player effects should be present | Expected result achieved |
 | Checking for damage | Damage should be displayed and subtracted from enemy or player | Expected result achieved |
@@ -279,7 +279,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Enemy defeated
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Checking phase summary | Enemy defeat should be noted | Expected result achieved |
 | Check for new enemy | New enemy should get added if one is present | Expected result achieved |
@@ -290,7 +290,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Game won
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Defeat last enemy with cards left in deck | Win popup should appear | Expected result achieved |
 | Defeat last enemy with no cards left in deck | Win popup should appear | Expected result achieved |
@@ -304,7 +304,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Game lost due to lack of health points
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Lose all health points | Defeat popup should appear | Expected result achieved |
 | Lose all health points due to DoT effect | Defeat popup should apprear | Expected result achieved |
@@ -315,7 +315,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ### Game lost due to lack of cards
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Play all left cards during attack phase | Defeat popup should appear | Expected result achieved |
 | Play all left cards during defense phase | Defeat popup should appear | Expected result achieved |
@@ -326,7 +326,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ## 404 page
 
-|Testing method | Expected result | Actual result |
+| Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Typing /404.html at the end of the URL instead of index.html | 404 page should open up | Expected result achieved |
 | Creating a typo in the URL | 404 page should open up | Expected result achieved |
