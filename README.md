@@ -270,12 +270,16 @@ When adding cards to the attack or defense stack, Mozilla Firefox sometimes incr
 
 ### Lighthouse testing
 * Lighthouse testing was used to determine the site's performance, accessibility, best practices and SEO. Special emphasis was layed on performance and accessibility to provide a great user experience for every visitor, no matter the device or conditions.<br>
+The performance rating on mobile devices gave varying results between 84 and 99%, depending on the run. This is because of the largest contentful paint and needs to be addressed in the future for more stable results.<br>
+The results for desktop view were perfect in every category.
 
 **HOMEPAGE**
 
-![---------- in mobile view](docs/benchmarks/-----------mobile.jpg)
+![First screenshot of page results in mobile view](docs/benchmarks/page-benchmark-mobile-01.jpg)
 <br><br>
-![---------- in desktop view](docs/benchmarks/-----------desktop.jpg)
+![Second screenshot of page results in mobile view](docs/benchmarks/page-benchmark-mobile-02.jpg)
+<br><br>
+![Screenshot of page results in desktop view](docs/benchmarks/page-benchmark-desktop.jpg)
 
 **404 page**
 
