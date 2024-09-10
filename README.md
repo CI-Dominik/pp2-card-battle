@@ -153,14 +153,6 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ![Screenshot of Game Area in desktop view](docs/wireframes/wireframe-homepage-desktop.jpg)
 
-### WIREFRAME 2
-
-![---------- in mobile view](docs/wireframes/-----------mobile-wireframe.jpg)
-
-<br>
-
-![----------](docs/wireframes/-----------wireframe.jpg)
-
 ---
 
 ## **TECHNOLOGIES**
