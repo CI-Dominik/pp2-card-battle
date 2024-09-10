@@ -328,7 +328,7 @@ main {
     color: white;
 }
 
-#popup-handler {
+#popup-handler, #stun-popup-handler {
 
     display: none;
     align-items: center;
@@ -341,7 +341,7 @@ main {
 
 }
 
-#help-popup {
+#help-popup, #stun-popup {
     background:rgba(255,197,47,1);
     width: 95%;
     max-width: 55rem;
@@ -355,11 +355,18 @@ main {
     scrollbar-width: none;
 }
 
-#help-popup p {
+#stun-popup {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#help-popup p, #stun-popup p {
     margin: 1rem 0;
 }
 
-#help-popup button {
+#help-popup button, #stun-popup button {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -370,7 +377,7 @@ main {
     cursor: pointer;
 }
 
-#help-popup button:hover {
+#help-popup button:hover, #stun-popup button:hover {
     background: rgba(255,197,47,1);
     color: black;
 }

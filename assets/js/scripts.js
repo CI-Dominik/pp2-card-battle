@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.onclick = function(event) {
 
-        if (event.target == document.getElementById("popup-handler")) {
+        if (event.target === document.getElementById("popup-handler") || event.target === document.getElementById("stun-popup-handler")) {
 
-            document.getElementById("popup-handler").style.display = "none";
+            event.target.style.display = "none";
 
         }
 
@@ -353,7 +353,7 @@ function addCard(card) {
 
     } else {
 
-        alert("Stunned!"); // TODO: OPEN STUNNED DIALOGUE **********************************************************************************************
+        document.getElementById("stun-popup-handler").style.display = "flex";
 
     }
 
@@ -987,5 +987,11 @@ function checkEnemyEffects() {
 function reloadDocument() {
 
     location.reload();
+
+}
+
+function closeStunPopup() {
+
+    document.getElementById("stun-popup-handler").style.display = "none";
 
 }
