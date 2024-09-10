@@ -8,7 +8,9 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 ## **TABLE OF CONTENTS**
 
 [**USER EXPERIENCE**](#user-experience)
-  * [----------](#----------)
+  * [Target audience](#target-audience)
+  * [User's journey](#users-journey)
+  * [Intuitive and consistent design](#intuitive-and-consistent-design)
     
 <br>
 
