@@ -30,7 +30,7 @@ const cardPresets = [
         new Card("Irydil", 5, 40, "No special skill", "none", "none", 0, 0, "Description", "forest-spirit", 6),
         new Card("Magna", 35, 10, "No special skill", "none", "none", 0, 0, "Description", "mage", 4),
         new Card("Mercenary", 40, 10, "No special skill", "none", "none", 0, 0, "Description", "mercenary", 3),
-        new Card("Dominik, the Bearded One", 30, 15, "ATTACK PHASE: Stun enemy for 4 rounds", "attack", "stun", 0, 4, "Description", "dominik", 100),
+        new Card("Dominik, the Bearded One", 30, 15, "ATTACK PHASE: Stun enemy for 4 rounds", "attack", "stun", 0, 4, "Description", "dominik", 1),
         new Card("Daniela, the Owl Witch", 15, 35, "DEFENSE PHASE: HoT effect of 12 HP over 4 rounds", "defense", "hot", 12, 4, "Description", "daniela", 1),
         new Card("Frederic, the Mad Genius", 25, 25, "DEFENSE PHASE: Stun enemy for 3 rounds", "defense", "stun", 0, 3, "Description", "frederic", 1),
         new Card("Alicja, the Radiant", 5, 25, "DEFENSE PHASE: Clear one DoT effect from the player", "defense", "clear", 0, 0, "Description", "alicja", 1),
