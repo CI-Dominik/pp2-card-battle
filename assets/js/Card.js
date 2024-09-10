@@ -24,7 +24,7 @@ class Card {
 
 const cardPresets = [
 
-        new Card("Doctor Goodman", 5, 15, "DEFENSE PHASE: HoT effect for 10 HP over 2 rounds", "defense", "hot", 10, 2, "A highly and famous doctor who revolutionized the modern steampunk world.", "doctor", 6),
+        new Card("Doctor Goodman", 5, 15, "DEFENSE PHASE: HoT effect for 10 HP over 2 rounds", "defense", "hot", 10, 2, "A highly intelligent and famous doctor who revolutionized the modern steampunk world.", "doctor", 6),
         new Card("Nest Protector", 40, 5, "No special skill", "none", "none", 0, 0, "A proud avian warrior who was sent out to protect his land from evil.", "eagle-warrior", 4),
         new Card("Woodland Shaman", 5, 30, "ATTACK PHASE: DoT effect for 8 damage over 5 rounds", "attack", "dot", 15, 5, "Coming from the lands of the unknown, the Woodland Shaman inflicts curses to his enemies.", "forest-shaman", 5),
         new Card("Irydil", 5, 40, "No special skill", "none", "none", 0, 0, "A forest spirit sent by the nature gods to cleanse the woods of threats.", "forest-spirit", 6),
