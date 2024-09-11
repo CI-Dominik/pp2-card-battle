@@ -117,7 +117,8 @@ Once they have a basic understanding on the concept, they are free to explore di
 Phases are summarized after every turn. Win and lose dialogues are displayed to inform the user of every important event.
 
 ## Intuitive and consistent design
-* PH
+* The design choices are made so every element is part of a bigger picture and represents the steampunk style. Yellow colours which are often associated with metal and steampunk constructions are used to paint most elements. To get enough contrast, a black font is chosen.<br>
+In addition, the design is equally visible and usable on any type of mobile or desktop device because of the responsive design.
 
 ---
 
