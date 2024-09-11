@@ -605,8 +605,18 @@ function changePhase() {
     if (phase === "attack") {
 
         document.getElementById("phase").innerHTML = "Defense";
-        document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
-        document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
+        if (fightingEnemies[0].stunDuration === 0) {
+
+            document.getElementById("calculated-damage").innerHTML = fightingEnemies[0].attack;
+            document.getElementById("attack-strength").innerHTML = fightingEnemies[0].attack;
+
+        } else {
+
+            document.getElementById("calculated-damage").innerHTML = 0;
+            document.getElementById("attack-strength").innerHTML = 0;
+
+        }
+        
         document.getElementById("defense-strength").innerHTML = 0;
 
         // Change background color on change to attack phase
