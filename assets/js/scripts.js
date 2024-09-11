@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("remaining-enemies").innerHTML = fightingEnemies.length;
     clickPopup();
 
+    // Modal control added with help of W3Schools
+
     window.onclick = function(event) {
 
         if (event.target === document.getElementById("popup-handler") || event.target === document.getElementById("stun-popup-handler")) {

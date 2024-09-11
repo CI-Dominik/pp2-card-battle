@@ -523,7 +523,7 @@ After the deployment, a link to the deployed page can be found on the front page
 * Used to verify JavaScript code.
 
 ## [W3Schools](https://www.w3schools.com/)
-* Used to lookup tips for the code.
+* Used to lookup tips for the code, especially modals.
 
 ## [Favicon Generator](https://realfavicongenerator.net/)
 * Used to generate favicons for the homepage.
