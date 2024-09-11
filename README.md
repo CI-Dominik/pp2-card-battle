@@ -124,12 +124,44 @@ In addition, the design is equally visible and usable on any type of mobile or d
 
 ## **FEATURES**
 
-## FEATURE 1
-* PH
+## Game overview
+* The game area features several sections with needed pieces of information or user interactivity.
 
 <br>
 
-![----------](docs/----------.jpg)
+![Screenshot of the overall homepage design](docs/homepage.jpg)
+
+## Health display
+* The health display shows the player's and enemy's current health points. Both numbers get updated after every turn. If the player's health reaches 0, the game is lost. When an enemy is defeated, the next one will take their place if another one is still present. The health values get updated then. Every enemy has their own health pool.
+
+<br>
+
+![Screenshot of the health display](docs/health-display.jpg)
+
+## Player area
+* In the player area, there is a display of the cards that are currently in the player's hand and arrow buttons to scroll through the hand cards. On the right side, the card's values are displayed. Those are its name, a short description and in some cases a special ability.<br>
+Below those values, the buttons to add cards to the phase's stack, undo the last action or start the fight are placed.
+
+<br>
+
+![Screenshot of the player area](docs/player-area.jpg)
+
+## Score display
+* In the score display area, the player can see the current phase which is also indicated by the colour of the background.<br>
+In the other columns, the player can get an overview of the cards that are left in the deck, the amount of enemies present, the power value of either the player or the enemy and a calculated damage value which is the result of the damage, subtracted by the defense values.
+
+<br>
+
+![Screenshot of the scoreboard in attack mode](docs/score1.jpg)
+![Screenshot of the scoreboard in defense mode](docs/score2.jpg)
+
+# Enemy area
+* In the enemy area, the player can get information about the foe they are currently facing. A picture is added to represent the enemy.<br>
+On the left side, values for the specific enemy are shown. Those are their name, attack value, defense value, a short description and in some cases a special ability. Those are randomly generated upon starting the game.
+
+<br>
+
+![Screenshot of the enemy area](docs/enemy-area.jpg)
 
 ## 404 page
 * The 404 page gets called when an improper URL is typed or the page cannot be found. <br>
