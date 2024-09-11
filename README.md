@@ -259,7 +259,7 @@ The white background delivers enough contrast to the machinery and is itself con
 | Look at damage value | Power should get subtracted by the enemy's defense value in percent | Expected result achieved |
 | Click on undo button without a card added to stack | Nothing should happen | Expected result achieved |
 | Click on undo button with card added to stack | Card should get added back to hand | Expected result achieved |
-| Check deck amount | There should be 36 cards left in deck to draw | Expected result achieved |
+| Check deck amount | There should be a set amount of cards left in deck to draw | Expected result achieved |
 | Check enemy amount | There should be three enemies in total | Expected result achieved |
 | Click on fight button with cards added to attack stack | Effects should be applied and damage should be done to enemy | Expected result achieved |
 | Play all left cards | Image should change to no cards left | Expected result achieved |
