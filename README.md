@@ -106,6 +106,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
   * [YouTube](#youtube)
   * [Adobe Firefly](#adobe-firefly)
   * [CSS glassmorphism generator](#css-glassmorphism-generator)
+  * [Coolors](#coolors)
   * [Visual Studio Code](#visual-studio-code-1)
 
 ---
