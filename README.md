@@ -145,7 +145,7 @@ In addition, the design is equally visible and usable on any type of mobile or d
 ![Screenshot of the health display](docs/health-display.jpg)
 
 ## Player area
-* In the player area, there is a display of the cards that are currently in the player's hand and arrow buttons to scroll through them. On the right side, the card's values are displayed. Those are its name, a short description and in some cases a special ability.<br>
+* In the player area, there is a display of the cards that are currently in the player's hand and arrow buttons to scroll through them. On the right side, the card's values are displayed. Those are its name, a short description and in some cases a special ability. To feel some kind of connection to the cards and their abilities, the values of them are fixed. So when the player draws them again, they immediately know what the card does.<br>
 Below those values, the buttons to add cards to the phase's stack, undo the last action or start the fight are placed.
 
 <br>
