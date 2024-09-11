@@ -108,10 +108,13 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 ## **USER EXPERIENCE**
 
 ## Target audience
-* PH
+* The game is targeted at people who enjoy card games in general and like a little tactical challenge. In addition, people tend to like the steampunk settings as it is not so commonly used. The game aims to give people entertainment for a short amount of time as people who like card games do not seek for an acvitity that spans over multiple hours.
 
 ## User's journey
-* PH
+* The user is immediately welcomed by a popup that aims to show them where they are and what to expect. The basic rules are all in one place and can be accessed at any time through the information icon in the bottom right corner.<br>
+After reading the rules, the game starts and there is no timer at all so people can take a look around the game board without hesitation. By this, they are encouraged to first take a look at the tools at their disposal and the enemy they face.<br>
+Once they have a basic understanding on the concept, they are free to explore different card combinations and are always informed about the face they are in by the coloured marker dividing the battlefield.<br>
+Phases are summarized after every turn. Win and lose dialogues are displayed to inform the user of every important event.
 
 ## Intuitive and consistent design
 * PH
