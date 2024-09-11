@@ -21,12 +21,12 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
   * [Score display](#score-display)
   * [Enemy area](#enemy-area)
   * [Help popup](#help-popup)
-  * [404 page](#404-page)
+  * [404-page](#404-page)
 
 <br>
 
 [**DESIGN**](#design)
-  * [Colour choice](#colour-choice)
+  * [color choice](#color-choice)
   * [Wireframes](#wireframes)
     * [Mobile view](#mobile-view)
     * [Desktop view](#desktop-view)
@@ -55,7 +55,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
     * [Game won](#game-won)
     * [Game lost due to lack of health points](#game-lost-due-to-lack-of-health-points)
     * [Game lost due to lack of cards](#game-lost-due-to-lack-of-cards)
-  * [404 page](#404-page-1)
+  * [404-page](#404-page-1)
     
 <br>
 
@@ -90,7 +90,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 
 [**DEPLOYMENT**](#deployment)
   * [Visual Studio Code connection](#visual-studio-code-connection)
-  * [Cloning, commitig and pushing via Visual Studio Code](#cloning-commiting-and-pushing-via-visual-studio-code)
+  * [Cloning, committig and pushing via Visual Studio Code](#cloning-committing-and-pushing-via-visual-studio-code)
   * [Deployment via GitHub Pages](#deployment-via-github-pages)
     
 <br>
@@ -113,16 +113,16 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 ## **USER EXPERIENCE**
 
 ## Target audience
-* The game is targeted at people who enjoy card games in general and like a little tactical challenge. In addition, people tend to like the steampunk settings as it is not so commonly used. The game aims to give people entertainment for a short amount of time as people who like card games do not seek for an acvitity that spans over multiple hours.
+* The game is targeted at people who enjoy card games in general and like a little tactical challenge. In addition, people tend to like the steampunk settings as it is not so commonly used. The game aims to give people entertainment for a short amount of time, as people who like card games do not seek for an activity that spans over multiple hours.
 
 ## User's journey
 * The user is immediately welcomed by a popup that aims to show them where they are and what to expect. The basic rules are all in one place and can be accessed at any time through the information icon in the bottom right corner.<br>
-After reading the rules, the game starts and there is no timer at all so people can take a look around the game board without hesitation. By this, they are encouraged to first take a look at the tools at their disposal and the enemy they face.<br>
-Once they have a basic understanding on the concept, they are free to explore different card combinations and are always informed about the face they are in by the coloured marker dividing the battlefield.<br>
+After reading the rules, the game starts and there is no timer at all, so people can take a look around the game board without hesitation. By this, they are encouraged to first take a look at the tools at their disposal and the enemy they face.<br>
+Once they have a basic understanding of the concept, they are free to explore different card combinations and are always informed about the face they are in by the colored marker dividing the battlefield.<br>
 Phases are summarized after every turn. Win and lose dialogues are displayed to inform the user of every important event.
 
 ## Intuitive and consistent design
-* The design choices are made so every element is part of a bigger picture and represents the steampunk style. Yellow colours which are often associated with metal and steampunk constructions are used to paint most elements. To get enough contrast, a black font is chosen.<br>
+* The design choices are made so every element is part of a bigger picture and represents the steampunk style. Yellow colors which are often associated with metal and steampunk constructions are used to paint most elements. To get enough contrast, a black font is chosen.<br>
 In addition, the design is equally visible and usable on any type of mobile or desktop device because of the responsive design.
 
 ---
@@ -144,7 +144,7 @@ In addition, the design is equally visible and usable on any type of mobile or d
 ![Screenshot of the health display](docs/health-display.jpg)
 
 ## Player area
-* In the player area, there is a display of the cards that are currently in the player's hand and arrow buttons to scroll through the hand cards. On the right side, the card's values are displayed. Those are its name, a short description and in some cases a special ability.<br>
+* In the player area, there is a display of the cards that are currently in the player's hand and arrow buttons to scroll through them. On the right side, the card's values are displayed. Those are its name, a short description and in some cases a special ability.<br>
 Below those values, the buttons to add cards to the phase's stack, undo the last action or start the fight are placed.
 
 <br>
@@ -152,7 +152,7 @@ Below those values, the buttons to add cards to the phase's stack, undo the last
 ![Screenshot of the player area](docs/player-area.jpg)
 
 ## Score display
-* In the score display area, the player can see the current phase which is also indicated by the colour of the background.<br>
+* In the score display area, the player can see the current phase, which is also indicated by the color of the background.<br>
 In the other columns, the player can get an overview of the cards that are left in the deck, the amount of enemies present, the power value of either the player or the enemy and a calculated damage value which is the result of the damage, subtracted by the defense values.
 
 <br>
@@ -175,25 +175,25 @@ On the left side, values for the specific enemy are shown. Those are their name,
 
 ![Screenshot of the help popup](docs/help-popup.jpg)
 
-## 404 page
-* The 404 page gets called when an improper URL is typed or the page cannot be found. <br>
-It features a link back to the homepage with an aria-label to state that the link opens in a new tab. The target value is set to _blank to do this.
+## 404-page
+* The 404-page gets called when an improper URL is typed or the page cannot be found. <br>
+It features a link back to the homepage, with an aria-label to state that the link opens in a new tab. The target value is set to _blank to do this.
 
 <br>
 
-![Screenshot of the site's 404 page](docs/404.jpg)
+![Screenshot of the site's 404-page](docs/404.jpg)
 
 ---
 
 ## **DESIGN**
 
-## Colour choice
-* The overarching colour is #FFC52F, as steampunk architecture and steam-powered machines commonly get associated with a darker yellow. It fits nicely to the background that supports the battlefield for the player's cards and the enemies.<br>
-The white background delivers enough contrast to the machinery and is itself contrasted with the black letters used in the battlefield area. <br>Mint green and Tea rose (red) are used for displaying the current combat phase as red gets associated with conflict and the green colour represents defense and restraint.
+## color choice
+* The overarching color is #FFC52F, as steampunk architecture and steam-powered machines commonly get associated with a darker yellow. It fits nicely to the background that supports the battlefield for the player's cards and the enemies.<br>
+The white background delivers enough contrast to the machinery and is itself contrasted with the black letters used in the battlefield area. <br>Mint green and Tea rose (red) are used for displaying the current combat phase, as red gets associated with conflict and the green color represents defense and restraint.
 
 <br>
 
-![Colour palette of the homepage](docs/colour-palette.jpg)
+![color palette of the homepage](docs/color-palette.jpg)
 
 ## Wireframes
 
@@ -325,7 +325,7 @@ The white background delivers enough contrast to the machinery and is itself con
 | Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
 | Lose all health points | Defeat popup should appear | Expected result achieved |
-| Lose all health points due to DoT effect | Defeat popup should apprear | Expected result achieved |
+| Lose all health points due to DoT effect | Defeat popup should appear | Expected result achieved |
 
 <br>
 
@@ -342,17 +342,17 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ![Screenshot of lost game due to no left cards in deck](docs/testing/game-lost-cards.jpg)
 
-### 404 page
+### 404-page
 
 | Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
-| Typing /404.html at the end of the URL instead of index.html | 404 page should open up | Expected result achieved |
-| Creating a typo in the URL | 404 page should open up | Expected result achieved |
+| Typing /404.html at the end of the URL instead of index.html | 404-page should open up | Expected result achieved |
+| Creating a typo in the URL | 404-page should open up | Expected result achieved |
 | Click the return to homepage button | Homepage should open in a new tab | Expected result achieved |
 
 <br>
 
-![Screenshot of the site's 404 page](docs/404.jpg)
+![Screenshot of the site's 404-page](docs/404.jpg)
 
 ## Responsiveness
 
@@ -381,7 +381,7 @@ The white background delivers enough contrast to the machinery and is itself con
 ![Screenshot of the CSS validation](docs/css-validation.jpg)
 
 ### JavaScript validator (scripts.js)
-* The JavaScript validator caught errors which are almost exclusively related to usage in another document like in a HTML button with an onclick event. Variable i used in line 48 just got used to iterate over an array as long as the player's hand is not filled with cards.
+* The JavaScript validator caught errors which are almost exclusively related to usage in another document, like in an HTML button with an onclick event. Variable i used in line 48 just got used to iterate over an array as long as the player's hand is not filled with cards.
 
 ![Screenshot of the JavaScript validation for scripts.js](docs/javascript-validation.jpg)
 
@@ -425,7 +425,7 @@ The white background delivers enough contrast to the machinery and is itself con
 ## **ACCESSIBILITY**
 
 ## Lighthouse testing
-* Lighthouse testing was used to determine the site's performance, accessibility, best practices and SEO. Special emphasis was layed on performance and accessibility to provide a great user experience for every visitor, no matter the device or conditions.<br>
+* Lighthouse testing was used to determine the site's performance, accessibility, best practices and SEO. Special emphasis was laid on performance and accessibility to provide a great user experience for every visitor, no matter the device or conditions.<br>
 The performance rating on mobile devices gave varying results between 84% and 99%, depending on the run. This is because of the largest contentful paint and needs to be addressed in the future for more stable results.<br>
 The results for desktop view were perfect in every category.
 
@@ -448,9 +448,9 @@ The results for desktop view were perfect in every category.
 ## Goal of accessibility measures
 
 * Everyone should be able to enjoy the website content, so an alt tag was added to every picture to describe it.<br>
-In addition to this, aria labels were added to all buttons to describe their behaviour.<br>
-This way, every screen reader should be able to pick of the provided content.<br>
-Lastly, the colours of the homepage were chosen to ensure enough contrast for visually impaired users.
+In addition to this, aria labels were added to all buttons to describe their behavior.<br>
+This way, every screen reader should be able to understand the provided content.<br>
+Lastly, the colors of the homepage were chosen to ensure enough contrast for visually impaired users.
 
 ---
 
@@ -464,7 +464,7 @@ Once you start Visual Studio Code with no connection, you simply need to click o
 
 ![Screenshot of the menu to connect Visual Studio Code with GitHub](docs/vscode-connection.jpg)
 
-## Cloning, commiting and pushing via Visual Studio Code
+## Cloning, committing and pushing via Visual Studio Code
 * Visual Studio code was used to stage all changed files and commit them with an included message directly to GitHub.
 
 <br>
@@ -496,7 +496,7 @@ With the right branch selected, the input needs to be saved via the *Save* butto
 
 ![Screenshot of the deployed homepage menu](docs/deployment1.jpg)
 
-After the deployment, a link to the deployed page can be found on the frontpage of the GitHub repository. With a click on it to reveal the link that takes the visitor to the live page.
+After the deployment, a link to the deployed page can be found on the front page of the GitHub repository. With a click on it to reveal the link that takes the visitor to the live page.
 
 <br>
 
