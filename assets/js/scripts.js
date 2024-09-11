@@ -725,7 +725,7 @@ function skillCheckPlayer() {
                         fightingEnemies[0].enemyEffects.push(new Dot(card.specialValue, card.specialDuration));
                         document.getElementById("effect-text").innerHTML += `• ${card.name} applied a DoT effect for ${card.specialDuration} rounds.<br>`;
                         document.getElementById("show-enemy-effect").style.display = "block";
-                        document.getElementById("show-enemy-effect").innerHTML = `DoT: ${card.specialValue} / ${card.specialDuration} rounds`;
+                        document.getElementById("show-enemy-effect").innerHTML = `DoT: ${card.specialValue} HP / ${card.specialDuration} rounds`;
 
                     } else {
 
