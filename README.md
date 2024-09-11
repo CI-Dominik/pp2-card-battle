@@ -26,7 +26,7 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 <br>
 
 [**DESIGN**](#design)
-  * [color choice](#color-choice)
+  * [Color choice](#color-choice)
   * [Wireframes](#wireframes)
     * [Mobile view](#mobile-view)
     * [Desktop view](#desktop-view)
@@ -187,13 +187,13 @@ It features a link back to the homepage, with an aria-label to state that the li
 
 ## **DESIGN**
 
-## color choice
+## Color choice
 * The overarching color is #FFC52F, as steampunk architecture and steam-powered machines commonly get associated with a darker yellow. It fits nicely to the background that supports the battlefield for the player's cards and the enemies.<br>
 The white background delivers enough contrast to the machinery and is itself contrasted with the black letters used in the battlefield area. <br>Mint green and Tea rose (red) are used for displaying the current combat phase, as red gets associated with conflict and the green color represents defense and restraint.
 
 <br>
 
-![color palette of the homepage](docs/color-palette.jpg)
+![Color palette of the homepage](docs/color-palette.jpg)
 
 ## Wireframes
 
