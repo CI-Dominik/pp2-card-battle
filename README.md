@@ -536,5 +536,8 @@ After the deployment, a link to the deployed page can be found on the front page
 ## [CSS glassmorphism generator](https://css.glass/)
 * Used for the glass effect of the battlefield background.
 
+## [Coolors](https://coolors.co/)
+* Used to create mockup of the color palette.
+
 ## [Visual Studio Code](https://code.visualstudio.com/)
 * Used to generate HTML boilerplate code and code editing.
