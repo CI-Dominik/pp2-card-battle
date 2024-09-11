@@ -190,12 +190,6 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ## **TESTING**
 
-## Responsiveness
-
-| Testing method | Expected result | Actual result |
-|:-------------:|:---------------:|:-------------:|
-| TEXT1	| TEXT2 | TEXT 3 |
-
 ## Manual testing
 
 ### Starting the game
@@ -304,7 +298,7 @@ The white background delivers enough contrast to the machinery and is itself con
 
 ![Screenshot of lost game due to no left cards in deck](docs/testing/game-lost-cards.jpg)
 
-## 404 page
+### 404 page
 
 | Testing method | Expected result | Actual result |
 |:-------------:|:---------------:|:-------------:|
@@ -315,6 +309,14 @@ The white background delivers enough contrast to the machinery and is itself con
 <br>
 
 ![Screenshot of the site's 404 page](docs/404.jpg)
+
+## Responsiveness
+
+| Testing method | Expected result | Actual result |
+|:-------------:|:---------------:|:-------------:|
+| Manual resizing of the browser window in desktop view	| Elements should move with the flow of the homepage | Expected result achieved |
+| Using Google Chrome's developer tools to resize the window to special phone sizes | Elements should move and shrink at special breakpoints | Expected result achieved |
+| Using a mobile device to visit the live website | Every element should be visible and usable | Expected result achieved |
 
 ---
 
