@@ -234,10 +234,6 @@ main {
     max-height: 9rem;
 }
 
-#damage-number-enemy {
-    color: white;
-}
-
 #enemy-card-placement {
     display: flex;
     flex-flow: column nowrap;
@@ -324,7 +320,7 @@ main {
     color: black
 }
 
-/* Help Popup Styling */
+/* Help and Stun Popup Styling */
 
 #info-button {
     text-align: center;
@@ -367,15 +363,10 @@ main {
     scrollbar-width: none;
 }
 
-.big-screenshot {
+.screenshot {
     max-width: 100%;
     height: auto;
-}
-
-.small-screenshot {
-    width: 100%;
-    max-width: 15rem;
-    height: auto;
+    margin-bottom: 1rem;
 }
 
 #stun-popup {
