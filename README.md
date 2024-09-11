@@ -15,7 +15,12 @@ The live page can be viewed here: [Link to Steampunk Struggle](https://ci-domini
 <br>
 
 [**FEATURES**](#features)
-  * [----------](#----------)
+  * [Game overview](#game-overview)
+  * [Health display](#health-display)
+  * [Player area](#player-area)
+  * [Score display](#score-display)
+  * [Enemy area](#enemy-area)
+  * [Help popup](#help-popup)
   * [404 page](#404-page)
 
 <br>
@@ -162,6 +167,13 @@ On the left side, values for the specific enemy are shown. Those are their name,
 <br>
 
 ![Screenshot of the enemy area](docs/enemy-area.jpg)
+
+## Help popup
+* The help popup gets shown on the start of the game. In addition, the player can access it via the information button in the lower right corner.
+
+<br>
+
+![Screenshot of the help popup](docs/help-popup.jpg)
 
 ## 404 page
 * The 404 page gets called when an improper URL is typed or the page cannot be found. <br>
